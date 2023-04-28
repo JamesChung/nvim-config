@@ -3,9 +3,8 @@
 if [ -x "$(command -v brew)" ]; then
     brew install neovim
 else
-    curl -LO https://github.com/neovim/neovim/releases/download/nightly/nvim-macos.tar.gz
-    tar xzf nvim-macos.tar.gz
-    ./nvim-macos/bin/nvim
+    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    brew install neovim
 fi
 
 # Install vim-plug
@@ -16,7 +15,7 @@ if [ ! -d "$HOME/.config/nvim" ]; then
     mkdir -p "$HOME/.config.nvim"
 fi
 
-if [ "$(command -v git)" ]; then
+if [ -x "$(command -v git)" ]; then
     git clone https://github.com/JamesChung/nvim-config.git "$HOME/.config/nvim"
 else
     echo "You don't have git installed."
