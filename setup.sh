@@ -12,7 +12,7 @@ sh -c 'curl -fLo "${XDG_DATA_HOME:-$HOME/.local/share}"/nvim/site/autoload/plug.
        https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
 if [ ! -d "$HOME/.config/nvim" ]; then
-    mkdir -p "$HOME/.config.nvim"
+    mkdir -p "$HOME/.config/nvim"
 fi
 
 if [ -x "$(command -v git)" ]; then
