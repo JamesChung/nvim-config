@@ -1,6 +1,6 @@
 :set number relativenumber
 :set cursorline
-":set hlsearch
+:set nohls
 :set incsearch
 :set autoindent
 :set expandtab
@@ -10,6 +10,19 @@
 :set shiftwidth=4
 :set scrolloff=10
 
+" Some servers have issues with backup files, see #649
+set nobackup
+set nowritebackup
+
+" Having longer updatetime (default is 4000 ms = 4s) leads to noticeable
+" delays and poor user experience
+set updatetime=300
+
+" Always show the signcolumn, otherwise it would shift the text each time
+" diagnostics appear/become resolved
+set signcolumn=yes
+
+" Plugins
 call plug#begin()
 Plug 'neovim/nvim-lspconfig'
 Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
@@ -29,6 +42,19 @@ colorscheme tokyonight
 "colorscheme tokyonight-storm
 "colorscheme tokyonight-day
 "colorscheme tokyonight-moon
+
+" Allow for tab completion when coc suggestions are visible
+inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<Tab>"
+
+" Use <C-space> to trigger completion
+if has('nvim')
+  inoremap <silent><expr> <C-space> coc#refresh()
+else
+  inoremap <silent><expr> <C-@> coc#refresh()
+endif
+
+" Highlight the symbol and its references when holding the cursor
+autocmd CursorHold * silent call CocActionAsync('highlight')
 
 " Keybindings
 nmap <silent> gd <Plug>(coc-definition)
@@ -78,10 +104,7 @@ nnoremap <leader>th <cmd>Telescope help_tags<cr>
 command! -nargs=0 Format :call CocActionAsync('format')
 
 " Add `:Fold` command to fold current buffer
-command! -nargs=? Fold :call     CocAction('fold', <f-args>)
-
-" Add `:OR` command for organize imports of the current buffer
-command! -nargs=0 OR   :call     CocActionAsync('runCommand', 'editor.action.organizeImport')
+command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 "autocmd BufWritePre * :call CocActionAsync('format')
 
