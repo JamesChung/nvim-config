@@ -3,7 +3,7 @@
 ## Auto Configure Install
 
 ```sh
-bash <(curl -s https://github.com/JamesChung/nvim-config/setup.sh)
+bash <(curl -s https://raw.githubusercontent.com/JamesChung/nvim-config/main/setup.sh)
 ```
 
 ## vim-plug
