@@ -19,3 +19,10 @@ https://github.com/junegunn/vim-plug
 ```vim
 :CocInstall coc-json coc-sh coc-clangd coc-go coc-html coc-tsserver coc-markdownlint coc-pyright coc-rust-analyzer coc-zig
 ```
+
+## Treesitter
+
+```vim
+:TSInstall bash c cpp css go hcl html javascript json lua make python regex rust sql toml tsx typescript yaml zig
+```
+
