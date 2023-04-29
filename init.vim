@@ -29,7 +29,7 @@ Plug 'jdhao/whitespace.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
-Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 call plug#end()
