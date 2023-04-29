@@ -8,6 +8,7 @@
 :set softtabstop=4
 :set shiftwidth=4
 :set scrolloff=10
+:set termguicolors
 
 " Some servers have issues with backup files, see #649
 set nobackup
@@ -23,10 +24,14 @@ set signcolumn=yes
 
 " Plugins
 call plug#begin()
+Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+Plug 'j-hui/fidget.nvim'
+Plug 'jdhao/whitespace.nvim'
+Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-Plug 'jdhao/whitespace.nvim'
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
@@ -107,4 +112,8 @@ command! -nargs=0 Format :call CocActionAsync('format')
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 "autocmd BufWritePre * :call CocActionAsync('format')
+
+lua << EOF
+require("bufferline").setup{}
+EOF
 
