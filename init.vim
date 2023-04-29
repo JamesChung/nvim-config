@@ -114,6 +114,19 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 "autocmd BufWritePre * :call CocActionAsync('format')
 
 lua << EOF
-require("bufferline").setup{}
+require("bufferline").setup{
+    options = {
+        diagnostics = "coc",
+        hover = {
+            enabled = true,
+            delay = 200,
+            reveal = {'close'}
+        },
+        get_element_icon = function(element)
+          local icon, hl = require('nvim-web-devicons').get_icon_by_filetype(element.filetype, { default = false })
+          return icon, hl
+        end
+    }
+}
 EOF
 
