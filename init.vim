@@ -116,7 +116,14 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 lua << EOF
 require("bufferline").setup{
     options = {
+        buffer_close_icon = '',
+        modified_icon = '●',
+        close_icon = '',
+        left_trunc_marker = '',
+        right_trunc_marker = '',
+        themable = true,
         diagnostics = "coc",
+        sort_by = 'insert_at_end',
         hover = {
             enabled = true,
             delay = 200,
