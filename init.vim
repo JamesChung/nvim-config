@@ -1,5 +1,4 @@
 :set number relativenumber
-:set cursorline
 :set nohls
 :set incsearch
 :set autoindent
@@ -25,12 +24,13 @@ set signcolumn=yes
 " Plugins
 call plug#begin()
 Plug 'neovim/nvim-lspconfig'
-Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'jdhao/whitespace.nvim'
+Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
-Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.1' }
+Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 call plug#end()
 
