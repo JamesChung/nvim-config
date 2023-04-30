@@ -30,19 +30,28 @@ Plug 'jdhao/whitespace.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'sindrets/diffview.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
+Plug 'catppuccin/nvim'
+Plug 'rose-pine/neovim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 call plug#end()
 
 " Themes
-colorscheme tokyonight
-
-" There are also colorschemes for the different styles
+"colorscheme catppuccin
+"colorscheme catppuccin-latte
+"colorscheme catppuccin-frappe
+"colorscheme catppuccin-macchiato
+"colorscheme catppuccin-mocha
+"colorscheme rose-pine
+colorscheme rose-pine-moon
+"colorscheme rose-pine-dawn
+"colorscheme tokyonight
 "colorscheme tokyonight-night
 "colorscheme tokyonight-storm
 "colorscheme tokyonight-day
