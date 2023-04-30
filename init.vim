@@ -24,26 +24,44 @@ set signcolumn=yes
 
 " Plugins
 call plug#begin()
+" Adds tabs for buffers
 Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
+" Shows LSP progress information
 Plug 'j-hui/fidget.nvim'
+" Show and remove trailing whitespace
 Plug 'jdhao/whitespace.nvim'
+" Highlight indent guides
 Plug 'lukas-reineke/indent-blankline.nvim'
+" LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Detailed information errors
+Plug 'folke/trouble.nvim'
+" Support for commenting out code
 Plug 'tpope/vim-commentary'
+" Support for split diff view
 Plug 'sindrets/diffview.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
+" File searcher
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+" Plugin manager
 Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
+
+" Themes
 Plug 'catppuccin/nvim'
 Plug 'rose-pine/neovim'
+Plug 'olimorris/onedarkpro.nvim'
 Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 call plug#end()
 
 " Themes
+"colorscheme onedark
+"colorscheme onelight
+"colorscheme onedark_vivid
+"onedark_dark
 "colorscheme catppuccin
 "colorscheme catppuccin-latte
 "colorscheme catppuccin-frappe
@@ -125,19 +143,20 @@ command! -nargs=0 Format :call CocActionAsync('format')
 " Add `:Fold` command to fold current buffer
 command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
-"autocmd BufWritePre * :call CocActionAsync('format')
-
 lua << EOF
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
-vim.opt.listchars:append "eol:↴"
+--vim.opt.listchars:append "eol:↴"
 
+require("trouble").setup {
+    position = "right",
+}
 require("indent_blankline").setup {
     space_char_blankline = " ",
     show_current_context = true,
     show_current_context_start = true,
 }
-require("bufferline").setup{
+require("bufferline").setup {
     options = {
         buffer_close_icon = '',
         modified_icon = '●',
