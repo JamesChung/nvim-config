@@ -35,7 +35,7 @@ Plug 'lukas-reineke/indent-blankline.nvim'
 " LSP
 Plug 'neovim/nvim-lspconfig'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
-" Detailed information errors
+" Detailed information errors (Only works with native nvim lsp)
 Plug 'folke/trouble.nvim'
 " Support for commenting out code
 Plug 'tpope/vim-commentary'
