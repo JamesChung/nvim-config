@@ -1,4 +1,7 @@
 {
-    "suggest.localityBonus": true
+    "suggest.localityBonus": true,
+    "coc.preferences.enableMarkdown": true,
+    "coc.preferences.formatOnSave": true,
+    "typescript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true,
+    "javascript.format.insertSpaceAfterOpeningAndBeforeClosingNonemptyBraces": true
 }
-
