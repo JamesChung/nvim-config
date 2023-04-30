@@ -37,10 +37,11 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Detailed information errors (Only works with native nvim lsp)
 Plug 'folke/trouble.nvim'
-" Support for commenting out code
+" Support for commenting code
 Plug 'tpope/vim-commentary'
 " Support for split diff view
 Plug 'sindrets/diffview.nvim'
+" Core plugins
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
