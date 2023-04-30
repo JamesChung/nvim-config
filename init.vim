@@ -30,6 +30,7 @@ Plug 'jdhao/whitespace.nvim'
 Plug 'lukas-reineke/indent-blankline.nvim'
 Plug 'neovim/nvim-lspconfig'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'tpope/vim-commentary'
 Plug 'sindrets/diffview.nvim'
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
@@ -127,6 +128,15 @@ command! -nargs=? Fold :call CocAction('fold', <f-args>)
 "autocmd BufWritePre * :call CocActionAsync('format')
 
 lua << EOF
+vim.opt.list = true
+vim.opt.listchars:append "space:⋅"
+vim.opt.listchars:append "eol:↴"
+
+require("indent_blankline").setup {
+    space_char_blankline = " ",
+    show_current_context = true,
+    show_current_context_start = true,
+}
 require("bufferline").setup{
     options = {
         buffer_close_icon = '',
