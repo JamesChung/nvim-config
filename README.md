@@ -17,7 +17,7 @@ https://github.com/junegunn/vim-plug
 > Common LSPs
 
 ```vim
-:CocInstall coc-json coc-sh coc-clangd coc-go coc-git coc-html coc-tsserver coc-markdownlint coc-pyright coc-rust-analyzer coc-zig
+:CocInstall coc-json coc-sh coc-clangd coc-go coc-git coc-html coc-tsserver coc-eslint coc-styled-components coc-markdownlint coc-pyright coc-rust-analyzer coc-zig
 ```
 
 ### Handy Information
