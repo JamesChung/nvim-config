@@ -1,10 +1,20 @@
 #!/bin/bash
 
-if [ -x "$(command -v brew)" ]; then
-    brew install neovim
-else
+if [ ! -x "$(command -v brew)" ]; then
     /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    unameOut="$(uname -s)"
+    case "${unameOut}" in
+        Linux*)
+            (echo; echo 'eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"') >> $HOME/.profile
+            eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+            ;;
+        Darwin*)
+            
+            ;;
+    esac
 fi
+
+brew install neovim node
 
 if [ -x "$(command -v nvim)" ]; then
     # Install vim-plug
@@ -21,7 +31,7 @@ if [ -x "$(command -v nvim)" ]; then
         echo "You don't have git installed."
         exit 1
     fi
-    nvim -c 'PlugInstall | CocInstall coc-json coc-sh coc-clangd coc-go coc-git coc-html coc-tsserver coc-eslint coc-styled-components coc-markdownlint coc-pyright coc-rust-analyzer coc-zig | TSInstall bash c cpp css go hcl html javascript json lua make python regex rust sql toml tsx typescript yaml zig'
+    nvim -c 'PlugInstall | CocInstall coc-json coc-sh coc-clangd coc-go coc-git coc-html coc-tsserver coc-eslint coc-styled-components coc-markdownlint coc-pyright coc-rust-analyzer coc-zig'
 else
     echo "nvim not installed"
     exit 1
