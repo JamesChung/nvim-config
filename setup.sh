@@ -22,5 +22,4 @@ else
     exit 1
 fi
 
-nvim -c PlugInstall
-
+nvim -c PlugInstall | CocInstall coc-json coc-sh coc-clangd coc-go coc-git coc-html coc-tsserver coc-eslint coc-styled-components coc-markdownlint coc-pyright coc-rust-analyzer coc-zig | TSInstall bash c cpp css go hcl html javascript json lua make python regex rust sql toml tsx typescript yaml zig
