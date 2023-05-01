@@ -31,7 +31,7 @@ if [ -x "$(command -v nvim)" ]; then
         echo "You don't have git installed."
         exit 1
     fi
-    nvim -c 'PlugInstall | CocInstall coc-json coc-sh coc-clangd coc-go coc-git coc-html coc-tsserver coc-eslint coc-styled-components coc-markdownlint coc-pyright coc-rust-analyzer coc-zig'
+    nvim -c 'PlugInstall'
 else
     echo "nvim not installed"
     exit 1
