@@ -1,7 +1,7 @@
 #!/bin/bash
 
 if [ ! -x "$(command -v brew)" ]; then
-    /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     unameOut="$(uname -s)"
     case "${unameOut}" in
         Linux*)
