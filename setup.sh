@@ -31,7 +31,7 @@ if [ -x "$(command -v nvim)" ]; then
         echo "You don't have git installed."
         exit 1
     fi
-    nvim -c 'PlugInstall'
+    nvim -c 'PlugInstall | PlugUpdate'
 else
     echo "nvim not installed"
     exit 1
