@@ -77,9 +77,10 @@ colorscheme rose-pine-moon
 "colorscheme tokyonight-day
 "colorscheme tokyonight-moon
 
-" Remap to move up and down when LSP suggestions popup
-imap <C-j> <Down>
-imap <C-k> <Up>
+" Remap to move up and down when LSP suggestions popup (This works like half
+" the damn time...)
+" imap <C-j> <Down>
+" imap <C-k> <Up>
 
 " Allow for tab completion when coc suggestions are visible
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<Tab>"
