@@ -10,5 +10,19 @@
     "javascript.inlayHints.enumMemberValues.enabled": true,
     "[typescript][javascript]": {
         "coc.preferences.formatOnSave": false
+    },
+    "languageserver": {
+        "terraform": {
+            "command": "terraform-ls",
+            "args": [
+                "serve"
+            ],
+            "filetypes": [
+                "terraform",
+                "tf"
+            ],
+            "initializationOptions": {},
+            "settings": {}
+        }
     }
 }
