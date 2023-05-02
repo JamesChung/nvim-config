@@ -62,7 +62,7 @@ call plug#end()
 "colorscheme onedark
 "colorscheme onelight
 "colorscheme onedark_vivid
-"onedark_dark
+"colorscheme onedark_dark
 "colorscheme catppuccin
 "colorscheme catppuccin-latte
 "colorscheme catppuccin-frappe
