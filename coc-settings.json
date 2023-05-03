@@ -1,28 +1,28 @@
 {
-    "coc.preferences.enableMarkdown": true,
-    "coc.preferences.formatOnSave": true,
-    "codeLens.enable": true,
-    "outline.previewBorderRounded": true,
-    "suggest.localityBonus": true,
-    "eslint.autoFixOnSave": true,
-    "eslint.format.enable": true,
-    "typescript.inlayHints.enumMemberValues.enabled": true,
-    "javascript.inlayHints.enumMemberValues.enabled": true,
-    "[typescript][javascript]": {
-        "coc.preferences.formatOnSave": false
-    },
-    "languageserver": {
-        "terraform": {
-            "command": "terraform-ls",
-            "args": [
-                "serve"
-            ],
-            "filetypes": [
-                "terraform",
-                "tf"
-            ],
-            "initializationOptions": {},
-            "settings": {}
-        }
+  "coc.preferences.enableMarkdown": true,
+  "coc.preferences.formatOnSave": true,
+  "codeLens.enable": true,
+  "outline.previewBorderRounded": true,
+  "suggest.localityBonus": true,
+  "eslint.autoFixOnSave": true,
+  "eslint.format.enable": true,
+  "typescript.inlayHints.enumMemberValues.enabled": true,
+  "javascript.inlayHints.enumMemberValues.enabled": true,
+  "[typescript][javascript]": {
+    "coc.preferences.formatOnSave": false
+  },
+  "languageserver": {
+    "terraform": {
+      "command": "terraform-ls",
+      "args": [
+        "serve"
+      ],
+      "filetypes": [
+        "terraform",
+        "tf"
+      ],
+      "initializationOptions": {},
+      "settings": {}
     }
+  }
 }
