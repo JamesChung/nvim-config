@@ -82,6 +82,9 @@ colorscheme rose-pine-moon
 " imap <C-j> <Down>
 " imap <C-k> <Up>
 
+" Remap space to be leader rather than the default backslash key
+map <Space> <Leader>
+
 " Allow for tab completion when coc suggestions are visible
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<Tab>"
 
