@@ -41,6 +41,8 @@ Plug 'folke/trouble.nvim'
 Plug 'tpope/vim-commentary'
 " Support for split diff view
 Plug 'sindrets/diffview.nvim'
+" Shows git blame information to the side
+Plug 'f-person/git-blame.nvim'
 " Core plugins
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-tree/nvim-web-devicons'
