@@ -89,14 +89,17 @@ colorscheme rose-pine-moon
 " imap <C-j> <Down>
 " imap <C-k> <Up>
 
-" For Mac
+" Additional binding to escape Insert Mode
+imap <C-i> <Esc>
+
+" Move lines up/down for Mac
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
 inoremap ∆ <Esc>:m .+1<CR>==gi
 inoremap ˚ <Esc>:m .-2<CR>==gi
 vnoremap ∆ :m '>+1<CR>gv=gv
 vnoremap ˚ :m '<-2<CR>gv=gv
-" For Unix
+" Move lines up/down for Unix
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
 inoremap <A-j> <Esc>:m .+1<CR>==gi
