@@ -84,14 +84,6 @@ colorscheme rose-pine-moon
 "colorscheme tokyonight-day
 "colorscheme tokyonight-moon
 
-" Remap to move up and down when LSP suggestions popup (This works like half
-" the damn time...)
-" imap <C-j> <Down>
-" imap <C-k> <Up>
-
-" Additional binding to escape Insert Mode
-imap <C-i> <Esc>
-
 " Move lines up/down for Mac
 nnoremap ∆ :m .+1<CR>==
 nnoremap ˚ :m .-2<CR>==
