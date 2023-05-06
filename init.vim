@@ -24,6 +24,15 @@ set signcolumn=yes
 
 " Plugins
 call plug#begin()
+" Core plugins
+Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-tree/nvim-web-devicons'
+Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter-context'
+" LSP
+Plug 'neovim/nvim-lspconfig'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
+
 " Adds tabs for buffers
 Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 " Toggle a terminal
@@ -34,22 +43,16 @@ Plug 'j-hui/fidget.nvim'
 Plug 'jdhao/whitespace.nvim'
 " Highlight indent guides
 Plug 'lukas-reineke/indent-blankline.nvim'
-" LSP
-Plug 'neovim/nvim-lspconfig'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
 " Detailed information errors (Only works with native nvim lsp)
 Plug 'folke/trouble.nvim'
+" Support for Git
+Plug 'tpope/vim-fugitive'
 " Support for commenting code
 Plug 'tpope/vim-commentary'
 " Support for split diff view
 Plug 'sindrets/diffview.nvim'
 " Shows git blame information to the side
 Plug 'f-person/git-blame.nvim'
-" Core plugins
-Plug 'nvim-lua/plenary.nvim'
-Plug 'nvim-tree/nvim-web-devicons'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
-Plug 'nvim-treesitter/nvim-treesitter-context'
 " File searcher
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 " Plugin manager
@@ -179,7 +182,7 @@ lua << EOF
 vim.opt.list = true
 vim.opt.listchars:append "space:⋅"
 --vim.opt.listchars:append "eol:↴"
-require("toggleterm").setup{
+require("toggleterm").setup {
   direction = 'float',
 }
 require("trouble").setup {
