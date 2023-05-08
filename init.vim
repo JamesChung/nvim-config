@@ -105,13 +105,23 @@ map <Space> <Leader>
 " Allow for tab completion when coc suggestions are visible
 inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<Tab>"
 
+" MacOS binding
 autocmd TermEnter term://*toggleterm#*
       \ tnoremap <silent><C-`> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 " By applying the mappings this way you can pass a count to your
 " mapping to open a specific window.
-" For example: 2<C-t> will open terminal 2
+" For example: 2<C-`> will open terminal 2
 nnoremap <silent><C-`> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 inoremap <silent><C-`> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
+
+" General compatbility binding
+autocmd TermEnter term://*toggleterm#*
+      \ tnoremap <silent><C-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+" By applying the mappings this way you can pass a count to your
+" mapping to open a specific window.
+" For example: 2<C-t> will open terminal 2
+nnoremap <silent><C-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
+inoremap <silent><C-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 
 " Use <C-space> to trigger completion
 if has('nvim')
