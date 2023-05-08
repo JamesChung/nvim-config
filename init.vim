@@ -1,14 +1,14 @@
-:set number relativenumber
-:set nohls
-:set incsearch
-:set autoindent
-:set expandtab
-:set wildmode=longest,list
-:set tabstop=2
-:set softtabstop=2
-:set shiftwidth=2
-:set scrolloff=10
-:set termguicolors
+set number relativenumber
+set nohls
+set incsearch
+set wildmode=longest,list
+set autoindent
+set expandtab
+set tabstop=2
+set softtabstop=2
+set shiftwidth=2
+set scrolloff=10
+set termguicolors
 
 " Some servers have issues with backup files, see #649
 set nobackup
