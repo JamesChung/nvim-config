@@ -180,10 +180,13 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 nmap <leader>cl  <Plug>(coc-codelens-action)
 
 " Find files using Telescope command-line sugar.
-nnoremap <leader>tf <cmd>Telescope find_files<cr>
-nnoremap <leader>tg <cmd>Telescope live_grep<cr>
-nnoremap <leader>tb <cmd>Telescope buffers<cr>
-nnoremap <leader>th <cmd>Telescope help_tags<cr>
+nnoremap <leader>tf <Cmd>Telescope find_files<CR>
+nnoremap <leader>tg <Cmd>Telescope live_grep<CR>
+nnoremap <leader>tb <Cmd>Telescope buffers<CR>
+nnoremap <leader>th <Cmd>Telescope help_tags<CR>
+
+" General NvimTree toggle binding
+nnoremap <leader>tt <Cmd>NvimTreeToggle<CR>
 
 " Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocActionAsync('format')
