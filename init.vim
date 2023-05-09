@@ -26,6 +26,7 @@ set signcolumn=yes
 call plug#begin()
 " Core plugins
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
 Plug 'nvim-treesitter/nvim-treesitter-context'
