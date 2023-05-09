@@ -14,7 +14,7 @@ if [ ! -x "$(command -v brew)" ]; then
     esac
 fi
 
-brew install neovim node terraform-ls
+brew install neovim node gopls rust-analyzer terraform-ls zls
 
 if [ -x "$(command -v nvim)" ]; then
     # Install vim-plug
