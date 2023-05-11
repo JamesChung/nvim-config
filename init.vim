@@ -4,9 +4,9 @@ set incsearch
 set wildmode=longest,list
 set autoindent
 set expandtab
-set tabstop=2
-set softtabstop=2
-set shiftwidth=2
+set tabstop=4
+set softtabstop=4
+set shiftwidth=4
 set scrolloff=10
 set termguicolors
 
@@ -48,8 +48,6 @@ Plug 'akinsho/toggleterm.nvim', { 'tag': '*' }
 Plug 'j-hui/fidget.nvim'
 " Show and remove trailing whitespace
 Plug 'jdhao/whitespace.nvim'
-" Highlight indent guides
-Plug 'lukas-reineke/indent-blankline.nvim'
 " Detailed information errors (Only works with native nvim lsp)
 Plug 'folke/trouble.nvim'
 " Support for Git
