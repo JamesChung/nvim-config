@@ -73,25 +73,6 @@ Plug 'folke/tokyonight.nvim', { 'branch': 'main' }
 " -------------------------------------------------------------
 call plug#end()
 
-" Themes
-"colorscheme onedark
-"colorscheme onelight
-"colorscheme onedark_vivid
-"colorscheme onedark_dark
-"colorscheme catppuccin
-"colorscheme catppuccin-latte
-"colorscheme catppuccin-frappe
-"colorscheme catppuccin-macchiato
-"colorscheme catppuccin-mocha
-"colorscheme rose-pine
-"colorscheme rose-pine-moon
-"colorscheme rose-pine-dawn
-"colorscheme tokyonight
-"colorscheme tokyonight-night
-"colorscheme tokyonight-storm
-"colorscheme tokyonight-day
-"colorscheme tokyonight-moon
-
 " Move lines up/down
 nnoremap <A-j> :m .+1<CR>==
 nnoremap <A-k> :m .-2<CR>==
