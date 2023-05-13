@@ -25,8 +25,8 @@ require("nvim-treesitter.configs").setup {
     ensure_installed = {
         "bash", "c", "cpp", "css", "go", "hcl",
         "html", "javascript", "json", "lua", "make",
-        "python", "regex", "rust", "sql", "toml",
-        "tsx", "typescript", "yaml", "zig"
+        "python", "query", "regex", "rust", "sql",
+        "toml", "tsx", "typescript", "yaml", "zig"
     },
     auto_install = true,
     highlight = {
