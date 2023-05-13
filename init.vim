@@ -186,6 +186,9 @@ nnoremap <leader>th <Cmd>Telescope help_tags<CR>
 " General NvimTree toggle binding
 nnoremap <leader>tt <Cmd>NvimTreeToggle<CR>
 
+" Open/Close Mason menu
+nnoremap <leader>mm <Cmd>Mason<CR>
+
 " Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocActionAsync('format')
 
