@@ -44,6 +44,8 @@ Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 " Toggle a terminal
 Plug 'akinsho/toggleterm.nvim', { 'tag': '*' }
+" Performant bi-directional clipboard
+Plug 'EtiamNullam/deferred-clipboard.nvim'
 " Shows LSP progress information
 Plug 'j-hui/fidget.nvim'
 " Show and remove trailing whitespace
