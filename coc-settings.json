@@ -9,6 +9,9 @@
     "typescript.inlayHints.enumMemberValues.enabled": true,
     "javascript.inlayHints.enumMemberValues.enabled": true,
     "diagnostic.checkCurrentLine": true,
+    "diagnostic.floatConfig": {
+        "rounded": true
+    },
     "[typescript][javascript]": {
         "coc.preferences.formatOnSave": false
     },
