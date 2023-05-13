@@ -28,12 +28,12 @@ call plug#begin()
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
-Plug 'nvim-treesitter/nvim-treesitter', {'do': ':TSUpdate'}
+Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'nvim-treesitter/nvim-treesitter-context'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': ':CocUpdate' }
 
 " Package manager
 Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
@@ -83,7 +83,7 @@ call plug#end()
 "colorscheme catppuccin-macchiato
 "colorscheme catppuccin-mocha
 "colorscheme rose-pine
-colorscheme rose-pine-moon
+"colorscheme rose-pine-moon
 "colorscheme rose-pine-dawn
 "colorscheme tokyonight
 "colorscheme tokyonight-night
