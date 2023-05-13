@@ -10,6 +10,19 @@
     "javascript.inlayHints.enumMemberValues.enabled": true,
     "diagnostic.checkCurrentLine": true,
     "diagnostic.floatConfig": {
+        "border": true,
+        "rounded": true
+    },
+    "suggest.floatConfig": {
+        "border": true,
+        "rounded": true
+    },
+    "signature.floatConfig": {
+        "border": true,
+        "rounded": true
+    },
+    "hover.floatConfig": {
+        "border": true,
         "rounded": true
     },
     "[typescript][javascript]": {
