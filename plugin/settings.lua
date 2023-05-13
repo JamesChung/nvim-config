@@ -8,6 +8,10 @@ require("toggleterm").setup {
 require("trouble").setup {
     position = "right",
 }
+require("deferred-clipboard").setup {
+    fallback = "unnamedplus",
+    lazy = true,
+}
 require("mason").setup {
     ui = {
         icons = {
