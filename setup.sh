@@ -33,7 +33,6 @@ if [ -x "$(command -v nvim)" ]; then
   fi
   nvim -c 'PlugInstall | PlugUpdate'
   nvim -c 'CocInstall coc-json coc-sh coc-clangd coc-go coc-git coc-html coc-lua coc-tsserver coc-eslint coc-styled-components coc-markdownlint coc-pyright coc-rust-analyzer coc-zig'
-  nvim -c 'TSInstall bash c cpp css go hcl html javascript json lua make python regex rust sql toml tsx typescript yaml zig'
 else
   echo "nvim not installed"
   exit 1
