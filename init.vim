@@ -22,6 +22,9 @@ set updatetime=300
 " diagnostics appear/become resolved
 set signcolumn=yes
 
+" Set AirlineTheme
+let g:airline_theme='base16_snazzy'
+
 " Plugins
 call plug#begin()
 " Core plugins
@@ -47,6 +50,9 @@ Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 Plug 'akinsho/toggleterm.nvim', { 'tag': '*' }
 " Performant bi-directional clipboard
 Plug 'EtiamNullam/deferred-clipboard.nvim'
+" Statusline
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
 " Shows LSP progress information
 Plug 'j-hui/fidget.nvim'
 " Show and remove trailing whitespace
