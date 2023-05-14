@@ -22,8 +22,9 @@ set updatetime=300
 " diagnostics appear/become resolved
 set signcolumn=yes
 
-" Set AirlineTheme
+" Configure Airline
 let g:airline_theme='base16_snazzy'
+let g:airline_powerline_fonts = 1
 
 " Plugins
 call plug#begin()
