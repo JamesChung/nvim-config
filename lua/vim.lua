@@ -2,7 +2,7 @@ vim.opt.list = true
 vim.opt.listchars:append "trail:⋅"
 vim.opt.listchars:append "nbsp:⎵"
 vim.opt.listchars:append "tab:› "
-vim.opt.listchars:append "eol:↴"
+-- vim.opt.listchars:append "eol:↴"
 -- vim.opt.listchars:append "multispace:⋅"
 -- vim.opt.listchars:append "space:⋅"
 -- vim.opt.listchars:append "trail:␠"
@@ -29,3 +29,39 @@ vim.cmd("colorscheme rose-pine-moon")
 
 -- Override theme highlight color
 vim.api.nvim_set_hl(0, "CursorColumn", { bg = "#44415a" })
+
+-- Configure nvim-dap settings
+vim.api.nvim_set_hl(0, 'DapBreakpoint', { ctermbg = 0, fg = '#993939', bg = '#31353f' })
+vim.api.nvim_set_hl(0, 'DapLogPoint', { ctermbg = 0, fg = '#61afef', bg = '#31353f' })
+vim.api.nvim_set_hl(0, 'DapStopped', { ctermbg = 0, fg = '#98c379', bg = '#31353f' })
+
+vim.fn.sign_define('DapBreakpoint', {
+    text = '',
+    texthl = 'DapBreakpoint',
+    linehl = '',
+    numhl = '',
+})
+vim.fn.sign_define('DapBreakpointCondition', {
+    text = 'ﳁ',
+    texthl = 'DapBreakpoint',
+    linehl = 'DapBreakpoint',
+    numhl = '',
+})
+vim.fn.sign_define('DapBreakpointRejected', {
+    text = '',
+    texthl = 'DapBreakpoint',
+    linehl = 'DapBreakpoint',
+    numhl = '',
+})
+vim.fn.sign_define('DapLogPoint', {
+    text = '',
+    texthl = 'DapLogPoint',
+    linehl = 'DapLogPoint',
+    numhl = '',
+})
+vim.fn.sign_define('DapStopped', {
+    text = '',
+    texthl = 'DapStopped',
+    linehl = 'DapStopped',
+    numhl = '',
+})
