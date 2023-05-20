@@ -2,6 +2,8 @@ require("fidget").setup {}
 require("telescope").setup {}
 require("nvim-tree").setup {}
 require("nvim-web-devicons").setup {}
+require("gitsigns").setup {}
+require("trouble").setup {}
 require("lualine").setup {
     extensions = { "quickfix" },
     options = {
@@ -10,9 +12,6 @@ require("lualine").setup {
 }
 require("toggleterm").setup {
     direction = "float",
-}
-require("trouble").setup {
-    position = "right",
 }
 require("deferred-clipboard").setup {
     fallback = "unnamedplus",

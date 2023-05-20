@@ -37,9 +37,14 @@ Plug 'leoluz/nvim-dap-go'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
+Plug 'hrsh7th/nvim-cmp'
+Plug 'hrsh7th/cmp-nvim-lsp'
+
+Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
 
 " Package manager
 Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
+Plug 'williamboman/mason-lspconfig.nvim'
 
 " General Plugins ---------------------------------------------
 
@@ -63,6 +68,8 @@ Plug 'tpope/vim-commentary'
 Plug 'sindrets/diffview.nvim'
 " Shows git blame information to the side
 Plug 'f-person/git-blame.nvim'
+" Shows git changes for each line(s)
+Plug 'lewis6991/gitsigns.nvim'
 " File searcher
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 " -------------------------------------------------------------
@@ -93,9 +100,6 @@ vnoremap ˚ :m '<-2<CR>gv=gv
 
 " Remap space to be leader rather than the default backslash key
 map <Space> <Leader>
-
-" Allow for tab completion when coc suggestions are visible
-inoremap <silent><expr> <TAB> coc#pum#visible() ? coc#pum#confirm() : "\<Tab>"
 
 " MacOS ToggleTerm binding
 autocmd TermEnter term://*toggleterm#*
