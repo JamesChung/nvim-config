@@ -30,6 +30,7 @@ let g:airline_powerline_fonts = 1
 call plug#begin()
 " Core plugins
 Plug 'nvim-lua/plenary.nvim'
+Plug 'nvim-lualine/lualine.nvim'
 Plug 'nvim-tree/nvim-tree.lua'
 Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
@@ -53,9 +54,6 @@ Plug 'akinsho/bufferline.nvim', { 'tag': '*' }
 Plug 'akinsho/toggleterm.nvim', { 'tag': '*' }
 " Performant bi-directional clipboard
 Plug 'EtiamNullam/deferred-clipboard.nvim'
-" Statusline
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
 " Shows LSP progress information
 Plug 'j-hui/fidget.nvim'
 " Show and remove trailing whitespace
