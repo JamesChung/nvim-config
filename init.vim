@@ -22,10 +22,6 @@ set updatetime=300
 " diagnostics appear/become resolved
 set signcolumn=yes
 
-" Configure Airline
-let g:airline_theme='base16_snazzy'
-let g:airline_powerline_fonts = 1
-
 " Plugins
 call plug#begin()
 " Core plugins
@@ -41,7 +37,6 @@ Plug 'leoluz/nvim-dap-go'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
-Plug 'neoclide/coc.nvim', { 'branch': 'release', 'do': ':CocUpdate' }
 
 " Package manager
 Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
@@ -120,54 +115,6 @@ autocmd TermEnter term://*toggleterm#*
 nnoremap <silent><C-t> <Cmd>exe v:count1 . "ToggleTerm"<CR>
 inoremap <silent><C-t> <Esc><Cmd>exe v:count1 . "ToggleTerm"<CR>
 
-" Use <C-space> to trigger completion
-if has('nvim')
-  inoremap <silent><expr> <C-space> coc#refresh()
-else
-  inoremap <silent><expr> <C-@> coc#refresh()
-endif
-
-" Highlight the symbol and its references when holding the cursor
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-" Keybindings
-nmap <silent> gd <Plug>(coc-definition)
-nmap <silent> gt <Plug>(coc-type-definition)
-nmap <silent> gi <Plug>(coc-implementation)
-nmap <silent> gr <Plug>(coc-references)
-
-" Use K to show documentation in preview window
-nnoremap <silent> K :call ShowDocumentation()<CR>
-
-function! ShowDocumentation()
-  if CocAction('hasProvider', 'hover')
-    call CocActionAsync('doHover')
-  else
-    call feedkeys('K', 'in')
-  endif
-endfunction
-
-" Symbol renaming
-nmap <leader>rn <Plug>(coc-rename)
-
-" Formatting selected code
-xmap <leader>f  <Plug>(coc-format-selected)
-nmap <leader>f  <Plug>(coc-format-selected)
-
-" Applying code actions to the selected code block
-" Example: `<leader>aap` for current paragraph
-xmap <leader>a  <Plug>(coc-codeaction-selected)
-nmap <leader>a  <Plug>(coc-codeaction-selected)
-
-" Remap keys for applying code actions at the cursor position
-nmap <leader>ac  <Plug>(coc-codeaction-cursor)
-" Remap keys for apply code actions affect whole buffer
-nmap <leader>as  <Plug>(coc-codeaction-source)
-" Apply the most preferred quickfix action to fix diagnostic on the current line
-nmap <leader>qf  <Plug>(coc-fix-current)
-" Run the Code Lens action on the current line
-nmap <leader>cl  <Plug>(coc-codelens-action)
-
 " Find files using Telescope command-line sugar.
 nnoremap <leader>tf <Cmd>Telescope find_files<CR>
 nnoremap <leader>tg <Cmd>Telescope live_grep<CR>
@@ -187,12 +134,6 @@ nmap <silent> <leader>do :lua require('dap').step_over()<CR>
 nmap <silent> <leader>di :lua require('dap').step_into()<CR>
 nmap <silent> <leader>dr :lua require('dap').repl.open()<CR>
 nmap <silent> <leader>dt :lua require('dap-go').debug_test()<CR>
-
-" Add `:Format` command to format current buffer
-command! -nargs=0 Format :call CocActionAsync('format')
-
-" Add `:Fold` command to fold current buffer
-command! -nargs=? Fold :call CocAction('fold', <f-args>)
 
 " Additional vim settings in lua
 lua require('vim')
