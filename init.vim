@@ -35,6 +35,8 @@ Plug 'nvim-tree/nvim-web-devicons'
 Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
 Plug 'nvim-treesitter/nvim-treesitter-context'
 Plug 'nvim-treesitter/playground'
+Plug 'mfussenegger/nvim-dap'
+Plug 'leoluz/nvim-dap-go'
 
 " LSP
 Plug 'neovim/nvim-lspconfig'
@@ -175,10 +177,18 @@ nnoremap <leader>tb <Cmd>Telescope buffers<CR>
 nnoremap <leader>th <Cmd>Telescope help_tags<CR>
 
 " General NvimTree toggle binding
-nnoremap <leader>tt <Cmd>NvimTreeToggle<CR>
+nnoremap <leader>nt <Cmd>NvimTreeToggle<CR>
 
 " Open/Close Mason menu
-nnoremap <leader>mm <Cmd>Mason<CR>
+nnoremap <leader>ma <Cmd>Mason<CR>
+
+" nvim-dap debugger config
+nmap <silent> <leader>dp :lua require('dap').toggle_breakpoint()<CR>
+nmap <silent> <leader>dc :lua require('dap').continue()<CR>
+nmap <silent> <leader>do :lua require('dap').step_over()<CR>
+nmap <silent> <leader>di :lua require('dap').step_into()<CR>
+nmap <silent> <leader>dr :lua require('dap').repl.open()<CR>
+nmap <silent> <leader>dt :lua require('dap-go').debug_test()<CR>
 
 " Add `:Format` command to format current buffer
 command! -nargs=0 Format :call CocActionAsync('format')
