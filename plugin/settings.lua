@@ -2,6 +2,12 @@ require("fidget").setup {}
 require("telescope").setup {}
 require("nvim-tree").setup {}
 require("nvim-web-devicons").setup {}
+require("lualine").setup {
+    extensions = { "quickfix" },
+    options = {
+        theme = "nightfly",
+    }
+}
 require("toggleterm").setup {
     direction = 'float',
 }
