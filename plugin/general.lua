@@ -8,7 +8,20 @@ require("lualine").setup {
     extensions = { "quickfix" },
     options = {
         theme = "nightfly",
-    }
+    },
+    sections = {
+        lualine_b = {
+            {
+                "diagnostics",
+                symbols = {
+                    error = " ",
+                    warn = " ",
+                    hint = " ",
+                    info = " ",
+                },
+            },
+        },
+    },
 }
 require("toggleterm").setup {
     direction = "float",
