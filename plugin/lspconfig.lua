@@ -133,5 +133,10 @@ vim.api.nvim_create_autocmd("CursorHoldI", {
 vim.api.nvim_create_autocmd("CursorMoved", {
     group = "CursorHighlightGroup",
     command = "lua vim.lsp.buf.clear_references()",
-    desc = "Clear highlight references when cursor is moved",
+    desc = "Clear highlight references on CursorMoved",
+})
+vim.api.nvim_create_autocmd("CursorMovedI", {
+    group = "CursorHighlightGroup",
+    command = "lua vim.lsp.buf.clear_references()",
+    desc = "Clear highlight references on CursorMovedI",
 })
