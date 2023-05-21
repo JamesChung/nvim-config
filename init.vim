@@ -129,6 +129,9 @@ nnoremap <leader>th <Cmd>Telescope help_tags<CR>
 " General NvimTree toggle binding
 nnoremap <leader>nt <Cmd>NvimTreeToggle<CR>
 
+" TroubleToggle
+nnoremap <leader>tt <Cmd>TroubleToggle<CR>
+
 " Open/Close Mason menu
 nnoremap <leader>ma <Cmd>Mason<CR>
 
