@@ -5,12 +5,7 @@ local lsp = require("lsp-zero").preset({
 })
 
 lsp.on_attach(function(client, bufnr)
-    lsp.default_keymaps({ buffer = bufnr })
     lsp.buffer_autoformat()
-    local opts = { buffer = bufnr }
-    local bind = vim.keymap.set
-    bind("n", "<leader>rn", "<cmd>lua vim.lsp.buf.rename()<cr>", opts)
-    bind("n", "<leader>ca", "<cmd>lua vim.lsp.buf.code_action()<cr>", opts)
 end)
 
 lsp.set_sign_icons({
@@ -65,6 +60,9 @@ lspconfig.terraformls.setup {
 }
 lspconfig.tsserver.setup {
     capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+    end,
 }
 lspconfig.vimls.setup {
     capabilities = capabilities,
