@@ -1,12 +1,15 @@
-set number relativenumber
+filetype plugin indent on
+
+set number                  " Show line numbers
+set relativenumber          " Relative line numbers
+set autoindent              " Enable auto-indenting
+set expandtab               " Use spaces instead of tabs
+set tabstop=4               " Set tab width to 4 spaces
+set softtabstop=4           " Set soft tabstop to 4 spaces
+set shiftwidth=4            " Set indentation width to 4 spaces
 set nohls
 set incsearch
 set wildmode=longest,list
-set autoindent
-set expandtab
-set tabstop=4
-set softtabstop=4
-set shiftwidth=4
 set scrolloff=10
 set termguicolors
 
@@ -63,6 +66,8 @@ Plug 'jdhao/whitespace.nvim'
 Plug 'folke/trouble.nvim'
 " Support for Git
 Plug 'tpope/vim-fugitive'
+" Support for surrounding pairs
+Plug 'tpope/vim-surround'
 " Support for commenting code
 Plug 'tpope/vim-commentary'
 " Support for split diff view
