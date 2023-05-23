@@ -27,6 +27,9 @@ lspconfig.clangd.setup {
 }
 lspconfig.denols.setup {
     capabilities = capabilities,
+    on_attach = function(client, bufnr)
+        client.server_capabilities.documentFormattingProvider = false
+    end,
 }
 lspconfig.docker_compose_language_service.setup {
     capabilities = capabilities,
@@ -77,15 +80,25 @@ lspconfig.zls.setup {
 lsp.setup()
 
 local cmp = require("cmp")
+-- local cmp_action = lsp.cmp_action()
 
 cmp.setup({
+    completion = {
+        autocomplete = false
+    },
     mapping = {
-        -- `Enter` key to confirm completion
-        ["<Tab>"] = cmp.mapping.confirm({ select = false }),
+        -- `Tab` key to confirm completion
+        ["<Tab>"] = cmp.mapping.confirm({ select = true }),
+        -- ["<Tab>"] = cmp_action.tab_complete(),
+        -- ["<S-Tab>"] = cmp_action.select_prev_or_fallback(),
 
         -- Ctrl+Space to trigger completion menu
         ["<C-Space>"] = cmp.mapping.complete(),
-    }
+    },
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
 })
 
 -- Use LspAttach autocommand to only map the following keys
