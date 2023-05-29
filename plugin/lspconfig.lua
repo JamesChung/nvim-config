@@ -65,6 +65,7 @@ lspconfig.gopls.setup {
         },
     },
     on_attach = function(client, bufnr)
+        vim.o.expandtab = false
         -- Organize imports on save using logic of goimports
         vim.api.nvim_create_autocmd("BufWritePre", {
             pattern = "*.go",
