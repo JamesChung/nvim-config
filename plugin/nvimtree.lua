@@ -62,4 +62,7 @@ end
 
 require("nvim-tree").setup {
     on_attach = on_attach,
+    git = {
+        ignore = false,
+    },
 }
