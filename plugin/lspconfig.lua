@@ -22,8 +22,14 @@ local lspconfig = require("lspconfig")
 lspconfig.bashls.setup {
     capabilities = capabilities,
 }
+lspconfig.bufls.setup {
+    capabilities = capabilities,
+}
 lspconfig.clangd.setup {
     capabilities = capabilities,
+    filetypes = {
+        "c", "cpp", "objc", "objcpp", "cuda",
+    },
 }
 lspconfig.denols.setup {
     capabilities = capabilities,
@@ -136,21 +142,21 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_augroup("CursorHighlightGroup", {})
 vim.api.nvim_create_autocmd("CursorHold", {
     group = "CursorHighlightGroup",
-    command = "lua vim.lsp.buf.document_highlight()",
+    command = "silent! lua vim.lsp.buf.document_highlight()",
     desc = "Highlight symbol under cursor on CursorHold",
 })
 vim.api.nvim_create_autocmd("CursorHoldI", {
     group = "CursorHighlightGroup",
-    command = "lua vim.lsp.buf.document_highlight()",
+    command = "silent! lua vim.lsp.buf.document_highlight()",
     desc = "Highlight symbol under cursor on CursorHoldI",
 })
 vim.api.nvim_create_autocmd("CursorMoved", {
     group = "CursorHighlightGroup",
-    command = "lua vim.lsp.buf.clear_references()",
+    command = "silent! lua vim.lsp.buf.clear_references()",
     desc = "Clear highlight references on CursorMoved",
 })
 vim.api.nvim_create_autocmd("CursorMovedI", {
     group = "CursorHighlightGroup",
-    command = "lua vim.lsp.buf.clear_references()",
+    command = "silent! lua vim.lsp.buf.clear_references()",
     desc = "Clear highlight references on CursorMovedI",
 })

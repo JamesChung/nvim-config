@@ -34,16 +34,16 @@ require("mason").setup {
         icons = {
             package_installed = "✓",
             package_pending = "➜",
-            package_uninstalled = "✗"
+            package_uninstalled = "✗",
         }
     }
 }
 require("nvim-treesitter.configs").setup {
     ensure_installed = {
-        "bash", "c", "cpp", "css", "go", "hcl",
-        "html", "javascript", "json", "lua", "make",
+        "bash", "c", "cpp", "css", "go", "hcl", "html",
+        "javascript", "json", "lua", "make", "proto",
         "python", "query", "regex", "rust", "sql",
-        "toml", "tsx", "typescript", "yaml", "zig"
+        "toml", "tsx", "typescript", "yaml", "zig",
     },
     auto_install = true,
     highlight = {
