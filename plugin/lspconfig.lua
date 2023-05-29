@@ -19,6 +19,7 @@ lsp.set_sign_icons({
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
 
 local lspconfig = require("lspconfig")
+local lsputil = require("lspconfig/util")
 
 lspconfig.bashls.setup {
     capabilities = capabilities,
@@ -52,6 +53,31 @@ lspconfig.eslint.setup {
 }
 lspconfig.gopls.setup {
     capabilities = capabilities,
+    cmd = { "gopls", "serve" },
+    filetypes = { "go", "gomod" },
+    root_dir = lsputil.root_pattern("go.work", "go.mod", ".git"),
+    settings = {
+        gopls = {
+            analyses = {
+                unusedparams = true,
+            },
+            staticcheck = true,
+        },
+    },
+    on_attach = function(client, bufnr)
+        -- Organize imports on save using logic of goimports
+        vim.api.nvim_create_autocmd("BufWritePre", {
+            pattern = "*.go",
+            callback = function()
+                vim.lsp.buf.code_action({
+                    context = {
+                        only = { "source.organizeImports" },
+                    },
+                    apply = true,
+                })
+            end
+        })
+    end,
 }
 lspconfig.jsonls.setup {
     capabilities = capabilities,
