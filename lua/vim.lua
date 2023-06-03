@@ -8,12 +8,6 @@ vim.opt.listchars:append "tab:› "
 -- vim.opt.listchars:append "space:⋅"
 -- vim.opt.listchars:append "trail:␠"
 
--- Disable NetRW
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
--- Use NetRW command for NvimTree
-vim.api.nvim_create_user_command("E", "NvimTreeFocus", {})
-
 -- Global mappings.
 -- See `:help vim.diagnostic.*` for documentation on any of the below functions
 vim.keymap.set("n", "<space>e", vim.diagnostic.open_float)

@@ -66,3 +66,9 @@ require("nvim-tree").setup {
         ignore = false,
     },
 }
+
+-- Disable NetRW
+vim.g.loaded_netrw = 1
+vim.g.loaded_netrwPlugin = 1
+-- Use NetRW command for NvimTree
+vim.api.nvim_create_user_command("E", "NvimTreeFocus", {})
