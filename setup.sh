@@ -22,15 +22,14 @@ if [ -x "$(command -v nvim)" ]; then
     https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
 
   if [ ! -d "$HOME/.config/nvim" ]; then
-    mkdir -p "$HOME/.config/nvim"
+    if [ -x "$(command -v git)" ]; then
+        git clone https://github.com/JamesChung/nvim-config.git "$HOME/.config/nvim"
+    else
+        echo "You don't have git installed."
+        exit 1
+    fi
   fi
 
-  if [ -x "$(command -v git)" ]; then
-    git clone https://github.com/JamesChung/nvim-config.git "$HOME/.config/nvim"
-  else
-    echo "You don't have git installed."
-    exit 1
-  fi
   nvim -c 'PlugInstall | PlugUpdate'
 else
   echo "nvim not installed"
