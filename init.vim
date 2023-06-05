@@ -43,8 +43,8 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
-
-Plug 'VonHeikemen/lsp-zero.nvim', {'branch': 'v2.x'}
+Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
+Plug 'VonHeikemen/lsp-zero.nvim', { 'branch': 'v2.x' }
 
 " Package manager
 Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
