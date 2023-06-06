@@ -8,7 +8,15 @@ require("mason").setup {
         }
     }
 }
-require("mason-lspconfig").setup()
+require("mason-lspconfig").setup {
+    ensure_installed = {
+        "bashls", "bufls", "clangd", "denols",
+        "docker_compose_language_service", "dockerls",
+        "dotls", "eslint", "golangci_lint_ls",
+        "html", "jsonls", "lua_ls", "pyright",
+        "tsserver", "vimls", "yamlls",
+    },
+}
 local lsp = require("lsp-zero").preset({
     float_border = "rounded",
 })
