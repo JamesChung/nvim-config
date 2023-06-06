@@ -29,15 +29,6 @@ require("deferred-clipboard").setup {
     fallback = "unnamedplus",
     lazy = true,
 }
-require("mason").setup {
-    ui = {
-        icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
-        }
-    }
-}
 require("nvim-treesitter.configs").setup {
     ensure_installed = {
         "bash", "c", "cpp", "css", "go", "hcl", "html",
