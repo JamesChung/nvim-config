@@ -59,7 +59,7 @@ Plug 'akinsho/toggleterm.nvim', { 'tag': '*' }
 " Performant bi-directional clipboard
 Plug 'EtiamNullam/deferred-clipboard.nvim'
 " Shows LSP progress information
-Plug 'j-hui/fidget.nvim'
+Plug 'j-hui/fidget.nvim', { 'tag': 'legacy' }
 " Show and remove trailing whitespace
 Plug 'jdhao/whitespace.nvim'
 " Detailed information errors (Only works with native nvim lsp)
