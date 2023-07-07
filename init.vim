@@ -43,7 +43,6 @@ Plug 'neovim/nvim-lspconfig'
 Plug 'hrsh7th/nvim-cmp'
 Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
-Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
 Plug 'VonHeikemen/lsp-zero.nvim', { 'branch': 'v2.x' }
 
 " Package manager
