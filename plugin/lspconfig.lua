@@ -70,21 +70,24 @@ lspconfig.eslint.setup {
 if not configs.golangcilsp then
     configs.golangcilsp = {
         default_config = {
-            cmd = { 'golangci-lint-langserver' },
-            root_dir = lspconfig.util.root_pattern('.git', 'go.mod'),
+            cmd = { "golangci-lint-langserver" },
+            root_dir = lspconfig.util.root_pattern(
+                ".golangci.yml", ".golangci.yaml",
+                ".golangci.toml", ".golangci.json",
+                "go.work", "go.mod", ".git"
+            ),
             init_options = {
                 command = {
                     "golangci-lint", "run",
-                    "--enable-all",
-                    "--disable", "lll",
                     "--out-format", "json",
-                    "--issues-exit-code=1"
+                    "--issues-exit-code=1",
                 },
             }
         },
     }
 end
 lspconfig.golangci_lint_ls.setup {
+    capabilities = capabilities,
     filetypes = { 'go', 'gomod' }
 }
 lspconfig.gopls.setup {
