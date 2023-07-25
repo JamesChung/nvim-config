@@ -77,6 +77,8 @@ Plug 'f-person/git-blame.nvim'
 Plug 'lewis6991/gitsigns.nvim'
 " File searcher
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
+" Scrollbar
+Plug 'dstein64/nvim-scrollview'
 " -------------------------------------------------------------
 
 " Themes ------------------------------------------------------
