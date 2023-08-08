@@ -79,6 +79,8 @@ Plug 'lewis6991/gitsigns.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'branch': '0.1.x' }
 " Scrollbar
 Plug 'dstein64/nvim-scrollview'
+" Autopair
+Plug 'windwp/nvim-autopairs'
 " -------------------------------------------------------------
 
 " Themes ------------------------------------------------------
