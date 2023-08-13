@@ -88,12 +88,12 @@ if not configs.golangcilsp then
 end
 lspconfig.golangci_lint_ls.setup {
     capabilities = capabilities,
-    filetypes = { 'go', 'gomod' }
+    filetypes = { "go", "gomod" },
 }
 lspconfig.gopls.setup {
     capabilities = capabilities,
     cmd = { "gopls", "serve" },
-    filetypes = { "go", "gomod" },
+    filetypes = { "go", "gomod", "gowork", "gotmpl" },
     root_dir = lsputil.root_pattern("go.work", "go.mod", ".git"),
     settings = {
         gopls = {

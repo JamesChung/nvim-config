@@ -49,7 +49,7 @@ require("bufferline").setup {
         left_trunc_marker = "",
         right_trunc_marker = "",
         themable = true,
-        diagnostics = "coc",
+        diagnostics = "nvim_lsp",
         sort_by = "insert_at_end",
         hover = {
             enabled = true,
