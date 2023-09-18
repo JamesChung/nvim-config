@@ -48,12 +48,6 @@ lspconfig.clangd.setup {
     capabilities = capabilities,
     filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
 }
-lspconfig.denols.setup {
-    capabilities = capabilities,
-    on_attach = function(client, bufnr)
-        client.server_capabilities.documentFormattingProvider = false
-    end,
-}
 lspconfig.docker_compose_language_service.setup {
     capabilities = capabilities,
 }
