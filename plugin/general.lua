@@ -13,10 +13,10 @@ require("lualine").setup {
             {
                 "diagnostics",
                 symbols = {
-                    error = " ",
-                    warn = " ",
-                    hint = " ",
-                    info = " ",
+                    error = "󰅚 ", -- x000f015a
+                    warn = "󰀪 ", -- x000f002a
+                    info = "󰋽 ", -- x000f02fd
+                    hint = "󰌶 ", -- x000f0336
                 },
             },
         },
@@ -31,15 +31,24 @@ require("deferred-clipboard").setup {
 }
 require("nvim-treesitter.configs").setup {
     ensure_installed = {
-        "bash", "c", "cpp", "css", "go", "hcl", "html",
-        "javascript", "json", "lua", "make", "proto",
-        "python", "query", "regex", "rust", "sql",
-        "toml", "tsx", "typescript", "yaml", "zig",
+        "astro", "awk", "bash", "c", "c_sharp", "cmake", "comment", "cpp", "css",
+        "csv", "cuda", "dart", "dockerfile", "dot", "doxygen", "elixir", "elm", "erlang",
+        "fish", "git_config", "git_rebase", "gitattributes", "gitcommit", "gitignore",
+        "go", "gomod", "gosum", "gowork", "gpg", "graphql", "groovy", "hcl", "html", "http",
+        "ini", "java", "javascript", "jq", "jsdoc", "json", "jsonc", "julia", "kotlin",
+        "latex", "llvm", "lua", "luadoc", "make", "nix", "objc", "ocaml", "ocaml_interface",
+        "ocamllex", "odin", "pascal", "passwd", "pem", "php", "phpdoc", "prisma", "proto",
+        "python", "ql", "r", "regex", "rego", "requirements", "ruby", "rust", "scala", "scss",
+        "sql", "ssh_config", "svelte", "swift", "terraform", "toml", "typescript", "vim",
+        "vimdoc", "vue", "wing", "xml", "yaml", "zig"
     },
+    sync_install = false,
     auto_install = true,
+    ignore_install = {},
+    modules = {},
     highlight = {
         enabled = true,
-    }
+    },
 }
 require("bufferline").setup {
     options = {
@@ -62,16 +71,16 @@ require("bufferline").setup {
         end
     }
 }
-require('scrollview').setup({
-    excluded_filetypes = { 'nerdtree' },
+require("scrollview").setup({
+    excluded_filetypes = { "nerdtree" },
     current_only = true,
     winblend = 75,
-    base = 'buffer',
+    base = "buffer",
     column = 120,
-    signs_on_startup = { 'all' },
+    signs_on_startup = { "all" },
     diagnostics_severities = { vim.diagnostic.severity.ERROR }
 })
-require('nvim-autopairs').setup({
+require("nvim-autopairs").setup({
     disable_filetype = { "TelescopePrompt", "spectre_panel" },
     disable_in_macro = true,        -- disable when recording or executing a macro
     disable_in_visualblock = false, -- disable when insert after visual block mode

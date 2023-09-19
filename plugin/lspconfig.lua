@@ -26,10 +26,10 @@ end)
 
 lsp.set_sign_icons({
     -- icons / text used for a diagnostic
-    error = '✘',
-    warn = '▲',
-    hint = '⚑',
-    info = '»'
+    error = "✘",
+    warn = "▲",
+    hint = "⚑",
+    info = "»"
 })
 
 local capabilities = require("cmp_nvim_lsp").default_capabilities()
