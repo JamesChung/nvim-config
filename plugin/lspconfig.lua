@@ -38,6 +38,9 @@ local lspconfig = require("lspconfig")
 local lsputil = require("lspconfig/util")
 local configs = require("lspconfig/configs")
 
+lspconfig.astro.setup {
+    capabilities = capabilities,
+}
 lspconfig.bashls.setup {
     capabilities = capabilities,
 }
