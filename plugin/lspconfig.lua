@@ -11,9 +11,8 @@ require("mason").setup {
 require("mason-lspconfig").setup {
     ensure_installed = {
         "bashls", "clangd", "docker_compose_language_service",
-        "dockerls", "dotls", "eslint", "golangci_lint_ls",
-        "html", "jsonls", "lua_ls", "pyright",
-        "tsserver", "vimls", "yamlls",
+        "dockerls", "dotls", "eslint", "html", "jsonls",
+        "lua_ls", "pyright", "tsserver", "vimls", "yamlls",
     },
 }
 local lsp = require("lsp-zero").preset({
@@ -62,29 +61,6 @@ lspconfig.dotls.setup {
 }
 lspconfig.eslint.setup {
     capabilities = capabilities,
-}
-if not configs.golangcilsp then
-    configs.golangcilsp = {
-        default_config = {
-            cmd = { "golangci-lint-langserver" },
-            root_dir = lspconfig.util.root_pattern(
-                ".golangci.yml", ".golangci.yaml",
-                ".golangci.toml", ".golangci.json",
-                "go.work", "go.mod", ".git"
-            ),
-            init_options = {
-                command = {
-                    "golangci-lint", "run",
-                    "--out-format", "json",
-                    "--issues-exit-code=1",
-                },
-            }
-        },
-    }
-end
-lspconfig.golangci_lint_ls.setup {
-    capabilities = capabilities,
-    filetypes = { "go", "gomod" },
 }
 lspconfig.gopls.setup {
     capabilities = capabilities,
