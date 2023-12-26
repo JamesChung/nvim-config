@@ -15,6 +15,7 @@ require("mason-lspconfig").setup {
         "lua_ls", "pyright", "tsserver", "vimls", "yamlls",
     },
 }
+
 local lsp = require("lsp-zero").preset({
     float_border = "rounded",
 })
@@ -62,6 +63,7 @@ lspconfig.dotls.setup {
 lspconfig.eslint.setup {
     capabilities = capabilities,
 }
+require('go').setup()
 lspconfig.gopls.setup {
     capabilities = capabilities,
     cmd = { "gopls", "serve" },

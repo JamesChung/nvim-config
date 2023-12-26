@@ -45,6 +45,10 @@ Plug 'hrsh7th/cmp-nvim-lsp'
 Plug 'L3MON4D3/LuaSnip'
 Plug 'VonHeikemen/lsp-zero.nvim', { 'branch': 'v2.x' }
 
+" Language Specific
+Plug 'ray-x/go.nvim'
+Plug 'ray-x/guihua.lua'
+
 " Package manager
 Plug 'williamboman/mason.nvim', { 'do': ':MasonUpdate' }
 Plug 'williamboman/mason-lspconfig.nvim'
