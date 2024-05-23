@@ -37,12 +37,28 @@ vim.api.nvim_create_autocmd("LspAttach", {
 vim.api.nvim_create_augroup("CursorHighlightGroup", {})
 vim.api.nvim_create_autocmd("CursorHold", {
     group = "CursorHighlightGroup",
-    command = "silent! lua vim.lsp.buf.document_highlight()",
+    callback = function()
+        local clients = vim.lsp.get_active_clients()
+        for _, client in ipairs(clients) do
+            if client.server_capabilities.documentHighlightProvider then
+                vim.lsp.buf.document_highlight()
+                return -- Stop after finding a server that supports it
+            end
+        end
+    end,
     desc = "Highlight symbol under cursor on CursorHold",
 })
 vim.api.nvim_create_autocmd("CursorHoldI", {
     group = "CursorHighlightGroup",
-    command = "silent! lua vim.lsp.buf.document_highlight()",
+    callback = function()
+        local clients = vim.lsp.get_active_clients()
+        for _, client in ipairs(clients) do
+            if client.server_capabilities.documentHighlightProvider then
+                vim.lsp.buf.document_highlight()
+                return -- Stop after finding a server that supports it
+            end
+        end
+    end,
     desc = "Highlight symbol under cursor on CursorHoldI",
 })
 vim.api.nvim_create_autocmd("CursorMoved", {
