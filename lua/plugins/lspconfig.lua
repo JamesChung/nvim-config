@@ -128,6 +128,7 @@ return {
             })
             lspconfig.yamlls.setup({
                 capabilities = capabilities,
+                filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab" },
             })
             lspconfig.zls.setup({
                 capabilities = capabilities,
