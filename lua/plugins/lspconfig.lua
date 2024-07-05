@@ -120,7 +120,9 @@ return {
             lspconfig.tsserver.setup({
                 capabilities = capabilities,
                 on_attach = function(client, bufnr)
-                    client.server_capabilities.documentFormattingProvider = false
+                    -- client.server_capabilities.documentFormattingProvider = false
+                    vim.opt_local.tabstop = 2
+                    vim.opt_local.shiftwidth = 2
                 end,
             })
             lspconfig.vimls.setup({
