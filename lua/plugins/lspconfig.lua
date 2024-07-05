@@ -37,15 +37,15 @@ return {
             lspconfig.bashls.setup({
                 capabilities = capabilities,
             })
-            lspconfig.biome.setup({
-                capabilities = capabilities,
-            })
             lspconfig.bufls.setup({
                 capabilities = capabilities,
             })
             lspconfig.clangd.setup({
                 capabilities = capabilities,
-                filetypes = { "c", "cpp", "objc", "objcpp", "cuda" },
+                on_attach = function(client, bufnr)
+                    vim.opt_local.tabstop = 2
+                    vim.opt_local.shiftwidth = 2
+                end
             })
             lspconfig.docker_compose_language_service.setup({
                 capabilities = capabilities,
