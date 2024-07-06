@@ -28,6 +28,9 @@ vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>tb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>th', builtin.help_tags, {})
 
+-- Set folke/todo-comments.nvim toggle keybinding
+vim.api.nvim_set_keymap("n", "<leader>td", "<Cmd>TodoTelescope<CR>", { noremap = true, silent = true })
+
 -- Set folke/trouble.nvim toggle keybinding
 vim.api.nvim_set_keymap("n", "<leader>tt", "<Cmd>TroubleToggle<CR>", { noremap = true, silent = true })
 
