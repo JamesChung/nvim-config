@@ -31,8 +31,5 @@ vim.keymap.set('n', '<leader>th', builtin.help_tags, {})
 -- Set folke/todo-comments.nvim toggle keybinding
 vim.api.nvim_set_keymap("n", "<leader>td", "<Cmd>TodoTelescope<CR>", { noremap = true, silent = true })
 
--- Set folke/trouble.nvim toggle keybinding
-vim.api.nvim_set_keymap("n", "<leader>tt", "<Cmd>TroubleToggle<CR>", { noremap = true, silent = true })
-
 -- Set williamboman/mason.nvim open/close toggle
 vim.api.nvim_set_keymap("n", "<leader>ma", "<Cmd>Mason<CR>", { noremap = true, silent = true })
