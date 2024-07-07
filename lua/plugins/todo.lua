@@ -7,7 +7,7 @@ return {
                 "<leader>td",
                 "<Cmd>TodoTelescope<CR>",
                 desc = "Toggle todo list (todo-comments)",
-            }
-        }
-    }
+            },
+        },
+    },
 }

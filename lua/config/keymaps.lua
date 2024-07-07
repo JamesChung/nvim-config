@@ -20,10 +20,3 @@ vim.api.nvim_set_keymap("v", "˚", ":m '<-2<CR>gv=gv", { noremap = true })
 
 -- Remap space to be leader rather than the default backslash key
 vim.api.nvim_set_keymap("n", "<Space>", "<Leader>", { noremap = true })
-
--- Set nvim-telescope/telescope.nvim keybindings
-local builtin = require('telescope.builtin')
-vim.keymap.set('n', '<leader>tf', builtin.find_files, {})
-vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
-vim.keymap.set('n', '<leader>tb', builtin.buffers, {})
-vim.keymap.set('n', '<leader>th', builtin.help_tags, {})
