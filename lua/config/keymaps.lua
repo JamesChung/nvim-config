@@ -27,6 +27,3 @@ vim.keymap.set('n', '<leader>tf', builtin.find_files, {})
 vim.keymap.set('n', '<leader>tg', builtin.live_grep, {})
 vim.keymap.set('n', '<leader>tb', builtin.buffers, {})
 vim.keymap.set('n', '<leader>th', builtin.help_tags, {})
-
--- Set williamboman/mason.nvim open/close toggle
-vim.api.nvim_set_keymap("n", "<leader>ma", "<Cmd>Mason<CR>", { noremap = true, silent = true })

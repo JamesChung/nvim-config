@@ -1,6 +1,13 @@
 return {
     {
         "williamboman/mason.nvim",
+        keys = {
+            {
+                "<leader>ma",
+                "<Cmd>Mason<CR>",
+                "Toggle Mason menu (Mason)",
+            },
+        },
         config = function()
             require("mason").setup({
                 ui = {
