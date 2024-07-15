@@ -34,6 +34,9 @@ return {
             lspconfig.astro.setup({
                 capabilities = capabilities,
             })
+            lspconfig.asm_lsp.setup {
+                capabilities = capabilities,
+            }
             lspconfig.bashls.setup({
                 capabilities = capabilities,
             })
