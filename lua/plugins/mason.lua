@@ -30,16 +30,9 @@ return {
             require("mason-lspconfig").setup({
                 ensure_installed = {
                     "bashls",
-                    "clangd",
-                    "docker_compose_language_service",
-                    "dockerls",
                     "dotls",
                     "html",
                     "lua_ls",
-                    "pyright",
-                    "tsserver",
-                    "vimls",
-                    "yamlls",
                 },
                 handlers = {
                     lsp_zero.default_setup,
