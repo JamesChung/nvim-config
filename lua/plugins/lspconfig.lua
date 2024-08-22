@@ -110,6 +110,15 @@ return {
             })
             lspconfig.pyright.setup({
                 capabilities = capabilities,
+                on_new_config = function(config, root_dir)
+                    local venv_path = root_dir .. '/.venv/bin/python'
+                    if vim.fn.executable(venv_path) == 1 then
+                        config.settings.python.pythonPath = venv_path
+                    else
+                        -- Fallback to system Python if no .venv is found
+                        config.settings.python.pythonPath = vim.fn.exepath('python3') or vim.fn.exepath('python')
+                    end
+                end,
             })
             lspconfig.rust_analyzer.setup({
                 capabilities = capabilities,
