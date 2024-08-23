@@ -16,7 +16,10 @@ return {
             lsp_zero.extend_lspconfig()
 
             lsp_zero.on_attach(function(client, bufnr)
-                lsp_zero.buffer_autoformat()
+                -- Check if the client supports formatting
+                if client.server_capabilities.documentFormattingProvider then
+                    lsp_zero.buffer_autoformat()
+                end
             end)
 
             lsp_zero.set_sign_icons({
