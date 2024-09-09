@@ -2,18 +2,28 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            "hrsh7th/nvim-cmp",
-            "hrsh7th/cmp-nvim-lsp",
-            "VonHeikemen/lsp-zero.nvim",
-            "L3MON4D3/LuaSnip",
+            { 'VonHeikemen/lsp-zero.nvim', branch = 'v4.x' },
+            { 'neovim/nvim-lspconfig' },
+            { 'hrsh7th/cmp-nvim-lsp' },
+            { 'hrsh7th/nvim-cmp' },
         },
         config = function()
-            local lsp_zero = require("lsp-zero").preset({
-                float_border = "rounded",
-            })
+            local lsp_zero = require("lsp-zero")
+
+            local lsp_attach = function(client, bufnr)
+                -- Check if the client supports formatting
+                if client.server_capabilities.documentFormattingProvider then
+                    lsp_zero.buffer_autoformat()
+                end
+            end
 
             -- For mason-lspconfig
-            lsp_zero.extend_lspconfig()
+            lsp_zero.extend_lspconfig({
+                capabilities = require('cmp_nvim_lsp').default_capabilities(),
+                float_border = "rounded",
+                lsp_attach = lsp_attach,
+                sign_text = true,
+            })
 
             lsp_zero.on_attach(function(client, bufnr)
                 -- Check if the client supports formatting
@@ -148,10 +158,21 @@ return {
                 capabilities = capabilities,
             })
 
-            local cmp = require("cmp")
-            -- local cmp_action = lsp.cmp_action()
+            ---
+            -- Autocompletion setup
+            ---
+            local cmp = require('cmp')
 
             cmp.setup({
+                sources = {
+                    { name = 'nvim_lsp' },
+                },
+                snippet = {
+                    expand = function(args)
+                        -- You need Neovim v0.10 to use vim.snippet
+                        vim.snippet.expand(args.body)
+                    end,
+                },
                 completion = {
                     autocomplete = false,
                 },
