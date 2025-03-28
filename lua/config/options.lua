@@ -21,3 +21,6 @@ vim.opt.list = true
 vim.opt.listchars:append("trail:⋅")
 vim.opt.listchars:append("nbsp:⎵")
 vim.opt.listchars:append("tab:  ›")
+
+-- Enable rounded borders in floating windows
+vim.o.winborder = "rounded"
