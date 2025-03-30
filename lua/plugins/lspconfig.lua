@@ -2,57 +2,52 @@ return {
     {
         "neovim/nvim-lspconfig",
         dependencies = {
-            { 'VonHeikemen/lsp-zero.nvim', branch = 'v4.x' },
             { 'neovim/nvim-lspconfig' },
         },
         config = function()
-            local lsp_zero = require("lsp-zero")
-
-            local lsp_attach = function(client, bufnr)
-                -- Check if the client supports formatting
-                if client.server_capabilities.documentFormattingProvider then
-                    lsp_zero.buffer_autoformat()
-                end
-            end
-
-            -- For mason-lspconfig
-            lsp_zero.extend_lspconfig({
-                float_border = "rounded",
-                lsp_attach = lsp_attach,
-                sign_text = true,
-            })
-
-            lsp_zero.on_attach(function(client, bufnr)
-                -- Check if the client supports formatting
-                if client.server_capabilities.documentFormattingProvider then
-                    lsp_zero.buffer_autoformat()
-                end
-            end)
-
-            lsp_zero.set_sign_icons({
-                -- icons / text used for a diagnostic
-                error = "✘",
-                warn = "▲",
-                hint = "⚑",
-                info = "»",
-            })
-
             local lspconfig = require("lspconfig")
             local lsputil = require("lspconfig/util")
+            --Enable (broadcasting) snippet capability for completion
+            local capabilities = vim.lsp.protocol.make_client_capabilities()
+            capabilities.textDocument.completion.completionItem.snippetSupport = true
 
-            lspconfig.asm_lsp.setup({})
-            lspconfig.bashls.setup({})
-            lspconfig.bufls.setup({})
+            lspconfig.asm_lsp.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.bashls.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.bufls.setup({
+                capabilities = capabilities,
+            })
             lspconfig.clangd.setup({
                 on_attach = function(client, bufnr)
                     vim.opt_local.tabstop = 2
                     vim.opt_local.shiftwidth = 2
                 end
             })
-            lspconfig.docker_compose_language_service.setup({})
-            lspconfig.dockerls.setup({})
-            lspconfig.dotls.setup({})
+            lspconfig.cssls.setup({
+                capabilities = capabilities,
+                settings = {
+                    css = {
+                        validate = true,
+                        lint = {
+                            unknownAtRules = "ignore",
+                        }
+                    },
+                },
+            })
+            lspconfig.docker_compose_language_service.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.dockerls.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.dotls.setup({
+                capabilities = capabilities,
+            })
             lspconfig.gopls.setup({
+                capabilities = capabilities,
                 cmd = { "gopls", "serve" },
                 filetypes = { "go", "gomod", "gowork", "gotmpl" },
                 root_dir = lsputil.root_pattern("go.work", "go.mod", ".git"),
@@ -81,6 +76,7 @@ return {
                 end,
             })
             lspconfig.lua_ls.setup({
+                capabilities = capabilities,
                 settings = {
                     Lua = {
                         runtime = {
@@ -103,6 +99,7 @@ return {
                 },
             })
             lspconfig.pyright.setup({
+                capabilities = capabilities,
                 on_new_config = function(config, root_dir)
                     local venv_path = root_dir .. '/.venv/bin/python'
                     if vim.fn.executable(venv_path) == 1 then
@@ -113,20 +110,33 @@ return {
                     end
                 end,
             })
-            lspconfig.rust_analyzer.setup({})
-            lspconfig.terraformls.setup({})
+            lspconfig.rust_analyzer.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.tailwindcss.setup({
+                capabilities = capabilities,
+            })
+            lspconfig.terraformls.setup({
+                capabilities = capabilities,
+            })
             lspconfig.tsserver.setup({
+                capabilities = capabilities,
                 on_attach = function(client, bufnr)
                     -- client.server_capabilities.documentFormattingProvider = false
                     vim.opt_local.tabstop = 2
                     vim.opt_local.shiftwidth = 2
                 end,
             })
-            lspconfig.vimls.setup({})
+            lspconfig.vimls.setup({
+                capabilities = capabilities,
+            })
             lspconfig.yamlls.setup({
+                capabilities = capabilities,
                 filetypes = { "yaml", "yaml.docker-compose", "yaml.gitlab" },
             })
-            lspconfig.zls.setup({})
+            lspconfig.zls.setup({
+                capabilities = capabilities,
+            })
         end,
     },
 }
