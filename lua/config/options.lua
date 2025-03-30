@@ -31,8 +31,8 @@ vim.diagnostic.config({
     -- virtual_lines = true
 
     -- Alternatively, customize specific options
-    virtual_lines = {
+    -- virtual_lines = {
         -- Only show virtual line diagnostics for the current cursor line
-        current_line = true,
-    },
+        -- current_line = true,
+    -- },
 })
