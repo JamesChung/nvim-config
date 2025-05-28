@@ -5,7 +5,6 @@ return {
             "nvim-lua/plenary.nvim",
             "nvim-tree/nvim-web-devicons",
             "MunifTanjim/nui.nvim",
-            "3rd/image.nvim", -- image support in preview window: See `# Preview Mode` for more information
         },
         config = function()
             require("neo-tree").setup({
@@ -53,7 +52,7 @@ return {
                         ["%"] = "add",
                         ["D"] = "delete",
                         ["R"] = "rename",
-                        ["a"] = false,
+                        ["a"] = "", -- I don't want a to do anything
                         ["d"] = "add_directory",
                         ["r"] = "refresh",
                     },
