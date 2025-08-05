@@ -18,5 +18,4 @@ vim.api.nvim_set_keymap("i", "˚", "<Esc>:m .-2<CR>==gi", { noremap = true })
 vim.api.nvim_set_keymap("v", "∆", ":m '>+1<CR>gv=gv", { noremap = true })
 vim.api.nvim_set_keymap("v", "˚", ":m '<-2<CR>gv=gv", { noremap = true })
 
--- Remap space to be leader rather than the default backslash key
-vim.api.nvim_set_keymap("n", "<Space>", "<Leader>", { noremap = true })
+
