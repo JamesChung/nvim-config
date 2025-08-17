@@ -101,12 +101,31 @@ vim.api.nvim_create_autocmd("BufReadPost", {
         if tab_count > 0 then
             vim.opt_local.expandtab = false
         else
+            -- Find the GCD (greatest common divisor) of all indentation levels
+            local indent_levels = {}
+            for spaces, _ in pairs(space_counts) do
+                table.insert(indent_levels, spaces)
+            end
+
+            local function gcd(a, b)
+                while b ~= 0 do
+                    a, b = b, a % b
+                end
+                return a
+            end
+
             local common_indent = 0
-            local max_count = 0
-            for spaces, count in pairs(space_counts) do
-                if count > max_count and spaces % 2 == 0 then
-                    max_count = count
-                    common_indent = spaces
+            if #indent_levels > 0 then
+                common_indent = indent_levels[1]
+                for i = 2, #indent_levels do
+                    common_indent = gcd(common_indent, indent_levels[i])
+                end
+
+                -- Ensure reasonable bounds (2, 4, or 8 spaces)
+                if common_indent == 1 or common_indent > 8 then
+                    common_indent = 4
+                elseif common_indent == 3 or common_indent == 5 or common_indent == 6 or common_indent == 7 then
+                    common_indent = 4
                 end
             end
 
