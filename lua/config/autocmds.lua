@@ -77,3 +77,52 @@ vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 -- Use NetRW command for Neotree
 vim.api.nvim_create_user_command("E", "Neotree", {})
+
+-- Auto-detect indentation
+vim.api.nvim_create_autocmd("BufReadPost", {
+    callback = function()
+        local lines = vim.api.nvim_buf_get_lines(0, 0, 100, false)
+        local tab_count = 0
+        local space_counts = {}
+
+        for _, line in ipairs(lines) do
+            local leading = line:match("^%s*")
+            if #leading > 0 then
+                if leading:match("^\t") then
+                    tab_count = tab_count + 1
+                elseif leading:match("^ ") then
+                    local spaces = #leading
+                    space_counts[spaces] = (space_counts[spaces] or 0) +
+                        1
+                end
+            end
+        end
+
+        if tab_count > 0 then
+            vim.opt_local.expandtab = false
+        else
+            local common_indent = 0
+            local max_count = 0
+            for spaces, count in pairs(space_counts) do
+                if count > max_count and spaces % 2 == 0 then
+                    max_count = count
+                    common_indent = spaces
+                end
+            end
+
+            if common_indent > 0 then
+                vim.opt_local.tabstop = common_indent
+                vim.opt_local.softtabstop = common_indent
+                vim.opt_local.shiftwidth = common_indent
+                vim.opt_local.expandtab = true
+            else
+                -- Default to 4 spaces if unable to detect
+                vim.opt_local.tabstop = 4
+                vim.opt_local.softtabstop = 4
+                vim.opt_local.shiftwidth = 4
+                vim.opt_local.expandtab = true
+            end
+        end
+    end,
+    desc = "Auto-detect indentation on file read",
+})
