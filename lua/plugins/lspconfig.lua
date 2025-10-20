@@ -13,7 +13,6 @@ return {
                 },
             },
             servers = {
-                asm_lsp = {},
                 bashls = {},
                 bufls = {},
                 clangd = {},
@@ -43,6 +42,15 @@ return {
                     end,
                 },
                 rust_analyzer = {},
+                sourcekit = {
+                    capabilities = {
+                        workspace = {
+                            didChangeWatchedFiles = {
+                                dynamicRegistration = true,
+                            },
+                        },
+                    },
+                },
                 tailwindcss = {},
                 terraformls = {},
                 ts_ls = {},
