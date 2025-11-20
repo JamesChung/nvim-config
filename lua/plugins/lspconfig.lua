@@ -29,6 +29,8 @@ return {
                 dockerls = {},
                 dotls = {},
                 gopls = {},
+                -- jdtls is configured separately via nvim-jdtls plugin
+                -- Do not setup jdtls here to avoid conflicts
                 lua_ls = {},
                 pyright = {
                     on_new_config = function(config, root_dir)

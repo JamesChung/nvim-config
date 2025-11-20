@@ -25,6 +25,7 @@ return {
     config = function()
       require("mason-lspconfig").setup({
         ensure_installed = {
+          "jdtls", -- Java Language Server
           "zls", -- Zig Language Server
         },
         automatic_installation = true,
