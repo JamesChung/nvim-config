@@ -24,10 +24,7 @@ return {
     "mason-org/mason-lspconfig.nvim",
     config = function()
       require("mason-lspconfig").setup({
-        ensure_installed = {
-          "jdtls", -- Java Language Server
-          "zls", -- Zig Language Server
-        },
+        ensure_installed = {},
         automatic_installation = true,
       })
     end,
