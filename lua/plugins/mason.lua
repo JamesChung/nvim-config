@@ -5,7 +5,7 @@ return {
       {
         "<leader>ma",
         "<Cmd>Mason<CR>",
-        "Toggle Mason menu (Mason)",
+        desc = "Toggle Mason menu (Mason)",
       },
     },
     config = function()

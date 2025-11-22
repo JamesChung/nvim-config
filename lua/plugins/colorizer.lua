@@ -7,5 +7,5 @@ return {
                 names = false,
             },
         },
-    }
+    },
 }
