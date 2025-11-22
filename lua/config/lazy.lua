@@ -61,9 +61,13 @@ require("lazy").setup({
         { import = "lazyvim.plugins.extras.ai.claudecode" },
         -- Coding extras
         { import = "lazyvim.plugins.extras.coding.mini-surround" },
+        -- DAP/Debugging extras
+        { import = "lazyvim.plugins.extras.dap.core" },
+        { import = "lazyvim.plugins.extras.test.core" },
         -- Editor extras
         { import = "lazyvim.plugins.extras.editor.mini-move" },
         { import = "lazyvim.plugins.extras.editor.navic" },
+        { import = "lazyvim.plugins.extras.editor.overseer" },
         -- Util extras
         { import = "lazyvim.plugins.extras.util.dot" },
         { import = "lazyvim.plugins.extras.util.rest" },

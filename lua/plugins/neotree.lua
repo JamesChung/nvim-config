@@ -55,6 +55,7 @@ return {
                     },
                 },
                 window = {
+                    width = 40,
                     mappings = {
                         ["%"] = "add",
                         ["D"] = "delete",
