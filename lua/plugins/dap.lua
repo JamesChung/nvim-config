@@ -1,5 +1,11 @@
 return {
   {
+    "jay-babu/mason-nvim-dap.nvim",
+    opts = {
+      automatic_installation = { exclude = { "chrome" } },
+    },
+  },
+  {
     "mfussenegger/nvim-dap",
     keys = {
       -- Override the default continue keybinding to Shift+Enter

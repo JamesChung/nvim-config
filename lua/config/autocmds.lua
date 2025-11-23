@@ -38,7 +38,7 @@ vim.api.nvim_create_augroup("CursorHighlightGroup", {})
 vim.api.nvim_create_autocmd("CursorHold", {
     group = "CursorHighlightGroup",
     callback = function()
-        local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+        local clients = vim.lsp.get_clients({ bufnr = 0 })
         for _, client in ipairs(clients) do
             if client.server_capabilities.documentHighlightProvider then
                 pcall(vim.lsp.buf.document_highlight)
@@ -51,7 +51,7 @@ vim.api.nvim_create_autocmd("CursorHold", {
 vim.api.nvim_create_autocmd("CursorHoldI", {
     group = "CursorHighlightGroup",
     callback = function()
-        local clients = vim.lsp.get_active_clients({ bufnr = 0 })
+        local clients = vim.lsp.get_clients({ bufnr = 0 })
         for _, client in ipairs(clients) do
             if client.server_capabilities.documentHighlightProvider then
                 pcall(vim.lsp.buf.document_highlight)

@@ -19,6 +19,7 @@ return {
                         -- then these will never be used.
                         default = "*",
                         highlight = "NeoTreeFileIcon",
+                        use_filtered_colors = true,
                     },
                     modified = {
                         symbol = "[+]",

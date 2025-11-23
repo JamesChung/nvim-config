@@ -68,7 +68,7 @@ return {
     {
       "<leader>Td",
       function()
-        require("neotest").run.run({ strategy = "dap" })
+        require("neotest").run.run({ strategy = "dap", suite = false })
       end,
       desc = "Debug Nearest (Neotest)",
     },
