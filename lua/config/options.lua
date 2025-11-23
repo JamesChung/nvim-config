@@ -46,6 +46,11 @@ end
 -- Intercept open_floating_preview early to add placeholder for empty content
 local orig_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts)
+    -- Normalize contents to table if it's a string
+    if type(contents) == "string" then
+        contents = { contents }
+    end
+
     -- Check if contents is empty
     local has_content = false
     if type(contents) == "table" and #contents > 0 then
@@ -55,8 +60,6 @@ function vim.lsp.util.open_floating_preview(contents, syntax, opts)
                 break
             end
         end
-    elseif type(contents) == "string" and contents:match("%S") then
-        has_content = true
     end
 
     -- If no content, replace with placeholder
