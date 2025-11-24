@@ -8,25 +8,16 @@ return {
         desc = "Toggle Mason menu (Mason)",
       },
     },
-    config = function()
-      require("mason").setup({
-        ui = {
-          icons = {
-            package_installed = "✓",
-            package_pending = "➜",
-            package_uninstalled = "✗",
-          },
+    opts = {
+      ui = {
+        icons = {
+          package_installed = "✓",
+          package_pending = "➜",
+          package_uninstalled = "✗",
         },
-      })
-    end,
+      },
+    },
   },
-  {
-    "mason-org/mason-lspconfig.nvim",
-    config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = {},
-        automatic_installation = true,
-      })
-    end,
-  },
+  -- mason-lspconfig.nvim setup handled by LazyVim
+  -- LazyVim v15+ uses native vim.lsp.config (Neovim 0.11+)
 }

@@ -2,34 +2,34 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
--- Use LspAttach autocommand to only map the following keys
--- after the language server attaches to the current buffer
+-- Use LspAttach autocommand to set up custom LSP keybindings
+-- Note: LazyVim provides standard bindings (gd, gD, gr, K, gI, gy, <leader>ca, <leader>cr)
+-- This config keeps preferred alternatives and unique bindings
 vim.api.nvim_create_autocmd("LspAttach", {
     group = vim.api.nvim_create_augroup("UserLspConfig", {}),
     callback = function(ev)
-        -- Enable completion triggered by <c-x><c-o>
-        vim.bo[ev.buf].omnifunc = "v:lua.vim.lsp.omnifunc"
-
-        -- Buffer local mappings.
-        -- See `:help vim.lsp.*` for documentation on any of the below functions
         local opts = { buffer = ev.buf }
-        vim.keymap.set("n", "gD", vim.lsp.buf.declaration, opts)
-        vim.keymap.set("n", "gd", vim.lsp.buf.definition, opts)
-        vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)
-        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)
-        vim.keymap.set("n", "gr", vim.lsp.buf.references, opts)
-        vim.keymap.set("n", "K", vim.lsp.buf.hover, opts)
-        vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-        vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)
-        vim.keymap.set({ "n", "v" }, "<D-.>", vim.lsp.buf.code_action, opts)
-        vim.keymap.set({ "n", "v" }, "<leader>Ca", vim.lsp.buf.code_action, opts)
+
+        -- Preferred alternative bindings (override LazyVim defaults)
+        vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts)  -- Prefer gt over LazyVim's gy
+        vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts)   -- Prefer gi over LazyVim's gI
+        vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts) -- Normal mode signature help
+        vim.keymap.set("n", "<space>rn", vim.lsp.buf.rename, opts)    -- Prefer <space>rn over <leader>cr
+
+        -- Custom code action bindings
+        vim.keymap.set({ "n", "v" }, "<D-.>", vim.lsp.buf.code_action, opts)      -- macOS Cmd+.
+        vim.keymap.set({ "n", "v" }, "<leader>Ca", vim.lsp.buf.code_action, opts) -- Alternative binding
+
+        -- Format binding
+        vim.keymap.set("n", "<space>f", function()
+            vim.lsp.buf.format({ async = true })
+        end, opts)
+
+        -- Workspace folder management (not provided by LazyVim)
         vim.keymap.set("n", "<space>wa", vim.lsp.buf.add_workspace_folder, opts)
         vim.keymap.set("n", "<space>wr", vim.lsp.buf.remove_workspace_folder, opts)
         vim.keymap.set("n", "<space>wl", function()
             print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
-        end, opts)
-        vim.keymap.set("n", "<space>f", function()
-            vim.lsp.buf.format({ async = true })
         end, opts)
     end,
 })
