@@ -8,6 +8,7 @@ return {
                 "accept",
                 "fallback",
             },
+            ["<C-space>"] = { "show", "hide" },
         },
         completion = {
             menu = {
