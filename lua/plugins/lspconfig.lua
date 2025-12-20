@@ -25,6 +25,13 @@ return {
                     },
                 },
                 dotls = {},
+                gradle_ls = {
+                    init_options = {
+                        settings = {
+                            gradleWrapperEnabled = true,
+                        },
+                    },
+                },
                 lua_ls = {},
                 sourcekit = {
                     capabilities = {
