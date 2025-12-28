@@ -6,7 +6,7 @@
 
 -- Override :bd to use Snacks.bufdelete() to preserve window layout
 vim.api.nvim_create_user_command("BD", function(opts)
-  Snacks.bufdelete()
+	Snacks.bufdelete()
 end, { desc = "Delete buffer (keep window)" })
 
 -- Create abbreviation so :bd becomes :BD

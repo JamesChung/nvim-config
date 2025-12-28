@@ -1,4 +1,4 @@
 return {
-    { "f-person/git-blame.nvim" },
-    { "tpope/vim-fugitive" },
+	{ "f-person/git-blame.nvim" },
+	{ "tpope/vim-fugitive" },
 }

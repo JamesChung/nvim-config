@@ -1,11 +1,11 @@
 return {
-  {
-    "nvim-lint",
-    optional = true,
-    opts = {
-      linters_by_ft = {
-        markdown = {},
-      },
-    },
-  },
+	{
+		"nvim-lint",
+		optional = true,
+		opts = {
+			linters_by_ft = {
+				markdown = {},
+			},
+		},
+	},
 }
