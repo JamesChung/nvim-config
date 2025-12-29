@@ -34,45 +34,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 	end,
 })
 
--- Allow LSP context highlighting on cursor
-vim.api.nvim_create_augroup("CursorHighlightGroup", {})
-vim.api.nvim_create_autocmd("CursorHold", {
-	group = "CursorHighlightGroup",
-	callback = function()
-		local clients = vim.lsp.get_clients({ bufnr = 0 })
-		for _, client in ipairs(clients) do
-			if client.server_capabilities.documentHighlightProvider then
-				pcall(vim.lsp.buf.document_highlight)
-				return -- Stop after finding a server that supports it
-			end
-		end
-	end,
-	desc = "Highlight symbol under cursor on CursorHold",
-})
-vim.api.nvim_create_autocmd("CursorHoldI", {
-	group = "CursorHighlightGroup",
-	callback = function()
-		local clients = vim.lsp.get_clients({ bufnr = 0 })
-		for _, client in ipairs(clients) do
-			if client.server_capabilities.documentHighlightProvider then
-				pcall(vim.lsp.buf.document_highlight)
-				return -- Stop after finding a server that supports it
-			end
-		end
-	end,
-	desc = "Highlight symbol under cursor on CursorHoldI",
-})
-vim.api.nvim_create_autocmd("CursorMoved", {
-	group = "CursorHighlightGroup",
-	command = "silent! lua vim.lsp.buf.clear_references()",
-	desc = "Clear highlight references on CursorMoved",
-})
-vim.api.nvim_create_autocmd("CursorMovedI", {
-	group = "CursorHighlightGroup",
-	command = "silent! lua vim.lsp.buf.clear_references()",
-	desc = "Clear highlight references on CursorMovedI",
-})
-
 vim.api.nvim_create_user_command("E", "Neotree", {})
 
 -- Auto-detect indentation
