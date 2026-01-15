@@ -34,6 +34,7 @@ return {
 				},
 				lua_ls = {},
 				sourcekit = {
+					cmd = { "sourcekit-lsp" },
 					capabilities = {
 						workspace = {
 							didChangeWatchedFiles = {
