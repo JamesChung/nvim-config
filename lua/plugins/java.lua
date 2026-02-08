@@ -136,7 +136,7 @@ return {
 				-- If you add new dependencies, run `./gradlew build --refresh-dependencies` first.
 				import = {
 					gradle = {
-						offline = { enabled = true },
+						offline = { enabled = false },
 					},
 					exclusions = {
 						"**/node_modules/**",
