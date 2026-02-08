@@ -119,25 +119,18 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	desc = "Auto-detect indentation on file read",
 })
 
--- Track JDTLS indexing state to warn before quitting (prevents cache corruption)
-local jdtls_active_tasks = 0
-
-vim.api.nvim_create_autocmd("LspProgress", {
-	callback = function(ev)
-		local client = vim.lsp.get_client_by_id(ev.data.client_id)
-		if client and client.name == "jdtls" then
-			local value = ev.data.params.value
-			if value.kind == "begin" then
-				jdtls_active_tasks = jdtls_active_tasks + 1
-			elseif value.kind == "end" then
-				jdtls_active_tasks = math.max(0, jdtls_active_tasks - 1)
-			end
+-- Check if JDTLS has active progress (prevents cache corruption on quit)
+local function jdtls_is_busy()
+	for _, client in ipairs(vim.lsp.get_clients({ name = "jdtls" })) do
+		if client.progress.pending and next(client.progress.pending) then
+			return true
 		end
-	end,
-})
+	end
+	return false
+end
 
 local function safe_quit(cmd)
-	if jdtls_active_tasks > 0 then
+	if jdtls_is_busy() then
 		vim.ui.select({ "Yes", "No" }, { prompt = "JDTLS is still indexing. Quit anyway?" }, function(choice)
 			if choice == "Yes" then
 				vim.cmd(cmd)
