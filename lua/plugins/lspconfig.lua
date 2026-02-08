@@ -14,7 +14,6 @@ return {
 			},
 			servers = {
 				bashls = {},
-				bufls = {},
 				cssls = {
 					settings = {
 						css = {
