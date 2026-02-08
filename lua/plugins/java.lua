@@ -1,4 +1,25 @@
 return {
+	-- Configure conform.nvim to use palantir-java-format for Java files
+	{
+		"stevearc/conform.nvim",
+		opts = {
+			formatters_by_ft = {
+				java = { "palantir-java-format" },
+			},
+			formatters = {
+				-- NOTE: In order to get this binary you must build it from source at
+				-- https://github.com/palantir/palantir-java-format
+				-- run './gradlew :palantir-java-format-native:nativeCompile'
+				-- copy that binary to your ~/.local/bin/palantir-java-format
+				-- then this should work.
+				["palantir-java-format"] = {
+					command = "palantir-java-format",
+					args = { "--palantir", "-" },
+					stdin = true,
+				},
+			},
+		},
+	},
 	{
 		"mfussenegger/nvim-jdtls",
 		opts = function(_, opts)
@@ -30,6 +51,9 @@ return {
 
 			-- Define all Java settings in one place
 			local java_settings = {
+				-- Disable built-in formatter (using palantir-java-format via conform.nvim)
+				format = { enabled = false },
+
 				-- Multiple JDK runtimes for project switching
 				configuration = {
 					updateBuildConfiguration = "automatic",
@@ -138,20 +162,20 @@ return {
 					methodReturnTypes = { enabled = true },
 				},
 
-				-- Auto-organize imports on save
-				saveActions = {
-					organizeImports = true,
-				},
+				-- Auto-organize imports on save (disabled - using palantir-java-format)
+				-- saveActions = {
+				-- 	organizeImports = true,
+				-- },
 
-				-- Cleanup actions on save
-				cleanup = {
-					actions = {
-						"addOverride",
-						"addDeprecated",
-						"lambdaExpression",
-						"removeUnusedImports",
-					},
-				},
+				-- Cleanup actions on save (disabled - using palantir-java-format)
+				-- cleanup = {
+				-- 	actions = {
+				-- 		"addOverride",
+				-- 		"addDeprecated",
+				-- 		"lambdaExpression",
+				-- 		"removeUnusedImports",
+				-- 	},
+				-- },
 			}
 
 			-- Set via opts.jdtls (gets merged into final config by LazyVim)
