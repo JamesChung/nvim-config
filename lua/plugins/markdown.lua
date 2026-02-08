@@ -4,7 +4,7 @@ return {
 		optional = true,
 		opts = {
 			linters_by_ft = {
-				markdown = {},
+				markdown = { "markdownlint-cli2" },
 			},
 		},
 	},
