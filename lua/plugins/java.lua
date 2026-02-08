@@ -105,7 +105,7 @@ return {
 				-- Download dependency sources for go-to-definition
 				maven = {
 					downloadSources = true,
-					updateSnapshots = true,
+					updateSnapshots = false,
 				},
 
 				-- Use fernflower for better decompiled source quality
