@@ -97,9 +97,7 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 				end
 
 				-- Ensure reasonable bounds (2, 4, or 8 spaces)
-				if common_indent == 1 or common_indent > 8 then
-					common_indent = 4
-				elseif common_indent == 3 or common_indent == 5 or common_indent == 6 or common_indent == 7 then
+				if not vim.tbl_contains({ 2, 4, 8 }, common_indent) then
 					common_indent = 4
 				end
 			end
@@ -120,3 +118,41 @@ vim.api.nvim_create_autocmd("BufReadPost", {
 	end,
 	desc = "Auto-detect indentation on file read",
 })
+
+-- Track JDTLS indexing state to warn before quitting (prevents cache corruption)
+local jdtls_active_tasks = 0
+
+vim.api.nvim_create_autocmd("LspProgress", {
+	callback = function(ev)
+		local client = vim.lsp.get_client_by_id(ev.data.client_id)
+		if client and client.name == "jdtls" then
+			local value = ev.data.params.value
+			if value.kind == "begin" then
+				jdtls_active_tasks = jdtls_active_tasks + 1
+			elseif value.kind == "end" then
+				jdtls_active_tasks = math.max(0, jdtls_active_tasks - 1)
+			end
+		end
+	end,
+})
+
+local function safe_quit(cmd)
+	if jdtls_active_tasks > 0 then
+		vim.ui.select({ "Yes", "No" }, { prompt = "JDTLS is still indexing. Quit anyway?" }, function(choice)
+			if choice == "Yes" then
+				vim.cmd(cmd)
+			end
+		end)
+	else
+		vim.cmd(cmd)
+	end
+end
+
+for _, cmd in ipairs({ "q", "qa", "wq", "wqa" }) do
+	vim.api.nvim_create_user_command(cmd:gsub("^%l", string.upper), function()
+		safe_quit(cmd)
+	end, {})
+	vim.cmd(([[cnoreabbrev <expr> %s getcmdtype() == ':' && getcmdline() == '%s' ? '%s' : '%s']]):format(
+		cmd, cmd, cmd:gsub("^%l", string.upper), cmd
+	))
+end
