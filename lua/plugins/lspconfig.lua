@@ -24,13 +24,7 @@ return {
 					},
 				},
 				dotls = {},
-				gradle_ls = {
-					init_options = {
-						settings = {
-							gradleWrapperEnabled = true,
-						},
-					},
-				},
+				gradle_ls = {},
 				lua_ls = {},
 				sourcekit = {
 					cmd = { "sourcekit-lsp" },

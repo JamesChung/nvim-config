@@ -2,6 +2,15 @@ return {
 	{
 		"mfussenegger/nvim-jdtls",
 		opts = function(_, opts)
+			-- Fix lombok path (LazyVim uses $MASON/share/jdtls/ but mason installs to $MASON/packages/jdtls/)
+			local lombok_jar = vim.fn.expand("$MASON/packages/jdtls/lombok.jar")
+			for i, arg in ipairs(opts.cmd) do
+				if arg:match("-javaagent:.*lombok%.jar") then
+					opts.cmd[i] = string.format("--jvm-arg=-javaagent:%s", lombok_jar)
+					break
+				end
+			end
+
 			-- Add JVM args for performance
 			local jvm_args = {
 				-- The max size should be modified to best fit your current machine's max.
@@ -20,36 +29,6 @@ return {
 			-- Disable main class scanning (performance killer on large monorepos)
 			opts.dap_main = false
 
-			-- Get number of CPU cores with a cap
-			local function get_core_count(max_cores)
-				local ok, info = pcall(vim.uv.cpu_info)
-				local cores = ok and info and #info or 2
-
-				if cores > max_cores then
-					return max_cores
-				end
-
-				return cores
-			end
-
-			-- Build correct bundle list (LazyVim's glob includes invalid JARs)
-			local bundles = {}
-			local mason_share = vim.fn.expand("$MASON/share")
-			-- java-debug-adapter: all JARs are valid bundles
-			vim.list_extend(bundles, vim.fn.glob(mason_share .. "/java-debug-adapter/*.jar", false, true))
-			-- java-test: only the plugin JAR is a valid bundle (not runner, jacoco, junit deps)
-			vim.list_extend(
-				bundles,
-				vim.fn.glob(mason_share .. "/java-test/com.microsoft.java.test.plugin*.jar", false, true)
-			)
-
-			-- Override bundles via jdtls config
-			opts.jdtls = vim.tbl_deep_extend("force", opts.jdtls or {}, {
-				init_options = {
-					bundles = bundles,
-				},
-			})
-
 			-- Extend JDTLS settings
 			opts.settings = vim.tbl_deep_extend("force", opts.settings or {}, {
 				java = {
@@ -58,28 +37,29 @@ return {
 						updateBuildConfiguration = "automatic",
 						runtimes = {
 							{
-								name = "AppleJDK-11",
+								name = "JavaSE-11",
 								path = "/Library/Java/JavaVirtualMachines/applejdk-11.jdk/Contents/Home",
 							},
 							{
-								name = "AppleJDK-17",
+								name = "JavaSE-17",
 								path = "/Library/Java/JavaVirtualMachines/applejdk-17.jdk/Contents/Home",
 							},
 							{
-								name = "AppleJDK-21",
+								name = "JavaSE-21",
 								path = "/Library/Java/JavaVirtualMachines/applejdk-21.jdk/Contents/Home",
 								default = true,
 							},
 							{
-								name = "AppleJDK-25",
+								name = "JavaSE-25",
 								path = "/Library/Java/JavaVirtualMachines/applejdk-25.jdk/Contents/Home",
 							},
 						},
 					},
 
-					-- mixes lightweight/full modes for quicker startup while retaining full features (available in JDT LS 1.31+;
-					-- fallback to "Standard" if issues).
+					-- Hybrid mode: fast startup, full features in background
 					server = { launchMode = "Hybrid" },
+
+					autobuild = { enabled = true },
 
 					-- Completion optimizations
 					completion = {
@@ -132,18 +112,15 @@ return {
 					-- Gradle settings
 					import = {
 						gradle = {
-							enabled = true,
-							wrapper = { enabled = true },
-							annotationProcessing = { enabled = true },
+							-- NOTE: offline mode skips network dependency resolution for faster startup.
+							-- If you add new dependencies, run `./gradlew build --refresh-dependencies` first.
+							offline = { enabled = true },
 						},
 						exclusions = {
 							"**/node_modules/**",
 							"**/.git/**",
-							-- IDE configuration
 							"**/.idea/**",
-							"**/.settings/**",
 						},
-						generatesMetadataFilesAtProjectRoot = false,
 					},
 
 					-- Signature help with javadoc descriptions
@@ -163,17 +140,6 @@ return {
 						methodReturnTypes = { enabled = true },
 					},
 
-					-- Exclude common directories from file watching
-					project = {
-						resourceFilters = {
-							"node_modules",
-							".git",
-							-- IDE configuration
-							".idea",
-							".settings",
-						},
-					},
-
 					-- Auto-organize imports on save
 					saveActions = {
 						organizeImports = true,
@@ -188,12 +154,14 @@ return {
 							"removeUnusedImports",
 						},
 					},
-
-					-- Performance settings
-					maxConcurrentBuilds = get_core_count(8),
-					autobuild = { enabled = true },
 				},
 			})
+
+			-- Pass settings via init_options (like VS Code Java does) so they're available
+			-- during initial Gradle import, before workspace/configuration is requested.
+			opts.jdtls = opts.jdtls or {}
+			opts.jdtls.init_options = opts.jdtls.init_options or {}
+			opts.jdtls.init_options.settings = { java = opts.settings.java }
 
 			return opts
 		end,

@@ -19,26 +19,27 @@ return {
 			-- Disable the default <leader>dc binding
 			{ "<leader>dc", false },
 		},
-		opts = function()
-			local dap = require("dap")
-
-			-- Configure Java debugging
-			dap.configurations.java = {
-				{
-					type = "java",
-					request = "launch",
-					name = "Debug (Launch) - Current File",
-					mainClass = "${file}",
-				},
-				{
-					type = "java",
-					request = "attach",
-					name = "Debug (Attach) - Remote",
-					hostName = "127.0.0.1",
-					port = 5005,
-				},
-			}
-		end,
+		-- NOTE: Java DAP configuration handled by nvim-jdtls
+		-- opts = function()
+		-- 	local dap = require("dap")
+		--
+		-- 	-- Configure Java debugging
+		-- 	dap.configurations.java = {
+		-- 		{
+		-- 			type = "java",
+		-- 			request = "launch",
+		-- 			name = "Debug (Launch) - Current File",
+		-- 			mainClass = "${file}",
+		-- 		},
+		-- 		{
+		-- 			type = "java",
+		-- 			request = "attach",
+		-- 			name = "Debug (Attach) - Remote",
+		-- 			hostName = "127.0.0.1",
+		-- 			port = 5005,
+		-- 		},
+		-- 	}
+		-- end,
 	},
 	{
 		"rcarriga/nvim-dap-ui",

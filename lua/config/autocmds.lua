@@ -3,18 +3,33 @@
 -- Add any additional autocmds here
 
 -- Use LspAttach autocommand to set up custom LSP keybindings
--- Note: LazyVim provides standard bindings (gd, gD, gr, K, gI, gy, <leader>ca, <leader>cr)
--- This config keeps preferred alternatives and unique bindings
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
 	callback = function(ev)
 		local opts = { buffer = ev.buf }
 
-		-- Preferred alternative bindings (override LazyVim defaults)
-		vim.keymap.set("n", "gt", vim.lsp.buf.type_definition, opts) -- Prefer gt over LazyVim's gy
-		vim.keymap.set("n", "gi", vim.lsp.buf.implementation, opts) -- Prefer gi over LazyVim's gI
-		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts) -- Normal mode signature help
-		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts) -- Prefer <leader>rn over <leader>cr
+		-- Helper: Use Snacks picker if LSP supports the method, otherwise fallback
+		local function lsp_picker(method, snacks_fn, fallback_fn)
+			return function()
+				local clients = vim.lsp.get_clients({ bufnr = ev.buf, method = method })
+				if #clients > 0 then
+					snacks_fn()
+				else
+					fallback_fn()
+				end
+			end
+		end
+
+		-- LSP navigation with Snacks picker (fallback to vim.lsp.buf)
+		vim.keymap.set("n", "gd", lsp_picker("textDocument/definition", Snacks.picker.lsp_definitions, vim.lsp.buf.definition), opts)
+		vim.keymap.set("n", "gD", lsp_picker("textDocument/declaration", Snacks.picker.lsp_declarations, vim.lsp.buf.declaration), opts)
+		vim.keymap.set("n", "gt", lsp_picker("textDocument/typeDefinition", Snacks.picker.lsp_type_definitions, vim.lsp.buf.type_definition), opts)
+		vim.keymap.set("n", "gi", lsp_picker("textDocument/implementation", Snacks.picker.lsp_implementations, vim.lsp.buf.implementation), opts)
+		vim.keymap.set("n", "gr", lsp_picker("textDocument/references", Snacks.picker.lsp_references, vim.lsp.buf.references), opts)
+
+		-- Other LSP bindings
+		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
+		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
 		-- Custom code action bindings
 		vim.keymap.set({ "n", "v" }, "<D-.>", vim.lsp.buf.code_action, opts) -- macOS Cmd+.
