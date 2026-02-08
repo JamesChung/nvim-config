@@ -59,21 +59,13 @@ return {
 					updateBuildConfiguration = "automatic",
 					runtimes = {
 						{
-							name = "JavaSE-11",
-							path = "/Library/Java/JavaVirtualMachines/applejdk-11.jdk/Contents/Home",
-						},
-						{
-							name = "JavaSE-17",
-							path = "/Library/Java/JavaVirtualMachines/applejdk-17.jdk/Contents/Home",
-						},
-						{
 							name = "JavaSE-21",
-							path = "/Library/Java/JavaVirtualMachines/applejdk-21.jdk/Contents/Home",
+							path = "/Library/Java/JavaVirtualMachines/graalvm-21.jdk/Contents/Home",
 							default = true,
 						},
 						{
 							name = "JavaSE-25",
-							path = "/Library/Java/JavaVirtualMachines/applejdk-25.jdk/Contents/Home",
+							path = "/Library/Java/JavaVirtualMachines/graalvm-25.jdk/Contents/Home",
 						},
 					},
 				},
