@@ -34,9 +34,8 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
 
-		-- Custom code action bindings
-		vim.keymap.set({ "n", "v" }, "<D-.>", vim.lsp.buf.code_action, opts) -- macOS Cmd+.
-		vim.keymap.set({ "n", "v" }, "<leader>Ca", vim.lsp.buf.code_action, opts) -- Alternative binding
+		-- Custom code action binding (macOS Cmd+.)
+		vim.keymap.set({ "n", "v" }, "<D-.>", vim.lsp.buf.code_action, opts)
 
 		-- Format binding
 		vim.keymap.set("n", "<leader>f", function()

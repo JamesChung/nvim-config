@@ -7,18 +7,6 @@ return {
 	},
 	{
 		"mfussenegger/nvim-dap",
-		keys = {
-			-- Override the default continue keybinding to Shift+Enter
-			{
-				"<S-CR>",
-				function()
-					require("dap").continue()
-				end,
-				desc = "Continue/Start debugging",
-			},
-			-- Disable the default <leader>dc binding
-			{ "<leader>dc", false },
-		},
 		-- NOTE: Java DAP configuration handled by nvim-jdtls
 		-- opts = function()
 		-- 	local dap = require("dap")

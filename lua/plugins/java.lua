@@ -22,6 +22,14 @@ return {
 	},
 	{
 		"mfussenegger/nvim-jdtls",
+		keys = {
+			{ "<leader>jb", "<cmd>JdtBytecode<cr>", desc = "Show bytecode", ft = "java" },
+			{ "<leader>jc", "<cmd>JdtCompile<cr>", desc = "Compile", ft = "java" },
+			{ "<leader>jC", "<cmd>JdtCompile full<cr>", desc = "Compile (full)", ft = "java" },
+			{ "<leader>jr", "<cmd>JdtSetRuntime<cr>", desc = "Set runtime", ft = "java" },
+			{ "<leader>js", "<cmd>JdtJshell<cr>", desc = "Jshell", ft = "java" },
+			{ "<leader>jR", "<cmd>JdtRestart<cr>", desc = "Restart LSP", ft = "java" },
+		},
 		opts = function(_, opts)
 			-- Fix lombok path (LazyVim uses $MASON/share/jdtls/ but mason installs to $MASON/packages/jdtls/)
 			local lombok_jar = vim.fn.expand("$MASON/packages/jdtls/lombok.jar")
