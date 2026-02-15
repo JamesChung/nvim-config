@@ -2,6 +2,18 @@
 -- Default autocmds that are always set: https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/autocmds.lua
 -- Add any additional autocmds here
 
+-- Set C/C++ indent to match clangd's LLVM fallback style
+vim.api.nvim_create_autocmd("FileType", {
+	group = vim.api.nvim_create_augroup("ClangFormatIndent", { clear = true }),
+	pattern = { "c", "cpp", "objc", "objcpp" },
+	callback = function(ev)
+		vim.bo[ev.buf].shiftwidth = 2
+		vim.bo[ev.buf].tabstop = 2
+		vim.bo[ev.buf].softtabstop = 2
+		vim.bo[ev.buf].expandtab = true
+	end,
+})
+
 -- Use LspAttach autocommand to set up custom LSP keybindings
 vim.api.nvim_create_autocmd("LspAttach", {
 	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
