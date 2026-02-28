@@ -14,9 +14,7 @@ require("lazy").setup({
 		{ "LazyVim/LazyVim", import = "lazyvim.plugins" },
 		-- import any extras modules here
 		-- Language extras (alphabetically sorted)
-		{ import = "lazyvim.plugins.extras.lang.angular" },
 		{ import = "lazyvim.plugins.extras.lang.clangd" },
-		{ import = "lazyvim.plugins.extras.lang.cmake" },
 		{ import = "lazyvim.plugins.extras.lang.dart" },
 		{ import = "lazyvim.plugins.extras.lang.docker" },
 		{ import = "lazyvim.plugins.extras.lang.git" },
@@ -26,11 +24,9 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.lang.json" },
 		{ import = "lazyvim.plugins.extras.lang.kotlin" },
 		{ import = "lazyvim.plugins.extras.lang.markdown" },
-		{ import = "lazyvim.plugins.extras.lang.prisma" },
 		{ import = "lazyvim.plugins.extras.lang.python" },
 		{ import = "lazyvim.plugins.extras.lang.rust" },
 		{ import = "lazyvim.plugins.extras.lang.sql" },
-		{ import = "lazyvim.plugins.extras.lang.svelte" },
 		{ import = "lazyvim.plugins.extras.lang.tailwind" },
 		{ import = "lazyvim.plugins.extras.lang.terraform" },
 		{ import = "lazyvim.plugins.extras.lang.tex" },
@@ -48,11 +44,6 @@ require("lazy").setup({
 		{ import = "lazyvim.plugins.extras.test.core" },
 		-- Editor extras
 		{ import = "lazyvim.plugins.extras.editor.mini-move" },
-		{ import = "lazyvim.plugins.extras.editor.navic" },
-		{ import = "lazyvim.plugins.extras.editor.overseer" },
-		-- Util extras
-		{ import = "lazyvim.plugins.extras.util.dot" },
-		{ import = "lazyvim.plugins.extras.util.rest" },
 		-- import/override with your plugins
 		{ import = "plugins" },
 	},

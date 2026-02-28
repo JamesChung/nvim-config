@@ -1,25 +1,4 @@
 return {
-	-- Configure conform.nvim to use palantir-java-format for Java files
-	{
-		"stevearc/conform.nvim",
-		opts = {
-			formatters_by_ft = {
-				java = { "palantir-java-format" },
-			},
-			formatters = {
-				-- NOTE: In order to get this binary you must build it from source at
-				-- https://github.com/palantir/palantir-java-format
-				-- run './gradlew :palantir-java-format-native:nativeCompile'
-				-- copy that binary to your ~/.local/bin/palantir-java-format
-				-- then this should work.
-				["palantir-java-format"] = {
-					command = "palantir-java-format",
-					args = { "--palantir", "-" },
-					stdin = true,
-				},
-			},
-		},
-	},
 	{
 		"mfussenegger/nvim-jdtls",
 		keys = {

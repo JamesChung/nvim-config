@@ -193,6 +193,8 @@ Custom keybindings for Neovim using LazyVim with extras.
 |-----|------|--------|
 | `<leader>gg` | n | Lazygit (root dir) |
 | `<leader>gG` | n | Lazygit (cwd) |
+| `<leader>gd` | n | Diffview Open |
+| `<leader>gh` | n | Diffview File History (Current File) |
 | `<leader>gb` | n | Git blame line |
 | `<leader>gB` | n | Git browse (open) |
 | `<leader>gf` | n | Git file history |
@@ -239,42 +241,6 @@ Custom keybindings for Neovim using LazyVim with extras.
 | `<leader>as` | v | Send selection to Claude |
 | `<leader>aa` | n | Accept diff |
 | `<leader>ad` | n | Deny diff |
-
----
-
-## REST Client (kulala.nvim)
-
-*Only available in HTTP files*
-
-| Key | Mode | Action |
-|-----|------|--------|
-| `<leader>Rs` | n | Send request |
-| `<leader>Rr` | n | Replay last request |
-| `<leader>Rb` | n | Open scratchpad |
-| `<leader>Rc` | n | Copy as cURL |
-| `<leader>RC` | n | Paste from cURL |
-| `<leader>Re` | n | Set environment |
-| `<leader>Rg` | n | Download GraphQL schema |
-| `<leader>Ri` | n | Inspect request |
-| `<leader>Rn` | n | Next request |
-| `<leader>Rp` | n | Previous request |
-| `<leader>Rq` | n | Close window |
-| `<leader>RS` | n | Show stats |
-| `<leader>Rt` | n | Toggle headers/body |
-
----
-
-## Overseer (Task Runner)
-
-| Key | Mode | Action |
-|-----|------|--------|
-| `<leader>ow` | n | Task list |
-| `<leader>oo` | n | Run task |
-| `<leader>oq` | n | Action recent task |
-| `<leader>oi` | n | Overseer info |
-| `<leader>ob` | n | Task builder |
-| `<leader>ot` | n | Task action |
-| `<leader>oc` | n | Clear cache |
 
 ---
 
@@ -371,9 +337,9 @@ Custom keybindings for Neovim using LazyVim with extras.
 
 | Command | Action |
 |---------|--------|
-| `:E` | Open Neotree |
 | `:BD` | Delete buffer (preserve window layout) |
-| `:Q` | Safe quit (checks JDTLS indexing) |
+| `:SnacksTerminal` | Toggle Snacks floating terminal |
+| `:Q` | Safe quit (checks background tasks) |
 | `:Qa` | Safe quit all |
 | `:Wq` | Safe write and quit |
 | `:Wqa` | Safe write and quit all |

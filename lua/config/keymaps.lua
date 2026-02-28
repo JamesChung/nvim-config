@@ -15,3 +15,10 @@ end, { desc = "Delete buffer (keep window)" })
 
 -- Create abbreviation so :bd becomes :BD
 vim.cmd([[cnoreabbrev <expr> bd getcmdtype() == ':' && getcmdline() == 'bd' ? 'BD' : 'bd']])
+
+-- User command to toggle Snacks terminal
+vim.api.nvim_create_user_command("SnacksTerminal", function()
+	if Snacks and Snacks.terminal then
+		Snacks.terminal.toggle()
+	end
+end, { desc = "Toggle Snacks Terminal" })
