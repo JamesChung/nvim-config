@@ -343,3 +343,57 @@ Custom keybindings for Neovim using LazyVim with extras.
 | `:Qa` | Safe quit all |
 | `:Wq` | Safe write and quit |
 | `:Wqa` | Safe write and quit all |
+
+---
+
+## How to use Flash
+
+Flash is a high-speed navigation tool. Here are the common workflows:
+
+### 1. The Core Jump (`s`)
+1. Press **`s`**.
+2. Type 1-3 characters of your target word.
+3. Type the **label** (e.g., `a`, `s`, `f`) that appears over the match to jump there.
+
+### 2. The Treesitter Jump (`S`)
+1. Press **`S`**.
+2. Labels will appear over structural blocks (functions, loops, classes).
+3. Type the label to select the entire block.
+
+### 3. Remote Operations (`r`)
+Operate on code elsewhere on the screen without moving your cursor.
+* **`yr`** + **`flash jump`**: Yank a word from anywhere on screen and stay where you are.
+* **`dr`** + **`flash jump`**: Delete a word from anywhere on screen.
+
+### 4. Search Integration
+When using **`/`** to search, Flash labels will automatically appear. Instead of pressing `<Enter>` and `n/N`, just type the label to jump directly to a match.
+
+---
+
+## Pro Workflow Features
+
+Your configuration is tuned for professional, multi-language development. Take advantage of these advanced features:
+
+### 1. Safe Quit Protection (`:Q`, `:Qa`)
+Never worry about corrupting your JDTLS cache or cutting off a background plugin update.
+* **What it does:** Before quitting, it scans for active LSP indexing, DAP debug sessions, Mason installations, and Lazy.nvim updates.
+* **Why use it:** If it finds active tasks, it will prompt you with a list of what's running before allowing the quit. Use `:Q` or `:Qa` instead of `:q` or `:qa` for "productivity insurance."
+
+### 2. Modern Code Review (`Diffview`)
+Skip the basic terminal diffs and use a full-screen, interactive review interface.
+* **Command:** `<leader>gd` opens the Diffview.
+* **Feature:** Use the file panel on the left to toggle between changed files and see side-by-side diffs with full syntax highlighting. Use `q` to close it instantly.
+
+### 3. Unified Formatting (`Conform.nvim`)
+Your entire stack (Java, Swift, TS/JS, Vue, CSS, etc.) is managed by a single formatting engine.
+* **Feature:** Whether you're in a `.java` file using `palantir-java-format` or a `.ts` file using `Prettier`, the behavior is consistent.
+* **Tip:** Toggle "Format on Save" globally with `<leader>uf` if you're working on a project with strict styling rules.
+
+### 4. Floating Command Terminal (`:SnacksTerminal`)
+In addition to keybindings, you have a direct command-line toggle for the terminal.
+* **Command:** `:SnacksTerminal`
+* **Workflow:** This is perfect for quick one-off CLI commands without leaving your current buffer or remembering a complex chord.
+
+### 5. High-Performance Icons (`mini.icons`)
+Your UI (Neotree, Snacks, Picker) is powered by the latest, fastest icon provider in the ecosystem.
+* **Benefit:** It is significantly lighter than the old `web-devicons` and provides a more consistent, modern look across all languages. No extra configuration needed—it's built into the UI.
