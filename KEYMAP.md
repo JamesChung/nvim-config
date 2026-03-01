@@ -74,9 +74,11 @@ A comprehensive guide to all keybindings in this configuration, including custom
 | `<leader>rn` | n | Rename symbol (Mnemonic) |
 | `<leader>cr` | n | Rename symbol (LazyVim) |
 | `<leader>cf` | n | Format (Standard) |
-| `<leader>f` | n | Format (Custom mnemonic) |
 | `<leader>cd` | n | Line diagnostics |
 | `<leader>cl` | n | LSP Info |
+| `<leader>cwa` | n | Add workspace folder |
+| `<leader>cwr` | n | Remove workspace folder |
+| `<leader>cwl` | n | List workspace folders |
 
 ---
 
@@ -106,6 +108,7 @@ A comprehensive guide to all keybindings in this configuration, including custom
 | `:BD` | c | Delete buffer (Preserve layout) |
 | `<leader>bp` | n | Toggle Pin |
 | `<leader>bP` | n | Delete Non-Pinned |
+| `<leader>w` | n | Window Management | Default LazyVim |
 
 ---
 
@@ -120,10 +123,10 @@ A comprehensive guide to all keybindings in this configuration, including custom
 | `<leader>gb` | n | Git Blame Line | |
 | `<leader>gs` | n | Git Status | [Snacks.git](https://github.com/folke/snacks.nvim) |
 | `<leader>gS` | n | Git Stash | |
-| `gi` | n | GitHub Issues (open) | [octo.nvim](https://github.com/pwntester/octo.nvim) |
-| `gI` | n | GitHub Issues (all) | |
-| `gp` | n | GitHub PRs (open) | |
-| `gP` | n | GitHub PRs (all) | |
+| `<leader>gi` | n | GitHub Issues (open) | [octo.nvim](https://github.com/pwntester/octo.nvim) |
+| `<leader>gI` | n | GitHub Issues (all) | |
+| `<leader>gp` | n | GitHub PRs (open) | |
+| `<leader>gP` | n | GitHub PRs (all) | |
 
 ---
 
@@ -220,13 +223,13 @@ A comprehensive guide to all keybindings in this configuration, including custom
 Prevents data loss by scanning for active LSP indexing, DAP sessions, Mason installs, and Lazy updates before allowing a quit.
 
 ### 2. Unified Formatting (`Conform.nvim`)
-Consistent formatting across Java, Swift, Web, and System languages via `<leader>cf` or `<leader>f`.
+Consistent formatting across Java, Swift, Web, and System languages via `<leader>cf`.
 
 ### 3. Advanced Visual Diagnostics
 [tiny-inline-diagnostic.nvim](https://github.com/rachartier/tiny-inline-diagnostic.nvim) provides sleek, multi-line popups on the cursor line, identifying the specific LSP source.
 
 ### 4. GitHub Integration
-[octo.nvim](https://github.com/pwntester/octo.nvim) allows you to manage Issues and PRs without leaving the editor using `gi`, `gp`, etc.
+[octo.nvim](https://github.com/pwntester/octo.nvim) allows you to manage Issues and PRs without leaving the editor using `<leader>gi`, `<leader>gp`, etc.
 
 ---
 

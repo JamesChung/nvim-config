@@ -63,9 +63,9 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		vim.keymap.set("n", "gr", lsp_picker("textDocument/references", "lsp_references", vim.lsp.buf.references), opts)
 
 		-- Workspace folder management (not provided by LazyVim)
-		vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-		vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
-		vim.keymap.set("n", "<leader>wl", function()
+		vim.keymap.set("n", "<leader>cwa", vim.lsp.buf.add_workspace_folder, opts)
+		vim.keymap.set("n", "<leader>cwr", vim.lsp.buf.remove_workspace_folder, opts)
+		vim.keymap.set("n", "<leader>cwl", function()
 			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 		end, opts)
 

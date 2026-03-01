@@ -18,9 +18,9 @@ return {
 				-- Code Actions / LSP
 				{ "<leader>c", group = "code", icon = "⚙️ " },
 				
-				-- Workspace Management 
-				{ "<leader>w", group = "workspace", icon = "📁 " },
-			})
-		end,
-	},
-}
+				-- Workspace Management (Under Code)
+				{ "<leader>cw", group = "workspace", icon = "📁 " },
+				})
+				end,
+				},
+				}
