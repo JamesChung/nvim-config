@@ -74,7 +74,6 @@ return {
 		},
 
 		-- Disable all default lowercase t mappings to keep prefix free
-		{ "<leader>t", false },
 		{ "<leader>tt", false },
 		{ "<leader>tT", false },
 		{ "<leader>tr", false },

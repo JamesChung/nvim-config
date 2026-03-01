@@ -143,6 +143,18 @@ return {
 				desc = "Debug: Widgets",
 			},
 		},
+		opts = function()
+			local dap = require("dap")
+
+			-- Configure Java debugging
+			dap.configurations.java = dap.configurations.java or {}
+			table.insert(dap.configurations.java, {
+				type = "java",
+				request = "launch",
+				name = "Debug (Launch) - Current File",
+				mainClass = "${file}",
+			})
+		end,
 	},
 	{
 		"rcarriga/nvim-dap-ui",

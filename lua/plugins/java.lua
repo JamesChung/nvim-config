@@ -23,7 +23,6 @@ return {
 			local jvm_args = {
 				"--jvm-arg=-Xmx8g",
 				"--jvm-arg=-XX:+UseZGC",
-				"--jvm-arg=-XX:+ZGenerational",
 				"--jvm-arg=-XX:+UseStringDeduplication",
 				"--jvm-arg=-XX:ReservedCodeCacheSize=1g",
 				"--jvm-arg=-XX:SoftRefLRUPolicyMSPerMB=50",

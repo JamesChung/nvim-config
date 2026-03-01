@@ -16,7 +16,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 -- Use LspAttach autocommand to set up custom LSP keybindings
 vim.api.nvim_create_autocmd("LspAttach", {
-	group = vim.api.nvim_create_augroup("UserLspConfig", {}),
+	group = vim.api.nvim_create_augroup("UserLspConfig", { clear = true }),
 	callback = function(ev)
 		local opts = { buffer = ev.buf }
 
@@ -75,11 +75,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 
 		-- Custom code action binding (macOS Cmd+.)
 		vim.keymap.set({ "n", "v" }, "<D-.>", vim.lsp.buf.code_action, opts)
-
-		-- Format binding
-		vim.keymap.set("n", "<leader>f", function()
-			vim.lsp.buf.format({ async = true })
-		end, opts)
 	end,
 })
 
