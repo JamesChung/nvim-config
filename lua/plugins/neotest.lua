@@ -1,78 +1,80 @@
 return {
 	"nvim-neotest/neotest",
 	keys = {
-		-- Remap all test bindings to use capital T instead of lowercase t
+		-- Mnemonic Test Mappings (Capital T)
 		{
-			"<leader>TT",
+			"<leader>Tf",
 			function()
 				require("neotest").run.run(vim.fn.expand("%"))
 			end,
-			desc = "Run File (Neotest)",
-		},
-		{
-			"<leader>Ta",
-			function()
-				require("neotest").run.attach()
-			end,
-			desc = "Attach (Neotest)",
+			desc = "Test File (Neotest)",
 		},
 		{
 			"<leader>Tr",
 			function()
 				require("neotest").run.run()
 			end,
-			desc = "Run Nearest (Neotest)",
+			desc = "Test Run Nearest (Neotest)",
 		},
 		{
 			"<leader>Tl",
 			function()
 				require("neotest").run.run_last()
 			end,
-			desc = "Run Last (Neotest)",
+			desc = "Test Last (Neotest)",
 		},
 		{
 			"<leader>Ts",
 			function()
 				require("neotest").summary.toggle()
 			end,
-			desc = "Toggle Summary (Neotest)",
+			desc = "Test Summary (Neotest)",
 		},
 		{
 			"<leader>To",
 			function()
 				require("neotest").output.open({ enter = true, auto_close = true })
 			end,
-			desc = "Show Output (Neotest)",
+			desc = "Test Output (Neotest)",
 		},
 		{
 			"<leader>TO",
 			function()
 				require("neotest").output_panel.toggle()
 			end,
-			desc = "Toggle Output Panel (Neotest)",
-		},
-		{
-			"<leader>TS",
-			function()
-				require("neotest").run.stop()
-			end,
-			desc = "Stop (Neotest)",
-		},
-		{
-			"<leader>Tw",
-			function()
-				require("neotest").watch.toggle(vim.fn.expand("%"))
-			end,
-			desc = "Toggle Watch (Neotest)",
+			desc = "Test Output Panel (Neotest)",
 		},
 		{
 			"<leader>Td",
 			function()
 				require("neotest").run.run({ strategy = "dap", suite = false })
 			end,
-			desc = "Debug Nearest (Neotest)",
+			desc = "Test Debug Nearest (Neotest)",
 		},
-		-- Disable all default lowercase t bindings
+		{
+			"<leader>Tw",
+			function()
+				require("neotest").watch.toggle(vim.fn.expand("%"))
+			end,
+			desc = "Test Watch (Neotest)",
+		},
+		{
+			"<leader>TS",
+			function()
+				require("neotest").run.stop()
+			end,
+			desc = "Test Stop (Neotest)",
+		},
+		{
+			"<leader>Ta",
+			function()
+				require("neotest").run.attach()
+			end,
+			desc = "Test Attach (Neotest)",
+		},
+
+		-- Disable all default lowercase t mappings to keep prefix free
+		{ "<leader>t", false },
 		{ "<leader>tt", false },
 		{ "<leader>tT", false },
 		{ "<leader>tr", false },

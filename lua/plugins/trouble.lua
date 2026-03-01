@@ -1,20 +1,23 @@
 return {
 	"folke/trouble.nvim",
-	opts = {}, -- Use default settings
+	opts = {},
 	keys = {
-		-- Disable standard x mappings
+		-- Disable standard LazyVim x mappings
 		{ "<leader>xx", false },
 		{ "<leader>xX", false },
 		{ "<leader>xL", false },
 		{ "<leader>xQ", false },
-		-- Map to lowercase t (mnemonic: Trouble)
+		{ "<leader>xt", false },
+		{ "<leader>xT", false },
+
+		-- Mnemonic Trouble Mappings (lowercase t)
 		{
-			"<leader>tt",
+			"<leader>tp",
 			"<cmd>Trouble diagnostics toggle<cr>",
-			desc = "Diagnostics (Trouble)",
+			desc = "Project Diagnostics (Trouble)",
 		},
 		{
-			"<leader>tX",
+			"<leader>tb",
 			"<cmd>Trouble diagnostics toggle filter.buf=0<cr>",
 			desc = "Buffer Diagnostics (Trouble)",
 		},
@@ -29,14 +32,14 @@ return {
 			desc = "LSP Definitions / references / ... (Trouble)",
 		},
 		{
-			"<leader>tL",
-			"<cmd>Trouble loclist toggle<cr>",
-			desc = "Location List (Trouble)",
-		},
-		{
-			"<leader>tQ",
+			"<leader>tq",
 			"<cmd>Trouble qflist toggle<cr>",
 			desc = "Quickfix List (Trouble)",
+		},
+		{
+			"<leader>to",
+			"<cmd>Trouble loclist toggle<cr>",
+			desc = "Location List (Trouble)",
 		},
 	},
 }

@@ -147,16 +147,15 @@ A comprehensive guide to all keybindings in this configuration, including custom
 
 ## Trouble & Diagnostics
 
-| Key | Mode | Action |
-|-----|------|--------|
-| `<leader>tt` | n | Project Diagnostics |
-| `<leader>tX` | n | Buffer Diagnostics |
-| `<leader>ts` | n | Symbols |
-| `<leader>tl` | n | LSP Definitions/Refs |
-| `<leader>tQ` | n | Quickfix List |
-| `<leader>tL` | n | Location List |
-| `<leader>xt` | n | Todo List |
-| `]q` | n | Next Trouble/QF item |
+| Key | Mode | Action | Description |
+|-----|------|--------|-------------|
+| `<leader>tp` | n | Project Diagnostics | [Trouble.nvim](https://github.com/folke/trouble.nvim) |
+| `<leader>tb` | n | Buffer Diagnostics | |
+| `<leader>ts` | n | Symbols | |
+| `<leader>tl` | n | LSP Definitions/Refs | |
+| `<leader>tq` | n | Quickfix List | |
+| `<leader>to` | n | Location List | |
+| `]q` | n | Next Trouble/QF item | |
 | `[q` | n | Prev Trouble/QF item |
 
 ---
@@ -187,28 +186,35 @@ A comprehensive guide to all keybindings in this configuration, including custom
 | `<leader>aa` | n | Accept Diff |
 | `<leader>ad` | n | Deny Diff |
 
-### Java & Swift
+---
+
+## Debugging (DAP)
+
 | Key | Mode | Action | Plugin |
 |-----|------|--------|--------|
-| `<leader>jc` | n | Java: Compile | [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls) |
-| `<leader>jr` | n | Java: Set Runtime | |
-| `<leader>xb` | n | Swift: Xcode Build | [xcodebuild](https://github.com/wojciech-kulik/xcodebuild.nvim) |
-| `<leader>xr` | n | Swift: Xcode Run | |
-| `<leader>xt` | n | Swift: Xcode Test | |
-| `<leader>xl` | n | Swift: Toggle Logs | |
-| `<leader>xd` | n | Swift: Select Device | |
-| `<leader>xp` | n | Swift: Select Scheme | |
-
-### Testing (Neotest)
-| Key | Mode | Action |
-|-----|------|--------|
-| `<leader>TT` | n | Run File |
-| `<leader>Tr` | n | Run Nearest |
-| `<leader>Ts` | n | Toggle Summary |
+| `<leader>dc` | n | Continue / Start | [nvim-dap](https://github.com/mfussenegger/nvim-dap) |
+| `<leader>db` | n | Toggle Breakpoint | |
+| `<leader>dB` | n | Breakpoint Condition | |
+| `<leader>da` | n | Run with Args | |
+| `<leader>dC` | n | Run to Cursor | |
+| `<leader>dg` | n | Go to Line (No Execute) | |
+| `<leader>di` | n | Step Into | |
+| `<leader>do` | n | Step Out | |
+| `<leader>dO` | n | Step Over | |
+| `<leader>dj` | n | Down (Stack Frame) | |
+| `<leader>dk` | n | Up (Stack Frame) | |
+| `<leader>dl` | n | Run Last session | |
+| `<leader>dt` | n | Terminate | |
+| `<leader>dp` | n | Pause | |
+| `<leader>du` | n | Toggle UI | [nvim-dap-ui](https://github.com/rcarriga/nvim-dap-ui) |
+| `<leader>de` | n, v | Eval Expression | |
+| `<leader>dr` | n | Toggle REPL | |
+| `<leader>ds` | n | Session Info | |
+| `<leader>dw` | n | Widgets (Floating info) | |
 
 ---
 
-## Pro Workflow Features
+## Java & Swift Development
 
 ### 1. Safe Quit Protection (`:Q`, `:Qa`, etc.)
 Prevents data loss by scanning for active LSP indexing, DAP sessions, Mason installs, and Lazy updates before allowing a quit.
