@@ -7,7 +7,7 @@ return {
 		picker = {
 			sources = {
 				files = {
-					hidden = false,
+					hidden = true,
 					ignored = false,
 				},
 				-- Show picker immediately with loading indicator instead of waiting for results

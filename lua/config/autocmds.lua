@@ -62,6 +62,13 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		)
 		vim.keymap.set("n", "gr", lsp_picker("textDocument/references", "lsp_references", vim.lsp.buf.references), opts)
 
+		-- Workspace folder management (not provided by LazyVim)
+		vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
+		vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
+		vim.keymap.set("n", "<leader>wl", function()
+			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
+		end, opts)
+
 		-- Other LSP bindings
 		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
 		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
@@ -72,13 +79,6 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		-- Format binding
 		vim.keymap.set("n", "<leader>f", function()
 			vim.lsp.buf.format({ async = true })
-		end, opts)
-
-		-- Workspace folder management (not provided by LazyVim)
-		vim.keymap.set("n", "<leader>wa", vim.lsp.buf.add_workspace_folder, opts)
-		vim.keymap.set("n", "<leader>wr", vim.lsp.buf.remove_workspace_folder, opts)
-		vim.keymap.set("n", "<leader>wl", function()
-			print(vim.inspect(vim.lsp.buf.list_workspace_folders()))
 		end, opts)
 	end,
 })

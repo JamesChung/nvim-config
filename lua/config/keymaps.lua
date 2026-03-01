@@ -25,3 +25,12 @@ end, { desc = "Toggle Snacks Terminal" })
 
 -- Terminal mappings
 vim.keymap.set("t", "<C-[>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
+vim.keymap.set({ "n", "t" }, "<C-t>", function() Snacks.terminal.toggle() end, { desc = "Toggle Terminal" })
+vim.keymap.set({ "n", "t" }, "<C-`>", function() Snacks.terminal.toggle() end, { desc = "Toggle Terminal" })
+
+-- Git Quickfix mapping
+vim.keymap.set("n", "<leader>gq", function()
+	if package.loaded.gitsigns then
+		require("gitsigns").setqflist("all")
+	end
+end, { desc = "Git Quickfix (All Hunks)" })

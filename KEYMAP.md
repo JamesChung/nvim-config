@@ -1,36 +1,69 @@
 # Neovim Keymap Reference
 
-Custom keybindings for Neovim using LazyVim with extras.
+A comprehensive guide to all keybindings in this configuration, including custom bindings, LazyVim defaults, and plugin-specific shortcuts.
+
+## Table of Contents
+- [Mode Legend](#mode-legend)
+- [Essential Keys (Quick Start)](#essential-keys-quick-start)
+- [LSP Navigation & Actions](#lsp-navigation)
+- [File & Buffer Management](#file-management)
+- [Git & GitHub (Octo)](#git--github)
+- [Search & Replace (Snacks)](#search--replace)
+- [Trouble & Diagnostics](#trouble--diagnostics)
+- [Terminal & UI Toggles](#terminal--ui-toggles)
+- [AI & Development (Java/Swift/Test)](#ai--development)
+- [Pro Workflow Features](#pro-workflow-features)
+- [How to use Flash](#how-to-use-flash)
+
+---
 
 ## Mode Legend
 
-| Abbrev | Mode |
-|--------|------|
-| n | Normal |
-| v | Visual |
-| i | Insert |
-| o | Operator-pending |
-| c | Command |
+| Abbrev | Mode | Description |
+|--------|------|-------------|
+| **n** | Normal | Command navigation |
+| **v** | Visual | Text selection |
+| **i** | Insert | Text editing |
+| **t** | Terminal | Integrated shell |
+| **c** | Command | `:` prompt |
+
+---
+
+## Essential Keys (Quick Start)
+
+| Key | Mode | Action | Why? |
+|-----|------|--------|------|
+| `<leader>ff` | n | Find Files | High-speed project navigation |
+| `<leader>fg` | n | Live Grep | Find any text project-wide |
+| `gd` | n | Go to Definition | Jump to source code |
+| `gr` | n | References | See where code is used |
+| `<leader>ca` | n, v | Code Action | Quick fixes and refactoring |
+| `<leader>gq` | n | Git Quickfix | Actionable list of all changes |
+| `s` | n, v | Flash Jump | Teleport to any word on screen |
+| `<leader>e` | n | Explorer | Toggle project sidebar |
+| `<C-/>` | n, t | Terminal | Toggle floating shell |
+| `:Q` | c | Safe Quit | Protect background tasks |
 
 ---
 
 ## LSP Navigation
 
-| Key | Mode | Action |
-|-----|------|--------|
-| `gd` | n | Go to definition (Snacks picker) |
-| `gD` | n | Go to declaration |
-| `gt` | n | Go to type definition |
-| `gi` | n | Go to implementation |
-| `gr` | n | Go to references |
-| `K` | n | Hover documentation |
-| `<C-k>` | n | Signature help |
-| `]d` | n | Next diagnostic |
-| `[d` | n | Previous diagnostic |
-| `]e` | n | Next error |
-| `[e` | n | Previous error |
-| `]w` | n | Next warning |
-| `[w` | n | Previous warning |
+*Note: In code buffers, these are mapped via LspAttach for highest priority.*
+
+| Key | Mode | Action | Source |
+|-----|------|--------|--------|
+| `gd` | n | Go to definition | [Snacks.picker](https://github.com/folke/snacks.nvim) |
+| `gD` | n | Go to declaration | |
+| `gt` | n | Go to type definition | |
+| `gi` | n | Go to implementation | |
+| `gr` | n | Go to references | |
+| `K` | n | Hover documentation | Native |
+| `gO` | n | Document symbols | Native |
+| `<C-k>` | n, i | Signature help | |
+| `]d` | n | Next diagnostic | |
+| `[d` | n | Prev diagnostic | |
+| `]e` | n | Next error | |
+| `[e` | n | Prev error | |
 
 ## LSP Actions
 
@@ -38,169 +71,59 @@ Custom keybindings for Neovim using LazyVim with extras.
 |-----|------|--------|
 | `<leader>ca` | n, v | Code action |
 | `<D-.>` | n, v | Code action (macOS Cmd+.) |
-| `<leader>rn` | n | Rename symbol |
-| `<leader>cf` | n | Format (LazyVim) |
-| `<leader>f` | n | Format (custom) |
+| `<leader>rn` | n | Rename symbol (Mnemonic) |
+| `<leader>cr` | n | Rename symbol (LazyVim) |
+| `<leader>cf` | n | Format (Standard) |
+| `<leader>f` | n | Format (Custom mnemonic) |
 | `<leader>cd` | n | Line diagnostics |
-
-## Workspace
-
-| Key | Mode | Action |
-|-----|------|--------|
-| `<leader>wa` | n | Add workspace folder |
-| `<leader>wr` | n | Remove workspace folder |
-| `<leader>wl` | n | List workspace folders |
+| `<leader>cl` | n | LSP Info |
 
 ---
 
-## Java (nvim-jdtls)
-
-*Only available in Java files*
+## File Management
 
 | Key | Mode | Action |
 |-----|------|--------|
-| `<leader>jb` | n | Show bytecode |
-| `<leader>jc` | n | Compile |
-| `<leader>jC` | n | Compile (full rebuild) |
-| `<leader>jr` | n | Set runtime (switch JDK) |
-| `<leader>js` | n | Open Jshell REPL |
-| `<leader>jR` | n | Restart LSP |
-
----
-
-## Debugging (DAP)
-
-| Key | Mode | Action |
-|-----|------|--------|
-| `<leader>dc` | n | Continue / Start |
-| `<leader>db` | n | Toggle breakpoint |
-| `<leader>dB` | n | Breakpoint condition |
-| `<leader>da` | n | Run with args |
-| `<leader>dC` | n | Run to cursor |
-| `<leader>dg` | n | Go to line (no execute) |
-| `<leader>di` | n | Step into |
-| `<leader>do` | n | Step out |
-| `<leader>dO` | n | Step over |
-| `<leader>dj` | n | Down (stack frame) |
-| `<leader>dk` | n | Up (stack frame) |
-| `<leader>dl` | n | Run last |
-| `<leader>dP` | n | Pause |
-| `<leader>dr` | n | Toggle REPL |
-| `<leader>ds` | n | Session |
-| `<leader>dt` | n | Terminate |
-| `<leader>dw` | n | Widgets |
-| `<leader>du` | n | DAP UI |
-| `<leader>de` | n | Eval |
-
----
-
-## Testing (Neotest)
-
-*Remapped from `<leader>t` to `<leader>T`*
-
-| Key | Mode | Action |
-|-----|------|--------|
-| `<leader>TT` | n | Run file |
-| `<leader>Tr` | n | Run nearest |
-| `<leader>Tl` | n | Run last |
-| `<leader>Ts` | n | Toggle summary |
-| `<leader>To` | n | Show output |
-| `<leader>TO` | n | Toggle output panel |
-| `<leader>TS` | n | Stop |
-| `<leader>Tw` | n | Toggle watch |
-| `<leader>Td` | n | Debug nearest |
-| `<leader>Ta` | n | Attach to test |
-
----
-
-## Swift/Xcode (xcodebuild.nvim)
-
-*Only available in Swift files*
-
-| Key | Mode | Action |
-|-----|------|--------|
-| `<leader>Xb` | n | Xcode build |
-| `<leader>Xr` | n | Xcode build & run |
-| `<leader>Xt` | n | Xcode test |
-| `<leader>XT` | n | Xcode test target |
-| `<leader>Xd` | n | Select device |
-| `<leader>Xp` | n | Select scheme |
-| `<leader>Xl` | n | Toggle logs |
-| `<leader>Xc` | n | Toggle coverage |
-
----
-
-## File Navigation
-
-| Key | Mode | Action |
-|-----|------|--------|
-| `<leader>ff` | n | Find files |
-| `<leader>fg` | n | Live grep |
-| `<leader>fb` | n | Buffers |
-| `<leader>fr` | n | Recent files |
-| `<leader>/` | n | Grep (root dir) |
-| `<leader>e` | n | Explorer (Neotree) |
+| `<leader>ff` | n | Find files (Root Dir) |
+| `<leader>fF` | n | Find files (cwd) |
+| `<leader>fr` | n | Recent files (Root) |
+| `<leader>fR` | n | Recent files (cwd) |
+| `<leader>e` | n | Explorer (Root) |
 | `<leader>E` | n | Explorer (cwd) |
+| `:E` | c | Open Neotree |
+| `<leader>fc` | n | Find Config File |
+| `<leader>fn` | n | New File |
 
 ## Buffer Management
 
 | Key | Mode | Action |
 |-----|------|--------|
-| `<S-h>` | n | Previous buffer |
-| `<S-l>` | n | Next buffer |
-| `[b` | n | Previous buffer |
-| `]b` | n | Next buffer |
+| `H` | n | Previous buffer |
+| `L` | n | Next buffer |
 | `<leader>bb` | n | Switch to other buffer |
-| `<leader>bd` | n | Delete buffer |
-| `<leader>bo` | n | Delete other buffers |
-| `<leader>bD` | n | Delete buffer and window |
-| `:BD` | c | Delete buffer (preserve layout) |
-
-## Window Management
-
-| Key | Mode | Action |
-|-----|------|--------|
-| `<C-h>` | n | Go to left window |
-| `<C-j>` | n | Go to lower window |
-| `<C-k>` | n | Go to upper window |
-| `<C-l>` | n | Go to right window |
-| `<C-Up>` | n | Increase window height |
-| `<C-Down>` | n | Decrease window height |
-| `<C-Left>` | n | Decrease window width |
-| `<C-Right>` | n | Increase window width |
-| `<leader>-` | n | Split below |
-| `<leader>\|` | n | Split right |
-| `<leader>wd` | n | Delete window |
-| `<leader>wm` | n | Toggle zoom |
-
-## Tab Management
-
-| Key | Mode | Action |
-|-----|------|--------|
-| `<leader><tab><tab>` | n | New tab |
-| `<leader><tab>d` | n | Close tab |
-| `<leader><tab>l` | n | Last tab |
-| `<leader><tab>f` | n | First tab |
-| `<leader><tab>]` | n | Next tab |
-| `<leader><tab>[` | n | Previous tab |
-| `<leader><tab>o` | n | Close other tabs |
+| `,` | n | Switch buffer (LazyVim) |
+| `<leader>bd` | n | Delete buffer (Snacks) |
+| `:BD` | c | Delete buffer (Preserve layout) |
+| `<leader>bp` | n | Toggle Pin |
+| `<leader>bP` | n | Delete Non-Pinned |
 
 ---
 
-## Git
+## Git & GitHub
 
-| Key | Mode | Action |
-|-----|------|--------|
-| `<leader>gg` | n | Lazygit (root dir) |
-| `<leader>gG` | n | Lazygit (cwd) |
-| `<leader>gd` | n | Diffview Open |
-| `<leader>gh` | n | Diffview File History (Current File) |
-| `<leader>gb` | n | Git blame line |
-| `<leader>gB` | n | Git browse (open) |
-| `<leader>gf` | n | Git file history |
-| `<leader>gl` | n | Git log |
-| `<leader>gL` | n | Git log (cwd) |
-| `<leader>gY` | n | Git browse (copy URL) |
+| Key | Mode | Action | Plugin |
+|-----|------|--------|--------|
+| `<leader>gg` | n | Lazygit (Root) | [lazygit](https://github.com/jesseduffield/lazygit) |
+| `<leader>gd` | n | Diffview Open | [diffview](https://github.com/sindrets/diffview.nvim) |
+| `<leader>gh` | n | Diffview History | |
+| `<leader>gq` | n | Git Quickfix | [gitsigns](https://github.com/lewis6991/gitsigns.nvim) |
+| `<leader>gb` | n | Git Blame Line | |
+| `<leader>gs` | n | Git Status | [Snacks.git](https://github.com/folke/snacks.nvim) |
+| `<leader>gS` | n | Git Stash | |
+| `gi` | n | GitHub Issues (open) | [octo.nvim](https://github.com/pwntester/octo.nvim) |
+| `gI` | n | GitHub Issues (all) | |
+| `gp` | n | GitHub PRs (open) | |
+| `gP` | n | GitHub PRs (all) | |
 
 ---
 
@@ -208,192 +131,137 @@ Custom keybindings for Neovim using LazyVim with extras.
 
 | Key | Mode | Action |
 |-----|------|--------|
-| `<leader>sr` | n | Search and replace (Grug-far) |
-| `s` | n, v, o | Flash jump |
-| `S` | n | Flash treesitter |
-| `r` | o | Remote flash |
-| `R` | o, v | Treesitter search |
-| `<C-s>` | c | Toggle flash search |
+| `<leader>/` | n | Grep (Root Dir) |
+| `<leader>sg` | n | Grep (Root Dir) |
+| `<leader>sG` | n | Grep (cwd) |
+| `<leader>sw` | n | Search Word (Root) |
+| `<leader>sk` | n | Search Keymaps |
+| `<leader>sh` | n | Search Help |
+| `<leader>sj` | n | Search Jumps |
+| `<leader>sm` | n | Search Marks |
+| `<leader>sr` | n | Search & Replace (Grug-far) |
+| `s` | n, v | Flash Jump |
+| `S` | n | Flash Treesitter |
 
 ---
 
-## Terminal
+## Trouble & Diagnostics
 
 | Key | Mode | Action |
 |-----|------|--------|
-| `<C-t>` | n | Toggle terminal |
-| `` <C-`> `` | n | Toggle terminal |
-| `<leader>ft` | n | Terminal (root dir) |
-| `<leader>fT` | n | Terminal (cwd) |
-| `<C-/>` | n | Terminal (root dir) |
+| `<leader>tt` | n | Project Diagnostics |
+| `<leader>tX` | n | Buffer Diagnostics |
+| `<leader>ts` | n | Symbols |
+| `<leader>tl` | n | LSP Definitions/Refs |
+| `<leader>tQ` | n | Quickfix List |
+| `<leader>tL` | n | Location List |
+| `<leader>xt` | n | Todo List |
+| `]q` | n | Next Trouble/QF item |
+| `[q` | n | Prev Trouble/QF item |
 
 ---
 
-## AI (Claude Code)
+## Terminal & UI Toggles
 
+| Key | Mode | Action |
+|-----|------|--------|
+| `<C-/>` | n, t | Toggle Terminal |
+| `<C-t>` | n, t | Toggle Terminal |
+| `` <C-`> `` | n, t | Toggle Terminal |
+| `:SnacksTerminal` | c | Toggle terminal |
+| `<C-[>` | t | Exit Terminal Mode |
+| `<leader>uf` | n | Toggle Auto-format |
+| `<leader>ul` | n | Toggle Line Numbers |
+| `<leader>uL` | n | Toggle Relative Numbers |
+| `<leader>un` | n | Dismiss Notifications |
+
+---
+
+## AI & Development
+
+### AI (Claude Code)
 | Key | Mode | Action |
 |-----|------|--------|
 | `<leader>ac` | n | Toggle Claude |
 | `<leader>af` | n | Focus Claude |
-| `<leader>ar` | n | Resume Claude |
-| `<leader>aC` | n | Continue Claude |
-| `<leader>ab` | n | Add current buffer |
-| `<leader>as` | v | Send selection to Claude |
-| `<leader>aa` | n | Accept diff |
-| `<leader>ad` | n | Deny diff |
+| `<leader>aa` | n | Accept Diff |
+| `<leader>ad` | n | Deny Diff |
 
----
+### Java & Swift
+| Key | Mode | Action | Plugin |
+|-----|------|--------|--------|
+| `<leader>jc` | n | Java: Compile | [nvim-jdtls](https://github.com/mfussenegger/nvim-jdtls) |
+| `<leader>jr` | n | Java: Set Runtime | |
+| `<leader>xb` | n | Swift: Xcode Build | [xcodebuild](https://github.com/wojciech-kulik/xcodebuild.nvim) |
+| `<leader>xr` | n | Swift: Xcode Run | |
+| `<leader>xt` | n | Swift: Xcode Test | |
+| `<leader>xl` | n | Swift: Toggle Logs | |
+| `<leader>xd` | n | Swift: Select Device | |
+| `<leader>xp` | n | Swift: Select Scheme | |
 
-## Toggles & UI
-
+### Testing (Neotest)
 | Key | Mode | Action |
 |-----|------|--------|
-| `<leader>uf` | n | Toggle format on save |
-| `<leader>uF` | n | Toggle format on save (buffer) |
-| `<leader>us` | n | Toggle spelling |
-| `<leader>uw` | n | Toggle wrap |
-| `<leader>ul` | n | Toggle line numbers |
-| `<leader>uL` | n | Toggle relative numbers |
-| `<leader>ud` | n | Toggle diagnostics |
-| `<leader>uc` | n | Toggle conceal |
-| `<leader>uh` | n | Toggle inlay hints |
-| `<leader>uT` | n | Toggle treesitter |
-| `<leader>ub` | n | Toggle dark background |
-| `<leader>uz` | n | Toggle zen mode |
-| `<leader>ur` | n | Redraw / clear hlsearch |
-
----
-
-## Utilities
-
-| Key | Mode | Action |
-|-----|------|--------|
-| `<leader>l` | n | Lazy (plugin manager) |
-| `<leader>L` | n | LazyVim changelog |
-| `<leader>ma` | n | Mason (LSP installer) |
-| `<leader>fn` | n | New file |
-| `<leader>xl` | n | Location list |
-| `<leader>xq` | n | Quickfix list |
-| `[q` | n | Previous quickfix |
-| `]q` | n | Next quickfix |
-| `<leader>qq` | n | Quit all |
-| `<leader>ui` | n | Inspect position |
-| `<leader>uI` | n | Inspect tree |
-| `<leader>?` | n | Buffer keymaps (which-key) |
-
----
-
-## Editing
-
-| Key | Mode | Action |
-|-----|------|--------|
-| `<` | v | Indent left (keep selection) |
-| `>` | v | Indent right (keep selection) |
-| `<A-j>` | n, i, v | Move line down |
-| `<A-k>` | n, i, v | Move line up |
-| `gco` | n | Add comment below |
-| `gcO` | n | Add comment above |
-| `gc` | n, v | Toggle comment |
-| `<C-s>` | n, i | Save file |
-
-## Surround (mini.surround)
-
-| Key | Mode | Action |
-|-----|------|--------|
-| `gsa` | n, v | Add surrounding |
-| `gsd` | n | Delete surrounding |
-| `gsr` | n | Replace surrounding |
-| `gsf` | n | Find right surrounding |
-| `gsF` | n | Find left surrounding |
-| `gsh` | n | Highlight surrounding |
-| `gsn` | n | Update n_lines |
-
-## Completion (blink.cmp)
-
-| Key | Mode | Action |
-|-----|------|--------|
-| `<Tab>` | i | Accept completion |
-| `<C-Space>` | i | Toggle completion menu |
-| `<C-n>` | i | Next item |
-| `<C-p>` | i | Previous item |
-
----
-
-## Neotree Mappings
-
-*Inside Neotree window*
-
-| Key | Action |
-|-----|--------|
-| `%` | Add file |
-| `d` | Add directory |
-| `D` | Delete |
-| `R` | Rename |
-| `r` | Refresh |
-
----
-
-## Custom Commands
-
-| Command | Action |
-|---------|--------|
-| `:BD` | Delete buffer (preserve window layout) |
-| `:SnacksTerminal` | Toggle Snacks floating terminal |
-| `:Q` | Safe quit (checks background tasks) |
-| `:Qa` | Safe quit all |
-| `:Wq` | Safe write and quit |
-| `:Wqa` | Safe write and quit all |
-
----
-
-## How to use Flash
-
-Flash is a high-speed navigation tool. Here are the common workflows:
-
-### 1. The Core Jump (`s`)
-1. Press **`s`**.
-2. Type 1-3 characters of your target word.
-3. Type the **label** (e.g., `a`, `s`, `f`) that appears over the match to jump there.
-
-### 2. The Treesitter Jump (`S`)
-1. Press **`S`**.
-2. Labels will appear over structural blocks (functions, loops, classes).
-3. Type the label to select the entire block.
-
-### 3. Remote Operations (`r`)
-Operate on code elsewhere on the screen without moving your cursor.
-* **`yr`** + **`flash jump`**: Yank a word from anywhere on screen and stay where you are.
-* **`dr`** + **`flash jump`**: Delete a word from anywhere on screen.
-
-### 4. Search Integration
-When using **`/`** to search, Flash labels will automatically appear. Instead of pressing `<Enter>` and `n/N`, just type the label to jump directly to a match.
+| `<leader>TT` | n | Run File |
+| `<leader>Tr` | n | Run Nearest |
+| `<leader>Ts` | n | Toggle Summary |
 
 ---
 
 ## Pro Workflow Features
 
-Your configuration is tuned for professional, multi-language development. Take advantage of these advanced features:
+### 1. Safe Quit Protection (`:Q`, `:Qa`, etc.)
+Prevents data loss by scanning for active LSP indexing, DAP sessions, Mason installs, and Lazy updates before allowing a quit.
 
-### 1. Safe Quit Protection (`:Q`, `:Qa`)
-Never worry about corrupting your JDTLS cache or cutting off a background plugin update.
-* **What it does:** Before quitting, it scans for active LSP indexing, DAP debug sessions, Mason installations, and Lazy.nvim updates.
-* **Why use it:** If it finds active tasks, it will prompt you with a list of what's running before allowing the quit. Use `:Q` or `:Qa` instead of `:q` or `:qa` for "productivity insurance."
+### 2. Unified Formatting (`Conform.nvim`)
+Consistent formatting across Java, Swift, Web, and System languages via `<leader>cf` or `<leader>f`.
 
-### 2. Modern Code Review (`Diffview`)
-Skip the basic terminal diffs and use a full-screen, interactive review interface.
-* **Command:** `<leader>gd` opens the Diffview.
-* **Feature:** Use the file panel on the left to toggle between changed files and see side-by-side diffs with full syntax highlighting. Use `q` to close it instantly.
+### 3. Advanced Visual Diagnostics
+[tiny-inline-diagnostic.nvim](https://github.com/rachartier/tiny-inline-diagnostic.nvim) provides sleek, multi-line popups on the cursor line, identifying the specific LSP source.
 
-### 3. Unified Formatting (`Conform.nvim`)
-Your entire stack (Java, Swift, TS/JS, Vue, CSS, etc.) is managed by a single formatting engine.
-* **Feature:** Whether you're in a `.java` file using `palantir-java-format` or a `.ts` file using `Prettier`, the behavior is consistent.
-* **Tip:** Toggle "Format on Save" globally with `<leader>uf` if you're working on a project with strict styling rules.
+### 4. GitHub Integration
+[octo.nvim](https://github.com/pwntester/octo.nvim) allows you to manage Issues and PRs without leaving the editor using `gi`, `gp`, etc.
 
-### 4. Floating Command Terminal (`:SnacksTerminal`)
-In addition to keybindings, you have a direct command-line toggle for the terminal.
-* **Command:** `:SnacksTerminal`
-* **Workflow:** This is perfect for quick one-off CLI commands without leaving your current buffer or remembering a complex chord.
+---
 
-### 5. High-Performance Icons (`mini.icons`)
-Your UI (Neotree, Snacks, Picker) is powered by the latest, fastest icon provider in the ecosystem.
-* **Benefit:** It is significantly lighter than the old `web-devicons` and provides a more consistent, modern look across all languages. No extra configuration needed—it's built into the UI.
+## How to use Flash
+
+1. Press **`s`**.
+2. Type 1-3 characters of your target word.
+3. Type the **label** (e.g., `a`, `s`, `f`) that appears to teleport.
+4. Use **`S`** for structural Treesitter selection.
+
+---
+
+## System Dependencies
+
+For the best experience, ensure these tools are installed on your system:
+
+### 1. Swift & Xcode
+* **`xcode-build-server`**: The bridge between Xcode projects and Neovim LSP.
+  ```bash
+  brew install xcode-build-server
+  ```
+* **`xcbeautify`**: Required for clean, formatted logs in the floating window.
+  ```bash
+  brew install xcbeautify
+  ```
+
+### 2. Java
+* **`palantir-java-format`**: The native binary must be compiled and placed in your path.
+  * See `lua/plugins/formatting.lua` for build instructions.
+
+### 3. General Utilities
+* **`fd`**: High-speed file searching (used by Snacks/Telescope).
+  ```bash
+  brew install fd
+  ```
+* **`ripgrep` (rg)**: High-speed text searching (used for Grep).
+  ```bash
+  brew install ripgrep
+  ```
+* **`lazygit`**: The primary Git interface.
+  ```bash
+  brew install lazygit
+  ```
+

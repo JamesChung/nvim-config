@@ -7,10 +7,7 @@ return {
 			},
 			diagnostics = {
 				virtual_text = false,
-				virtual_lines = {
-					-- Only show virtual line diagnostics for the current cursor line
-					current_line = true,
-				},
+				virtual_lines = false,
 			},
 			servers = {
 				bashls = {},
