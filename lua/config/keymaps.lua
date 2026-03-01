@@ -22,3 +22,6 @@ vim.api.nvim_create_user_command("SnacksTerminal", function()
 		Snacks.terminal.toggle()
 	end
 end, { desc = "Toggle Snacks Terminal" })
+
+-- Terminal mappings
+vim.keymap.set("t", "<C-[>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
