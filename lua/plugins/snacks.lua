@@ -1,5 +1,11 @@
 return {
 	"folke/snacks.nvim",
+	-- Hand off file-find and grep to fff.nvim (see lua/plugins/fff.lua).
+	-- LazyVim binds these on the snacks picker spec, so we disable them here.
+	keys = {
+		{ "<leader><space>", false },
+		{ "<leader>/", false },
+	},
 	opts = {
 		explorer = {
 			enabled = false,
