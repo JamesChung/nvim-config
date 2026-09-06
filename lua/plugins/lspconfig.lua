@@ -10,6 +10,15 @@ return {
 				virtual_lines = false,
 			},
 			servers = {
+				-- Disables LazyVim's buffer-local `nowait` `gr` -> lsp_references, which
+				-- makes built-in `grn`/`grr`/`gri`/`gra`/`grt` UNREACHABLE on LSP attach.
+				-- Must live under servers["*"].keys (opts_extend = "servers.*.keys"), NOT
+				-- the spec's top-level `keys` -- there it is a silent no-op.
+				["*"] = {
+					keys = {
+						{ "gr", false },
+					},
+				},
 				bashls = {},
 				cssls = {
 					settings = {
