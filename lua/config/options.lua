@@ -32,3 +32,6 @@ vim.opt.listchars:append("tab:  ›")
 
 -- Enable rounded borders in floating windows
 vim.o.winborder = "rounded"
+
+-- Enable rounded borders in popup menus (affects mouse/right-click PopUp menus; noice already rounds completion pum)
+vim.o.pumborder = "rounded"
