@@ -9,6 +9,9 @@ vim.g.loaded_netrwPlugin = 1
 -- Use snacks as the picker (instead of fzf-lua default for install_version < 8)
 vim.g.lazyvim_picker = "snacks"
 
+-- Use neo-tree as the explorer (snacks.explorer is disabled in lua/plugins/snacks.lua)
+vim.g.lazyvim_explorer = "neo-tree"
+
 -- Options
 vim.opt.expandtab = true -- Use spaces instead of tabs
 vim.opt.tabstop = 4 -- Set tab width to 4 spaces
