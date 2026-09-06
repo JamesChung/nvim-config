@@ -102,7 +102,7 @@ local function get_busy_tasks()
 	local has_mason, mason_registry = pcall(require, "mason-registry")
 	if has_mason then
 		-- Check for package installations
-		for _, pkg in ipairs(mason_registry.get_all_packages()) do
+		for _, pkg in ipairs(mason_registry.get_installed_packages()) do
 			if pkg:is_installing() then
 				table.insert(busy, "Mason")
 				break
@@ -134,14 +134,23 @@ local function safe_quit(cmd)
 end
 
 for _, cmd in ipairs({ "q", "qa", "wq", "wqa" }) do
-	vim.api.nvim_create_user_command(cmd:gsub("^%l", string.upper), function()
-		safe_quit(cmd)
-	end, {})
+	local name = cmd:gsub("^%l", string.upper)
+
+	-- bang = true: `:Q!` is E477 without it. Forwarded so `:q!` still force-quits.
+	vim.api.nvim_create_user_command(name, function(opts)
+		safe_quit(cmd .. (opts.bang and "!" or ""))
+	end, { bang = true })
+
+	-- Abbreviations expand on the first non-keyword char typed, so the guard must
+	-- confirm the line holds only this bare word with the cursor right after it
+	-- (getcmdpos() == #cmd + 1) -- that keeps `:g/foo/q` and `:Man q` untouched.
+	-- `==#` compares case-sensitively regardless of 'ignorecase'.
 	vim.cmd(
-		([[cnoreabbrev <expr> %s getcmdtype() == ':' && getcmdline() == '%s' ? '%s' : '%s']]):format(
+		([[cnoreabbrev <expr> %s (getcmdtype() ==# ':' && getcmdline() ==# '%s' && getcmdpos() == %d) ? '%s' : '%s']]):format(
 			cmd,
 			cmd,
-			cmd:gsub("^%l", string.upper),
+			#cmd + 1,
+			name,
 			cmd
 		)
 	)
