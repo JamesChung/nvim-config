@@ -48,19 +48,11 @@ vim.api.nvim_create_autocmd("LspAttach", {
 			lsp_picker("textDocument/declaration", "lsp_declarations", vim.lsp.buf.declaration),
 			opts
 		)
-		vim.keymap.set(
-			"n",
-			"gt",
-			lsp_picker("textDocument/typeDefinition", "lsp_type_definitions", vim.lsp.buf.type_definition),
-			opts
-		)
-		vim.keymap.set(
-			"n",
-			"gi",
-			lsp_picker("textDocument/implementation", "lsp_implementations", vim.lsp.buf.implementation),
-			opts
-		)
-		vim.keymap.set("n", "gr", lsp_picker("textDocument/references", "lsp_references", vim.lsp.buf.references), opts)
+		-- `gt` / `gi` / `gr` are deliberately NOT mapped here: Neovim 0.11+/0.12 ships
+		-- global `grt` (type_definition), `gri` (implementation) and `grr` (references).
+		-- Shadowing `gt`/`gi` cost the built-in next-tab-page and insert-at-last-position,
+		-- and a buffer-local `gr` shadowed the whole `gr` prefix behind 'timeoutlen'.
+		-- See `:h lsp-defaults`.
 
 		-- Workspace folder management (not provided by LazyVim)
 		vim.keymap.set("n", "<leader>cwa", vim.lsp.buf.add_workspace_folder, opts)
@@ -70,8 +62,10 @@ vim.api.nvim_create_autocmd("LspAttach", {
 		end, opts)
 
 		-- Other LSP bindings
-		vim.keymap.set("n", "<C-k>", vim.lsp.buf.signature_help, opts)
-		vim.keymap.set("n", "<leader>rn", vim.lsp.buf.rename, opts)
+		-- Kept rather than deferred: the 0.11+ built-in signature help (`<C-s>`) is
+		-- insert/select mode only, so normal mode has no built-in equivalent.
+		-- Moved off `<C-k>` so that stays free for window/pane navigation.
+		vim.keymap.set("n", "<leader>ck", vim.lsp.buf.signature_help, opts)
 
 		-- Custom code action binding (macOS Cmd+.)
 		vim.keymap.set({ "n", "v" }, "<D-.>", vim.lsp.buf.code_action, opts)
