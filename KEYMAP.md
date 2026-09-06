@@ -1,19 +1,22 @@
 # Neovim Keymap Reference
 
-A comprehensive guide to all keybindings in this configuration, including custom bindings, LazyVim defaults, and plugin-specific shortcuts.
+A comprehensive guide to keybindings in this configuration, including custom bindings, LazyVim defaults, and plugin-specific shortcuts.
 
 ## Table of Contents
 - [Mode Legend](#mode-legend)
 - [Essential Keys (Quick Start)](#essential-keys-quick-start)
 - [LSP Navigation & Actions](#lsp-navigation)
 - [File & Buffer Management](#file-management)
-- [Git & GitHub (Octo)](#git--github)
-- [Search & Replace (Snacks)](#search--replace)
+- [Git](#git)
+- [Search & Replace](#search--replace)
 - [Trouble & Diagnostics](#trouble--diagnostics)
+- [Xcode (Swift & Apple Platforms)](#xcode-swift--apple-platforms)
 - [Terminal & UI Toggles](#terminal--ui-toggles)
-- [AI & Development (Java/Swift/Test)](#ai--development)
-- [Pro Workflow Features](#pro-workflow-features)
+- [AI & Development](#ai--development)
+- [Debugging (DAP)](#debugging-dap)
+- [Java & Swift Development](#java--swift-development)
 - [How to use Flash](#how-to-use-flash)
+- [System Dependencies](#system-dependencies)
 
 ---
 
@@ -33,15 +36,15 @@ A comprehensive guide to all keybindings in this configuration, including custom
 
 | Key | Mode | Action | Why? |
 |-----|------|--------|------|
-| `<leader>ff` | n | Find Files | High-speed project navigation |
-| `<leader>fg` | n | Live Grep | Find any text project-wide |
+| `<leader><space>` | n | Find Files | High-speed project navigation (fff.nvim) |
+| `<leader>/` | n | Live Grep | Find any text project-wide (fff.nvim) |
 | `gd` | n | Go to Definition | Jump to source code |
-| `gr` | n | References | See where code is used |
+| `grr` | n | References | See where code is used (built-in LSP) |
 | `<leader>ca` | n, v | Code Action | Quick fixes and refactoring |
 | `<leader>gq` | n | Git Quickfix | Actionable list of all changes |
 | `s` | n, v | Flash Jump | Teleport to any word on screen |
 | `<leader>e` | n | Explorer | Toggle project sidebar |
-| `<C-/>` | n, t | Terminal | Toggle floating shell |
+| `<C-\>` | n, t | Terminal | Toggle floating shell |
 | `:Q` | c | Safe Quit | Protect background tasks |
 
 ---
@@ -52,18 +55,18 @@ A comprehensive guide to all keybindings in this configuration, including custom
 
 | Key | Mode | Action | Source |
 |-----|------|--------|--------|
-| `gd` | n | Go to definition | [Snacks.picker](https://github.com/folke/snacks.nvim) |
-| `gD` | n | Go to declaration | |
-| `gt` | n | Go to type definition | |
-| `gi` | n | Go to implementation | |
-| `gr` | n | Go to references | |
-| `K` | n | Hover documentation | Native |
-| `gO` | n | Document symbols | Native |
-| `<C-k>` | n, i | Signature help | |
-| `]d` | n | Next diagnostic | |
-| `[d` | n | Prev diagnostic | |
-| `]e` | n | Next error | |
-| `[e` | n | Prev error | |
+| `gd` | n | Go to definition | [Snacks.picker](https://github.com/folke/snacks.nvim) (buffer-local) |
+| `gD` | n | Go to declaration | [Snacks.picker](https://github.com/folke/snacks.nvim) (buffer-local) |
+| `grt` | n | Go to type definition | Built-in LSP |
+| `gri` | n | Go to implementation | Built-in LSP |
+| `grr` | n | Go to references | Built-in LSP |
+| `K` | n | Hover documentation | Native LSP (buffer-local) |
+| `gO` | n | Document symbols | Built-in LSP |
+| `<leader>ck` | n | Signature help | Buffer-local via LspAttach |
+| `]d` | n | Next diagnostic | Built-in |
+| `[d` | n | Prev diagnostic | Built-in |
+| `]e` | n | Next error | Built-in |
+| `[e` | n | Prev error | Built-in |
 
 ## LSP Actions
 
@@ -71,7 +74,6 @@ A comprehensive guide to all keybindings in this configuration, including custom
 |-----|------|--------|
 | `<leader>ca` | n, v | Code action |
 | `<D-.>` | n, v | Code action (macOS Cmd+.) |
-| `<leader>rn` | n | Rename symbol (Mnemonic) |
 | `<leader>cr` | n | Rename symbol (LazyVim) |
 | `<leader>cf` | n | Format (Standard) |
 | `<leader>cd` | n | Line diagnostics |
@@ -86,6 +88,7 @@ A comprehensive guide to all keybindings in this configuration, including custom
 
 | Key | Mode | Action |
 |-----|------|--------|
+| `<leader><space>` | n | Find files (FFF) |
 | `<leader>ff` | n | Find files (Root Dir) |
 | `<leader>fF` | n | Find files (cwd) |
 | `<leader>fr` | n | Recent files (Root) |
@@ -108,11 +111,10 @@ A comprehensive guide to all keybindings in this configuration, including custom
 | `:BD` | c | Delete buffer (Preserve layout) |
 | `<leader>bp` | n | Toggle Pin |
 | `<leader>bP` | n | Delete Non-Pinned |
-| `<leader>w` | n | Window Management | Default LazyVim |
 
 ---
 
-## Git & GitHub
+## Git
 
 | Key | Mode | Action | Plugin |
 |-----|------|--------|--------|
@@ -123,10 +125,6 @@ A comprehensive guide to all keybindings in this configuration, including custom
 | `<leader>gb` | n | Git Blame Line | |
 | `<leader>gs` | n | Git Status | [Snacks.git](https://github.com/folke/snacks.nvim) |
 | `<leader>gS` | n | Git Stash | |
-| `<leader>gi` | n | GitHub Issues (open) | [octo.nvim](https://github.com/pwntester/octo.nvim) |
-| `<leader>gI` | n | GitHub Issues (all) | |
-| `<leader>gp` | n | GitHub PRs (open) | |
-| `<leader>gP` | n | GitHub PRs (all) | |
 
 ---
 
@@ -134,7 +132,7 @@ A comprehensive guide to all keybindings in this configuration, including custom
 
 | Key | Mode | Action |
 |-----|------|--------|
-| `<leader>/` | n | Grep (Root Dir) |
+| `<leader>/` | n | Grep (FFF) |
 | `<leader>sg` | n | Grep (Root Dir) |
 | `<leader>sG` | n | Grep (cwd) |
 | `<leader>sw` | n | Search Word (Root) |
@@ -158,8 +156,27 @@ A comprehensive guide to all keybindings in this configuration, including custom
 | `<leader>tl` | n | LSP Definitions/Refs | |
 | `<leader>tq` | n | Quickfix List | |
 | `<leader>to` | n | Location List | |
+| `<leader>xq` | n | Quickfix List | LazyVim core |
+| `<leader>xl` | n | Location List | LazyVim core |
+| `<leader>xt` | n | Todo | todo-comments |
+| `<leader>xT` | n | Todo/Fix/Fixme | todo-comments |
 | `]q` | n | Next Trouble/QF item | |
-| `[q` | n | Prev Trouble/QF item |
+| `[q` | n | Prev Trouble/QF item | |
+
+---
+
+## Xcode (Swift & Apple Platforms)
+
+| Key | Mode | Action |
+|-----|------|--------|
+| `<leader>Xb` | n | Xcode Build |
+| `<leader>Xr` | n | Xcode Build & Run |
+| `<leader>Xt` | n | Xcode Test |
+| `<leader>XT` | n | Xcode Test Target |
+| `<leader>Xd` | n | Select Device |
+| `<leader>Xp` | n | Select Scheme |
+| `<leader>Xl` | n | Toggle Logs |
+| `<leader>Xc` | n | Toggle Coverage |
 
 ---
 
@@ -167,9 +184,8 @@ A comprehensive guide to all keybindings in this configuration, including custom
 
 | Key | Mode | Action |
 |-----|------|--------|
-| `<C-/>` | n, t | Toggle Terminal |
-| `<C-t>` | n, t | Toggle Terminal |
-| `` <C-`> `` | n, t | Toggle Terminal |
+| `<C-\>` | n, t | Toggle Terminal |
+| `<C-`>` | n, t | Toggle Terminal |
 | `:SnacksTerminal` | c | Toggle terminal |
 | `<C-[>` | t | Exit Terminal Mode |
 | `<leader>uf` | n | Toggle Auto-format |
@@ -220,16 +236,13 @@ A comprehensive guide to all keybindings in this configuration, including custom
 ## Java & Swift Development
 
 ### 1. Safe Quit Protection (`:Q`, `:Qa`, etc.)
-Prevents data loss by scanning for active LSP indexing, DAP sessions, Mason installs, and Lazy updates before allowing a quit.
+Prevents data loss by checking for active LSP indexing, DAP sessions, Mason installs, and Lazy updates before allowing a quit.
 
 ### 2. Unified Formatting (`Conform.nvim`)
 Consistent formatting across Java, Swift, Web, and System languages via `<leader>cf`.
 
-### 3. Advanced Visual Diagnostics
-[tiny-inline-diagnostic.nvim](https://github.com/rachartier/tiny-inline-diagnostic.nvim) provides sleek, multi-line popups on the cursor line, identifying the specific LSP source.
-
-### 4. GitHub Integration
-[octo.nvim](https://github.com/pwntester/octo.nvim) allows you to manage Issues and PRs without leaving the editor using `<leader>gi`, `<leader>gp`, etc.
+### 3. Built-in Visual Diagnostics
+Diagnostics render via Neovim's built-in `virtual_lines` on the current line, restoring full source attribution (for example, `Lua Diagnostics: undefined-global: <message>`). `tiny-inline-diagnostic.nvim` was removed in favor of native virtual lines.
 
 ---
 
@@ -273,4 +286,3 @@ For the best experience, ensure these tools are installed on your system:
   ```bash
   brew install lazygit
   ```
-
