@@ -143,10 +143,23 @@ return {
 				desc = "Debug: Widgets",
 			},
 		},
-		opts = function()
+		config = function(plugin, opts)
+			-- lazy.nvim replaces function fields instead of merging them, so this
+			-- `config` must invoke the LazyVim `dap.core` extra's own config by hand
+			-- or it would be discarded (dap signs, mason-nvim-dap setup, launch.json).
+			local delegated = false
+			for _, spec in ipairs(require("lazyvim.plugins.extras.dap.core")) do
+				if spec[1] == "mfussenegger/nvim-dap" and type(spec.config) == "function" then
+					spec.config(plugin, opts)
+					delegated = true
+				end
+			end
+			assert(delegated, "lua/plugins/dap.lua: lazyvim dap.core nvim-dap config not found")
+
 			local dap = require("dap")
 
-			-- Configure Java debugging
+			-- Runs after every `opts` function, including the lazyvim java extra's,
+			-- which ASSIGNS dap.configurations.java and would clobber an earlier insert.
 			dap.configurations.java = dap.configurations.java or {}
 			table.insert(dap.configurations.java, {
 				type = "java",
@@ -210,17 +223,9 @@ return {
 			-- Auto-close DAP UI when debugging ends
 			dap.listeners.before.event_terminated["dapui_config"] = function()
 				dapui.close()
-				vim.defer_fn(function()
-					vim.cmd("Neotree close")
-					vim.cmd("Neotree show")
-				end, 100)
 			end
 			dap.listeners.before.event_exited["dapui_config"] = function()
 				dapui.close()
-				vim.defer_fn(function()
-					vim.cmd("Neotree close")
-					vim.cmd("Neotree show")
-				end, 100)
 			end
 		end,
 	},

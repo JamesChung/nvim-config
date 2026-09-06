@@ -7,7 +7,6 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 			"mfussenegger/nvim-dap",
 		},
-		lazy = false,
 		ft = { "swift", "objc", "objcpp" },
 		opts = {
 			logs = {
