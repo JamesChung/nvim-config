@@ -31,22 +31,6 @@ vim.opt.listchars:append("tab:  ›")
 -- Enable rounded borders in floating windows
 vim.o.winborder = "rounded"
 
--- Fix for LSP floating window width error
--- This needs to be set early, before LSP loads
--- Monkey-patch nvim_open_win to validate width/height
-local original_open_win = vim.api.nvim_open_win
-vim.api.nvim_open_win = function(buffer, enter, config)
-	-- Ensure width and height are valid positive integers
-	if config.width and config.width < 1 then
-		config.width = 30
-	end
-	if config.height and config.height < 1 then
-		config.height = 1
-	end
-
-	return original_open_win(buffer, enter, config)
-end
-
 -- Intercept open_floating_preview early to add placeholder for empty content
 local orig_open_floating_preview = vim.lsp.util.open_floating_preview
 function vim.lsp.util.open_floating_preview(contents, syntax, opts)
