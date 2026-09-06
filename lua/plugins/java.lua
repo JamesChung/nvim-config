@@ -10,15 +10,6 @@ return {
 			{ "<leader>jR", "<cmd>JdtRestart<cr>", desc = "Restart LSP", ft = "java" },
 		},
 		opts = function(_, opts)
-			-- Fix lombok path (LazyVim uses $MASON/share/jdtls/ but mason installs to $MASON/packages/jdtls/)
-			local lombok_jar = vim.fn.expand("$MASON/packages/jdtls/lombok.jar")
-			for i, arg in ipairs(opts.cmd) do
-				if arg:match("-javaagent:.*lombok%.jar") then
-					opts.cmd[i] = string.format("--jvm-arg=-javaagent:%s", lombok_jar)
-					break
-				end
-			end
-
 			-- Add JVM args for performance
 			local jvm_args = {
 				"--jvm-arg=-Xmx8g",

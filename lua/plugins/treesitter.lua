@@ -3,8 +3,6 @@ return {
 		"nvim-treesitter/nvim-treesitter",
 		opts = {
 			ensure_installed = { "swift" },
-			highlight = { enable = true },
-			indent = { enable = true },
 		},
 	},
 	{

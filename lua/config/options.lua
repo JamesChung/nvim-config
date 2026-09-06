@@ -6,11 +6,13 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Use snacks as the picker (instead of fzf-lua default for install_version < 8)
-vim.g.lazyvim_picker = "snacks"
-
 -- Use neo-tree as the explorer (snacks.explorer is disabled in lua/plugins/snacks.lua)
 vim.g.lazyvim_explorer = "neo-tree"
+
+-- Pin the picker explicitly. Leaving this at LazyVim's "auto" resolves via
+-- install_version in lazyvim.json, which is gitignored and rewritten on every
+-- launch -- losing it silently flips the picker to fzf-lua.
+vim.g.lazyvim_picker = "snacks"
 
 -- Options
 vim.opt.expandtab = true -- Use spaces instead of tabs

@@ -5,7 +5,7 @@
 -- Note: Line/selection movement is handled by mini.move (Alt+hjkl)
 
 -- Override :bd to use Snacks.bufdelete() to preserve window layout
-vim.api.nvim_create_user_command("BD", function(opts)
+vim.api.nvim_create_user_command("BD", function()
 	if Snacks and Snacks.bufdelete then
 		Snacks.bufdelete()
 	else
