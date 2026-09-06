@@ -20,6 +20,9 @@ return {
 				
 				-- Workspace Management (Under Code)
 				{ "<leader>cw", group = "workspace", icon = "📁 " },
+
+				-- Xcode (uppercase X; <leader>x is Trouble/diagnostics)
+				{ "<leader>X", group = "xcode", icon = "🔨 " },
 				})
 				end,
 				},
