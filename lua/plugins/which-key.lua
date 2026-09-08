@@ -8,19 +8,22 @@ return {
 				-- Troubleshooting and Testing (Overrides LazyVim defaults)
 				{ "<leader>t", group = "trouble", icon = "⚠️ " },
 				{ "<leader>T", group = "test", icon = "🧪 " },
-				
+
 				-- Java Specific Methods
 				{ "<leader>j", group = "java", icon = "☕ " },
-				
+
 				-- Debugging (Merged with DAP defaults)
 				{ "<leader>d", group = "debug", icon = "🐛 " },
-				
+
 				-- Code Actions / LSP
 				{ "<leader>c", group = "code", icon = "⚙️ " },
-				
+
 				-- Workspace Management (Under Code)
 				{ "<leader>cw", group = "workspace", icon = "📁 " },
-				})
-				end,
-				},
-				}
+
+				-- Xcode (uppercase X; <leader>x is Trouble/diagnostics)
+				{ "<leader>X", group = "xcode", icon = "🔨 " },
+			})
+		end,
+	},
+}

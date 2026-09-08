@@ -35,3 +35,6 @@ Refer to the **[KEYMAP.md](./KEYMAP.md)** for the complete manual.
 - **Plugin Manager:** [Lazy.nvim](https://github.com/folke/lazy.nvim)
 - **Base Distribution:** [LazyVim](https://github.com/LazyVim/LazyVim)
 - **Theme:** Rose Pine
+
+### ⚠️ Note on `:LazyExtras`
+`lazyvim.json` keeps `extras: []` because all 28 extras are imported directly in `lua/config/lazy.lua`. The `:LazyExtras` menu will show these extras as disabled. Don't enable them from `:LazyExtras`, or you will end up with duplicate imports.

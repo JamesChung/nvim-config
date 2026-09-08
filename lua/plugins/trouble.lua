@@ -7,8 +7,6 @@ return {
 		{ "<leader>xX", false },
 		{ "<leader>xL", false },
 		{ "<leader>xQ", false },
-		{ "<leader>xt", false },
-		{ "<leader>xT", false },
 
 		-- Mnemonic Trouble Mappings (lowercase t)
 		{

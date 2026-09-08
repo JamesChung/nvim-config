@@ -7,14 +7,14 @@
 -- Override :bd to use Snacks.bufdelete() to preserve window layout
 vim.api.nvim_create_user_command("BD", function(opts)
 	if Snacks and Snacks.bufdelete then
-		Snacks.bufdelete()
+		Snacks.bufdelete({ force = opts.bang })
 	else
-		vim.cmd("bdelete")
+		vim.cmd("bdelete" .. (opts.bang and "!" or ""))
 	end
-end, { desc = "Delete buffer (keep window)" })
+end, { bang = true, desc = "Delete buffer (keep window)" })
 
 -- Create abbreviation so :bd becomes :BD
-vim.cmd([[cnoreabbrev <expr> bd getcmdtype() == ':' && getcmdline() == 'bd' ? 'BD' : 'bd']])
+vim.cmd([[cnoreabbrev <expr> bd (getcmdtype() ==# ':' && getcmdline() ==# 'bd' && getcmdpos() == 3) ? 'BD' : 'bd']])
 
 -- User command to toggle Snacks terminal
 vim.api.nvim_create_user_command("SnacksTerminal", function()
@@ -25,7 +25,7 @@ end, { desc = "Toggle Snacks Terminal" })
 
 -- Terminal mappings
 vim.keymap.set("t", "<C-[>", [[<C-\><C-n>]], { desc = "Exit terminal mode" })
-vim.keymap.set({ "n", "t" }, "<C-t>", function() Snacks.terminal.toggle() end, { desc = "Toggle Terminal" })
+vim.keymap.set({ "n", "t" }, "<C-\\>", function() Snacks.terminal.toggle() end, { desc = "Toggle Terminal" })
 vim.keymap.set({ "n", "t" }, "<C-`>", function() Snacks.terminal.toggle() end, { desc = "Toggle Terminal" })
 
 -- Git Quickfix mapping

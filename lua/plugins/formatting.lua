@@ -24,9 +24,10 @@ return {
 				java = { "palantir-java-format" },
 				rust = { "rustfmt" },
 				go = { "goimports", "gofmt" },
+				swift = { "swiftformat" },
 
 				-- Interpreted Languages
-				python = { "isort", "black" },
+				python = { "ruff_organize_imports", "ruff_format" },
 				lua = { "stylua" },
 
 				-- Other

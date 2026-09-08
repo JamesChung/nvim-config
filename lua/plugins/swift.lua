@@ -7,7 +7,6 @@ return {
 			"nvim-treesitter/nvim-treesitter",
 			"mfussenegger/nvim-dap",
 		},
-		lazy = false,
 		ft = { "swift", "objc", "objcpp" },
 		opts = {
 			logs = {
@@ -123,14 +122,14 @@ return {
 			end
 		end,
 		keys = {
-			{ "<leader>xb", "<cmd>XcodebuildBuild<cr>", desc = "Xcode Build" },
-			{ "<leader>xr", "<cmd>XcodebuildBuildRun<cr>", desc = "Xcode Build & Run" },
-			{ "<leader>xt", "<cmd>XcodebuildTest<cr>", desc = "Xcode Test" },
-			{ "<leader>xT", "<cmd>XcodebuildTestTarget<cr>", desc = "Xcode Test Target" },
-			{ "<leader>xd", "<cmd>XcodebuildSelectDevice<cr>", desc = "Select Device" },
-			{ "<leader>xp", "<cmd>XcodebuildSelectScheme<cr>", desc = "Select Scheme" },
-			{ "<leader>xl", "<cmd>XcodebuildToggleLogs<cr>", desc = "Toggle Logs" },
-			{ "<leader>xc", "<cmd>XcodebuildToggleCodeCoverage<cr>", desc = "Toggle Coverage" },
+			{ "<leader>Xb", "<cmd>XcodebuildBuild<cr>", desc = "Xcode Build" },
+			{ "<leader>Xr", "<cmd>XcodebuildBuildRun<cr>", desc = "Xcode Build & Run" },
+			{ "<leader>Xt", "<cmd>XcodebuildTest<cr>", desc = "Xcode Test" },
+			{ "<leader>XT", "<cmd>XcodebuildTestTarget<cr>", desc = "Xcode Test Target" },
+			{ "<leader>Xd", "<cmd>XcodebuildSelectDevice<cr>", desc = "Select Device" },
+			{ "<leader>Xp", "<cmd>XcodebuildSelectScheme<cr>", desc = "Select Scheme" },
+			{ "<leader>Xl", "<cmd>XcodebuildToggleLogs<cr>", desc = "Toggle Logs" },
+			{ "<leader>Xc", "<cmd>XcodebuildToggleCodeCoverage<cr>", desc = "Toggle Coverage" },
 		},
 	},
 }

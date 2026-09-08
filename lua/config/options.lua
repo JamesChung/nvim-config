@@ -6,7 +6,12 @@
 vim.g.loaded_netrw = 1
 vim.g.loaded_netrwPlugin = 1
 
--- Use snacks as the picker (instead of fzf-lua default for install_version < 8)
+-- Use neo-tree as the explorer (snacks.explorer is disabled in lua/plugins/snacks.lua)
+vim.g.lazyvim_explorer = "neo-tree"
+
+-- Pin the picker explicitly. Leaving this at LazyVim's "auto" resolves via
+-- install_version in lazyvim.json, which is gitignored and rewritten on every
+-- launch -- losing it silently flips the picker to fzf-lua.
 vim.g.lazyvim_picker = "snacks"
 
 -- Options
@@ -28,45 +33,5 @@ vim.opt.listchars:append("tab:  ›")
 -- Enable rounded borders in floating windows
 vim.o.winborder = "rounded"
 
--- Fix for LSP floating window width error
--- This needs to be set early, before LSP loads
--- Monkey-patch nvim_open_win to validate width/height
-local original_open_win = vim.api.nvim_open_win
-vim.api.nvim_open_win = function(buffer, enter, config)
-	-- Ensure width and height are valid positive integers
-	if config.width and config.width < 1 then
-		config.width = 30
-	end
-	if config.height and config.height < 1 then
-		config.height = 1
-	end
-
-	return original_open_win(buffer, enter, config)
-end
-
--- Intercept open_floating_preview early to add placeholder for empty content
-local orig_open_floating_preview = vim.lsp.util.open_floating_preview
-function vim.lsp.util.open_floating_preview(contents, syntax, opts)
-	-- Normalize contents to table if it's a string
-	if type(contents) == "string" then
-		contents = { contents }
-	end
-
-	-- Check if contents is empty
-	local has_content = false
-	if type(contents) == "table" and #contents > 0 then
-		for _, line in ipairs(contents) do
-			if line and line:match("%S") then
-				has_content = true
-				break
-			end
-		end
-	end
-
-	-- If no content, replace with placeholder
-	if not has_content then
-		contents = { "No documentation available" }
-	end
-
-	return orig_open_floating_preview(contents, syntax, opts)
-end
+-- Enable rounded borders in popup menus (affects mouse/right-click PopUp menus; noice already rounds completion pum)
+vim.o.pumborder = "rounded"

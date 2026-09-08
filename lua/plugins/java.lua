@@ -10,12 +10,52 @@ return {
 			{ "<leader>jR", "<cmd>JdtRestart<cr>", desc = "Restart LSP", ft = "java" },
 		},
 		opts = function(_, opts)
-			-- Fix lombok path (LazyVim uses $MASON/share/jdtls/ but mason installs to $MASON/packages/jdtls/)
-			local lombok_jar = vim.fn.expand("$MASON/packages/jdtls/lombok.jar")
-			for i, arg in ipairs(opts.cmd) do
-				if arg:match("-javaagent:.*lombok%.jar") then
-					opts.cmd[i] = string.format("--jvm-arg=-javaagent:%s", lombok_jar)
-					break
+			-- DO NOT REMOVE AS "REDUNDANT" (regressed once already, commit a8f50c5).
+			-- mason.nvim only exports $MASON and prepends its bin/ to PATH once LOADED.
+			-- mason is lazy-loaded while nvim-jdtls loads on the `java` filetype, so
+			-- LazyVim's extra can build its command first, yielding a stray PATH jdtls
+			-- and a lombok path of "/share/jdtls/lombok.jar" from the empty $MASON.
+			-- A -javaagent on a nonexistent jar makes the JVM refuse to start (exit 1).
+			-- stdpath("data") is load-order independent, so resolve from it instead.
+			local mason_root = vim.fn.stdpath("data") .. "/mason"
+			local mason_jdtls = mason_root .. "/bin/jdtls"
+			local lombok_jar = mason_root .. "/share/jdtls/lombok.jar"
+
+			-- Idempotent, so it is safe to apply at both config and server-start time.
+			local function resolve_cmd(cmd)
+				if type(cmd) ~= "table" then
+					return cmd
+				end
+
+				-- PATH order is non-deterministic; prefer the install this config manages.
+				if vim.fn.executable(mason_jdtls) == 1 then
+					cmd[1] = mason_jdtls
+				end
+
+				-- Absolutize the lombok agent, or DROP it: losing the agent only costs
+				-- lombok codegen, whereas a broken agent path is fatal.
+				local has_lombok = vim.fn.filereadable(lombok_jar) == 1
+				for i = #cmd, 1, -1 do
+					if type(cmd[i]) == "string" and cmd[i]:match("^%-%-jvm%-arg=%-javaagent:.*lombok") then
+						if has_lombok then
+							cmd[i] = "--jvm-arg=-javaagent:" .. lombok_jar
+						else
+							table.remove(cmd, i)
+						end
+					end
+				end
+
+				return cmd
+			end
+
+			resolve_cmd(opts.cmd)
+
+			-- attach_jdtls() builds the real command from full_cmd at server-start time,
+			-- so re-resolve there too in case anything rewrites opts.cmd after us.
+			local lazyvim_full_cmd = opts.full_cmd
+			if type(lazyvim_full_cmd) == "function" then
+				opts.full_cmd = function(o)
+					return resolve_cmd(lazyvim_full_cmd(o))
 				end
 			end
 
@@ -45,13 +85,17 @@ return {
 					updateBuildConfiguration = "automatic",
 					runtimes = {
 						{
+							name = "JavaSE-17",
+							path = "/Library/Java/JavaVirtualMachines/applejdk-17.jdk/Contents/Home",
+						},
+						{
 							name = "JavaSE-21",
-							path = "/Library/Java/JavaVirtualMachines/graalvm-21.jdk/Contents/Home",
+							path = "/Library/Java/JavaVirtualMachines/applejdk-21.jdk/Contents/Home",
 							default = true,
 						},
 						{
 							name = "JavaSE-25",
-							path = "/Library/Java/JavaVirtualMachines/graalvm-25.jdk/Contents/Home",
+							path = "/Library/Java/JavaVirtualMachines/applejdk-25.jdk/Contents/Home",
 						},
 					},
 				},

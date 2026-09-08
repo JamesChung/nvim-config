@@ -9,6 +9,11 @@ return {
 			},
 		},
 		opts = {
+			-- Appended to LazyVim's defaults (stylua, shfmt), not replacing them:
+			-- LazyVim's mason spec sets opts_extend = { "ensure_installed" }.
+			ensure_installed = {
+				"prettier",
+			},
 			ui = {
 				icons = {
 					package_installed = "✓",

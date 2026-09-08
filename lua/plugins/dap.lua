@@ -143,10 +143,23 @@ return {
 				desc = "Debug: Widgets",
 			},
 		},
-		opts = function()
+		config = function(plugin, opts)
+			-- lazy.nvim replaces function fields instead of merging them, so this
+			-- `config` must invoke the LazyVim `dap.core` extra's own config by hand
+			-- or it would be discarded (dap signs, mason-nvim-dap setup, launch.json).
+			local delegated = false
+			for _, spec in ipairs(require("lazyvim.plugins.extras.dap.core")) do
+				if spec[1] == "mfussenegger/nvim-dap" and type(spec.config) == "function" then
+					spec.config(plugin, opts)
+					delegated = true
+				end
+			end
+			assert(delegated, "lua/plugins/dap.lua: lazyvim dap.core nvim-dap config not found")
+
 			local dap = require("dap")
 
-			-- Configure Java debugging
+			-- Runs after every `opts` function, including the lazyvim java extra's,
+			-- which ASSIGNS dap.configurations.java and would clobber an earlier insert.
 			dap.configurations.java = dap.configurations.java or {}
 			table.insert(dap.configurations.java, {
 				type = "java",
@@ -202,25 +215,59 @@ return {
 			local dapui = require("dapui")
 			dapui.setup(opts)
 
+			-- Opening and closing the DAP UI re-lays out the window grid, which resizes the
+			-- neo-tree sidebar. Record its width beforehand and put it back afterward.
+			--
+			-- Closing and reopening neo-tree around each transition would also work, but it
+			-- errors when neo-tree has not been loaded, so adjust the width in place instead.
+			-- The restore is scheduled rather than immediate so it runs once the layout
+			-- change has settled.
+			local explorer_width = nil
+
+			local function explorer_win()
+				for _, win in ipairs(vim.api.nvim_list_wins()) do
+					local buf = vim.api.nvim_win_get_buf(win)
+					if vim.bo[buf].filetype == "neo-tree" then
+						return win
+					end
+				end
+			end
+
+			local function remember_explorer()
+				local win = explorer_win()
+				explorer_width = win and vim.api.nvim_win_get_width(win) or nil
+			end
+
+			local function restore_explorer()
+				if not explorer_width then
+					return
+				end
+				local width = explorer_width
+				vim.schedule(function()
+					local win = explorer_win()
+					if win and vim.api.nvim_win_is_valid(win) then
+						pcall(vim.api.nvim_win_set_width, win, width)
+					end
+				end)
+			end
+
 			-- Auto-open DAP UI when debugging starts
 			dap.listeners.after.event_initialized["dapui_config"] = function()
+				remember_explorer()
 				dapui.open()
+				restore_explorer()
 			end
 
 			-- Auto-close DAP UI when debugging ends
 			dap.listeners.before.event_terminated["dapui_config"] = function()
 				dapui.close()
-				vim.defer_fn(function()
-					vim.cmd("Neotree close")
-					vim.cmd("Neotree show")
-				end, 100)
+				restore_explorer()
+				explorer_width = nil
 			end
 			dap.listeners.before.event_exited["dapui_config"] = function()
 				dapui.close()
-				vim.defer_fn(function()
-					vim.cmd("Neotree close")
-					vim.cmd("Neotree show")
-				end, 100)
+				restore_explorer()
+				explorer_width = nil
 			end
 		end,
 	},
