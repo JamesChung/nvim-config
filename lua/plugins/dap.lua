@@ -215,17 +215,59 @@ return {
 			local dapui = require("dapui")
 			dapui.setup(opts)
 
+			-- Opening and closing the DAP UI re-lays out the window grid, which resizes the
+			-- neo-tree sidebar. Record its width beforehand and put it back afterward.
+			--
+			-- Closing and reopening neo-tree around each transition would also work, but it
+			-- errors when neo-tree has not been loaded, so adjust the width in place instead.
+			-- The restore is scheduled rather than immediate so it runs once the layout
+			-- change has settled.
+			local explorer_width = nil
+
+			local function explorer_win()
+				for _, win in ipairs(vim.api.nvim_list_wins()) do
+					local buf = vim.api.nvim_win_get_buf(win)
+					if vim.bo[buf].filetype == "neo-tree" then
+						return win
+					end
+				end
+			end
+
+			local function remember_explorer()
+				local win = explorer_win()
+				explorer_width = win and vim.api.nvim_win_get_width(win) or nil
+			end
+
+			local function restore_explorer()
+				if not explorer_width then
+					return
+				end
+				local width = explorer_width
+				vim.schedule(function()
+					local win = explorer_win()
+					if win and vim.api.nvim_win_is_valid(win) then
+						pcall(vim.api.nvim_win_set_width, win, width)
+					end
+				end)
+			end
+
 			-- Auto-open DAP UI when debugging starts
 			dap.listeners.after.event_initialized["dapui_config"] = function()
+				remember_explorer()
 				dapui.open()
+				restore_explorer()
 			end
 
 			-- Auto-close DAP UI when debugging ends
 			dap.listeners.before.event_terminated["dapui_config"] = function()
 				dapui.close()
+				restore_explorer()
+				explorer_width = nil
 			end
 			dap.listeners.before.event_exited["dapui_config"] = function()
 				dapui.close()
+				restore_explorer()
+				explorer_width = nil
 			end
 		end,
 	},
