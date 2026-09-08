@@ -1,0 +1,25 @@
+{
+  "diagnostic_config": {
+    "bufferline": true,
+    "float": true,
+    "jump": {
+      "wrap": true
+    },
+    "severity_sort": true,
+    "signs": {
+      "text": [
+        "\uf057 ",
+        "\uf071 ",
+        "\uf05a ",
+        "\uf0eb "
+      ]
+    },
+    "underline": true,
+    "update_in_insert": false,
+    "virtual_lines": {
+      "current_line": true,
+      "format": "<function>"
+    },
+    "virtual_text": false
+  }
+}

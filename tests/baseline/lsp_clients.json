@@ -1,0 +1,151 @@
+{
+  "fixtures": {
+    "c": {
+      "client_count": 2,
+      "clients": [
+        "clangd",
+        "sourcekit"
+      ],
+      "filetype": "c"
+    },
+    "dart": {
+      "client_count": 0,
+      "clients": [],
+      "filetype": "dart"
+    },
+    "docker": {
+      "client_count": 1,
+      "clients": [
+        "dockerls"
+      ],
+      "filetype": "dockerfile"
+    },
+    "git": {
+      "client_count": 0,
+      "clients": [],
+      "filetype": "gitcommit"
+    },
+    "go": {
+      "client_count": 1,
+      "clients": [
+        "gopls"
+      ],
+      "filetype": "go"
+    },
+    "helm": {
+      "client_count": 1,
+      "clients": [
+        "helm_ls"
+      ],
+      "filetype": "helm"
+    },
+    "java": {
+      "client_count": 1,
+      "clients": [
+        "jdtls"
+      ],
+      "filetype": "java"
+    },
+    "json": {
+      "client_count": 1,
+      "clients": [
+        "jsonls"
+      ],
+      "filetype": "json"
+    },
+    "kotlin": {
+      "client_count": 0,
+      "clients": [],
+      "filetype": "kotlin"
+    },
+    "markdown": {
+      "client_count": 1,
+      "clients": [
+        "marksman"
+      ],
+      "filetype": "markdown"
+    },
+    "python": {
+      "client_count": 2,
+      "clients": [
+        "pyright",
+        "ruff"
+      ],
+      "filetype": "python"
+    },
+    "rust": {
+      "client_count": 1,
+      "clients": [
+        "rust-analyzer"
+      ],
+      "filetype": "rust"
+    },
+    "sql": {
+      "client_count": 0,
+      "clients": [],
+      "filetype": "sql"
+    },
+    "tailwind": {
+      "client_count": 2,
+      "clients": [
+        "angularls",
+        "tailwindcss"
+      ],
+      "filetype": "html"
+    },
+    "terraform": {
+      "client_count": 2,
+      "clients": [
+        "terraformls",
+        "tflint"
+      ],
+      "filetype": "terraform"
+    },
+    "tex": {
+      "client_count": 1,
+      "clients": [
+        "texlab"
+      ],
+      "filetype": "tex"
+    },
+    "toml": {
+      "client_count": 1,
+      "clients": [
+        "taplo"
+      ],
+      "filetype": "toml"
+    },
+    "typescript": {
+      "client_count": 3,
+      "clients": [
+        "angularls",
+        "tailwindcss",
+        "vtsls"
+      ],
+      "filetype": "typescript"
+    },
+    "vue": {
+      "client_count": 3,
+      "clients": [
+        "tailwindcss",
+        "vtsls",
+        "vue_ls"
+      ],
+      "filetype": "vue"
+    },
+    "yaml": {
+      "client_count": 1,
+      "clients": [
+        "yamlls"
+      ],
+      "filetype": "yaml"
+    },
+    "zig": {
+      "client_count": 1,
+      "clients": [
+        "zls"
+      ],
+      "filetype": "zig"
+    }
+  }
+}

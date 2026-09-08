@@ -1,0 +1,130 @@
+{
+  "fixtures": {
+    "c": {
+      "filetype": "c",
+      "server_capabilities_sha256": {
+        "clangd": "b7496d9c8552970c456a8a0525f4fb8ff3faff14e9e57acd576f1bd6f893c7c2",
+        "sourcekit": "59297bee989a567403f49d7d97c98de46d14413298a5bab23a8e3034cb100a5f"
+      }
+    },
+    "dart": {
+      "filetype": "dart",
+      "server_capabilities_sha256": {}
+    },
+    "docker": {
+      "filetype": "dockerfile",
+      "server_capabilities_sha256": {
+        "dockerls": "e3bb981d0668c3f01ff4c53a87abece6ab68971910c0dff170b858ff086bfcb4"
+      }
+    },
+    "git": {
+      "filetype": "gitcommit",
+      "server_capabilities_sha256": {}
+    },
+    "go": {
+      "filetype": "go",
+      "server_capabilities_sha256": {
+        "gopls": "6e468436ebdc955dab31c542f79549692a35f7ee03d3d223b8ed9c38207d85cb"
+      }
+    },
+    "helm": {
+      "filetype": "helm",
+      "server_capabilities_sha256": {
+        "helm_ls": "215f52f41d6855a79f3fa03a3f1101c7e4c83ba35f370fd7472e2465c12d9a71"
+      }
+    },
+    "java": {
+      "filetype": "java",
+      "server_capabilities_sha256": {
+        "jdtls": "fc0234fda4516f324f2c56aff438ff521ca5a267f47164e74e0d0fc5d873289a"
+      }
+    },
+    "json": {
+      "filetype": "json",
+      "server_capabilities_sha256": {
+        "jsonls": "b88fe44d95d8a813a79aad2ffef5558676754f8db200a46cafd33abc2c28dbf9"
+      }
+    },
+    "kotlin": {
+      "filetype": "kotlin",
+      "server_capabilities_sha256": {}
+    },
+    "markdown": {
+      "filetype": "markdown",
+      "server_capabilities_sha256": {
+        "marksman": "22219f3d6985573588e865b1eba87d054ddd7ac2094d3d5a85f1dffb9949a42c"
+      }
+    },
+    "python": {
+      "filetype": "python",
+      "server_capabilities_sha256": {
+        "pyright": "581f5265baec6114a7e5087cb31211ac35575006b973143442a782e9f54942e5",
+        "ruff": "6caf253421ad4e9bc16f7cd3cde208d665e5aede5a837fd0226ab408ba93e561"
+      }
+    },
+    "rust": {
+      "filetype": "rust",
+      "server_capabilities_sha256": {
+        "rust-analyzer": "2bddc3ac1bc423d632c4bbc7e12f89e1c18f2ee4f062485b6edf878f9db6ba26"
+      }
+    },
+    "sql": {
+      "filetype": "sql",
+      "server_capabilities_sha256": {}
+    },
+    "tailwind": {
+      "filetype": "html",
+      "server_capabilities_sha256": {
+        "angularls": "644bceec27f625361a3a83df999cfe02e1617a9f44c68de46dc7470237ff422f",
+        "tailwindcss": "418d1395dd8508790cee31ea3bd96a876b53d93e22a43e6dba69e37b7348c228"
+      }
+    },
+    "terraform": {
+      "filetype": "terraform",
+      "server_capabilities_sha256": {
+        "terraformls": "9ae95429ef460745123a521fe452b09c5c407daf2f4e9347f4afc82e54a4c3f1",
+        "tflint": "5545e55e3862c857ad064674e3d2add201230f1174b8feb37d4528a53a333b98"
+      }
+    },
+    "tex": {
+      "filetype": "tex",
+      "server_capabilities_sha256": {
+        "texlab": "13d8ad80ac9057daa47cc2263e79ab503879083103a25242c4bd14cb5bb6bdf0"
+      }
+    },
+    "toml": {
+      "filetype": "toml",
+      "server_capabilities_sha256": {
+        "taplo": "e6bbdcf3dbe42185d8b17a405d800a799b5df06605afa50182f9f9f057a37b94"
+      }
+    },
+    "typescript": {
+      "filetype": "typescript",
+      "server_capabilities_sha256": {
+        "angularls": "644bceec27f625361a3a83df999cfe02e1617a9f44c68de46dc7470237ff422f",
+        "tailwindcss": "418d1395dd8508790cee31ea3bd96a876b53d93e22a43e6dba69e37b7348c228",
+        "vtsls": "147e136ce6d8394f2e9c508885fa679dd405b9f446f1da6411a1a3e0b27ed13e"
+      }
+    },
+    "vue": {
+      "filetype": "vue",
+      "server_capabilities_sha256": {
+        "tailwindcss": "418d1395dd8508790cee31ea3bd96a876b53d93e22a43e6dba69e37b7348c228",
+        "vtsls": "147e136ce6d8394f2e9c508885fa679dd405b9f446f1da6411a1a3e0b27ed13e",
+        "vue_ls": "3cbe3a8a5422936d1bbf8779035ca586f0e2454aeaa34ba2e137affbf2cde3a1"
+      }
+    },
+    "yaml": {
+      "filetype": "yaml",
+      "server_capabilities_sha256": {
+        "yamlls": "68ca09f853bbad37d5fbbbd31035a51a4e0760a54ad208aa553594239cd7a964"
+      }
+    },
+    "zig": {
+      "filetype": "zig",
+      "server_capabilities_sha256": {
+        "zls": "cbfea0e9df811ad14ed1ec43adff8a974232c876f7184e0cbe9baff3c5db7052"
+      }
+    }
+  }
+}

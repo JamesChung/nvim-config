@@ -1,0 +1,35 @@
+{
+  "plugins_eager_pre_verylazy": [
+    "LazyVim",
+    "lazy.nvim",
+    "rose-pine",
+    "snacks.nvim",
+    "vim-sleuth",
+    "vimtex"
+  ],
+  "plugins_eager_pre_verylazy_count": 6,
+  "plugins_loaded_post_verylazy": [
+    "LazyVim",
+    "bufferline.nvim",
+    "flash.nvim",
+    "lazy.nvim",
+    "lualine.nvim",
+    "mini.ai",
+    "mini.move",
+    "mini.pairs",
+    "noice.nvim",
+    "nui.nvim",
+    "nvim-treesitter",
+    "nvim-treesitter-textobjects",
+    "project.nvim",
+    "rose-pine",
+    "snacks.nvim",
+    "trouble.nvim",
+    "ts-comments.nvim",
+    "vim-sleuth",
+    "vimtex",
+    "which-key.nvim"
+  ],
+  "plugins_loaded_post_verylazy_count": 20,
+  "plugins_total_in_spec": 75
+}

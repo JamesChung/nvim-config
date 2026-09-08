@@ -1,0 +1,1911 @@
+{
+  "options": {
+    "aleph": {
+      "scope": "global",
+      "value": 224
+    },
+    "allowrevins": {
+      "scope": "global",
+      "value": false
+    },
+    "ambiwidth": {
+      "scope": "global",
+      "value": "single"
+    },
+    "arabic": {
+      "scope": "win",
+      "value": false
+    },
+    "arabicshape": {
+      "scope": "global",
+      "value": true
+    },
+    "autochdir": {
+      "scope": "global",
+      "value": false
+    },
+    "autocomplete": {
+      "scope": "buf",
+      "value": false
+    },
+    "autocompletedelay": {
+      "scope": "global",
+      "value": 0
+    },
+    "autocompletetimeout": {
+      "scope": "global",
+      "value": 80
+    },
+    "autoindent": {
+      "scope": "buf",
+      "value": true
+    },
+    "autoread": {
+      "scope": "buf",
+      "value": true
+    },
+    "autowrite": {
+      "scope": "global",
+      "value": true
+    },
+    "autowriteall": {
+      "scope": "global",
+      "value": false
+    },
+    "background": {
+      "scope": "global",
+      "value": "dark"
+    },
+    "backspace": {
+      "scope": "global",
+      "value": [
+        "eol",
+        "indent",
+        "start"
+      ]
+    },
+    "backup": {
+      "scope": "global",
+      "value": false
+    },
+    "backupcopy": {
+      "scope": "buf",
+      "value": [
+        "auto"
+      ]
+    },
+    "backupdir": {
+      "scope": "global",
+      "value": [
+        ".",
+        "$NVIM_STATE/backup//"
+      ]
+    },
+    "backupext": {
+      "scope": "global",
+      "value": "~"
+    },
+    "backupskip": {
+      "scope": "global",
+      "value": [
+        "/private/tmp/*",
+        "$TMPDIR/<volatile>*"
+      ]
+    },
+    "belloff": {
+      "scope": "global",
+      "value": [
+        "all"
+      ]
+    },
+    "binary": {
+      "scope": "buf",
+      "value": false
+    },
+    "bomb": {
+      "scope": "buf",
+      "value": false
+    },
+    "breakat": {
+      "scope": "global",
+      "value": "\t !*+,-./:;?@"
+    },
+    "breakindent": {
+      "scope": "win",
+      "value": false
+    },
+    "breakindentopt": {
+      "scope": "win",
+      "value": []
+    },
+    "browsedir": {
+      "scope": "global",
+      "value": ""
+    },
+    "bufhidden": {
+      "scope": "buf",
+      "value": ""
+    },
+    "buflisted": {
+      "scope": "buf",
+      "value": true
+    },
+    "buftype": {
+      "scope": "buf",
+      "value": ""
+    },
+    "busy": {
+      "scope": "buf",
+      "value": 0
+    },
+    "casemap": {
+      "scope": "global",
+      "value": [
+        "internal",
+        "keepascii"
+      ]
+    },
+    "cdhome": {
+      "scope": "global",
+      "value": true
+    },
+    "cdpath": {
+      "scope": "global",
+      "value": []
+    },
+    "cedit": {
+      "scope": "global",
+      "value": "\u0006"
+    },
+    "channel": {
+      "scope": "buf",
+      "value": 0
+    },
+    "charconvert": {
+      "scope": "global",
+      "value": ""
+    },
+    "chistory": {
+      "scope": "global",
+      "value": 10
+    },
+    "cindent": {
+      "scope": "buf",
+      "value": false
+    },
+    "cinkeys": {
+      "scope": "buf",
+      "value": [
+        "!^F",
+        "0#",
+        "0)",
+        "0]",
+        "0{",
+        "0}",
+        ":",
+        "O",
+        "e",
+        "o"
+      ]
+    },
+    "cinoptions": {
+      "scope": "buf",
+      "value": []
+    },
+    "cinscopedecls": {
+      "scope": "buf",
+      "value": [
+        "private",
+        "protected",
+        "public"
+      ]
+    },
+    "cinwords": {
+      "scope": "buf",
+      "value": [
+        "do",
+        "else",
+        "for",
+        "if",
+        "switch",
+        "while"
+      ]
+    },
+    "clipboard": {
+      "scope": "global",
+      "value": [
+        "unnamedplus"
+      ]
+    },
+    "cmdheight": {
+      "scope": "global",
+      "value": 0
+    },
+    "cmdwinheight": {
+      "scope": "global",
+      "value": 7
+    },
+    "colorcolumn": {
+      "scope": "win",
+      "value": []
+    },
+    "comments": {
+      "scope": "buf",
+      "value": [
+        ":%",
+        "://",
+        ":XCOMM",
+        "b:#",
+        "ex:*/",
+        "fb:-",
+        "fb:\u2022",
+        "mb:*",
+        "n:>",
+        "s1:/*"
+      ]
+    },
+    "commentstring": {
+      "scope": "buf",
+      "value": ""
+    },
+    "compatible": {
+      "scope": "global",
+      "value": false
+    },
+    "complete": {
+      "scope": "buf",
+      "value": [
+        ".",
+        "b",
+        "t",
+        "u",
+        "w"
+      ]
+    },
+    "completefunc": {
+      "scope": "buf",
+      "value": ""
+    },
+    "completeitemalign": {
+      "scope": "global",
+      "value": [
+        "abbr",
+        "kind",
+        "menu"
+      ]
+    },
+    "completeopt": {
+      "scope": "buf",
+      "value": [
+        "menu",
+        "menuone",
+        "noselect"
+      ]
+    },
+    "completeslash": {
+      "scope": "buf",
+      "value": ""
+    },
+    "completetimeout": {
+      "scope": "global",
+      "value": 0
+    },
+    "concealcursor": {
+      "scope": "win",
+      "value": ""
+    },
+    "conceallevel": {
+      "scope": "win",
+      "value": 2
+    },
+    "confirm": {
+      "scope": "global",
+      "value": true
+    },
+    "copyindent": {
+      "scope": "buf",
+      "value": false
+    },
+    "cpoptions": {
+      "scope": "global",
+      "value": "ABF_aces"
+    },
+    "cursorbind": {
+      "scope": "win",
+      "value": false
+    },
+    "cursorcolumn": {
+      "scope": "win",
+      "value": false
+    },
+    "cursorline": {
+      "scope": "win",
+      "value": true
+    },
+    "cursorlineopt": {
+      "scope": "win",
+      "value": [
+        "both"
+      ]
+    },
+    "debug": {
+      "scope": "global",
+      "value": []
+    },
+    "define": {
+      "scope": "buf",
+      "value": ""
+    },
+    "delcombine": {
+      "scope": "global",
+      "value": false
+    },
+    "dictionary": {
+      "scope": "buf",
+      "value": []
+    },
+    "diff": {
+      "scope": "win",
+      "value": false
+    },
+    "diffanchors": {
+      "scope": "buf",
+      "value": []
+    },
+    "diffexpr": {
+      "scope": "global",
+      "value": ""
+    },
+    "diffopt": {
+      "scope": "global",
+      "value": [
+        "closeoff",
+        "filler",
+        "indent-heuristic",
+        "inline:char",
+        "internal",
+        "linematch:40"
+      ]
+    },
+    "digraph": {
+      "scope": "global",
+      "value": false
+    },
+    "directory": {
+      "scope": "global",
+      "value": [
+        "$NVIM_STATE/swap//"
+      ]
+    },
+    "display": {
+      "scope": "global",
+      "value": [
+        "lastline"
+      ]
+    },
+    "eadirection": {
+      "scope": "global",
+      "value": "both"
+    },
+    "edcompatible": {
+      "scope": "global",
+      "value": false
+    },
+    "emoji": {
+      "scope": "global",
+      "value": true
+    },
+    "encoding": {
+      "scope": "global",
+      "value": "utf-8"
+    },
+    "endoffile": {
+      "scope": "buf",
+      "value": false
+    },
+    "endofline": {
+      "scope": "buf",
+      "value": true
+    },
+    "equalalways": {
+      "scope": "global",
+      "value": true
+    },
+    "equalprg": {
+      "scope": "buf",
+      "value": ""
+    },
+    "errorbells": {
+      "scope": "global",
+      "value": false
+    },
+    "errorfile": {
+      "scope": "global",
+      "value": "errors.err"
+    },
+    "errorformat": {
+      "scope": "buf",
+      "value": [
+        "",
+        "",
+        " line %l%*\\D%c%*[^ ] %m",
+        "\"%f\"%*\\D%l: %m",
+        "\"%f\"\\",
+        "%*[^\"]\"%f\"%*\\D%l: %m",
+        "%-G%*[ ]from %f:%l",
+        "%-G%*[ ]from %f:%l:",
+        "%-G%*[ ]from %f:%l:%c",
+        "%-G%*[ ]from %f:%l\\",
+        "%-G%f:%l: (Each undeclared identifier is reported only once",
+        "%-G%f:%l: for each function it appears in.)",
+        "%-GIn file included from %f:%l",
+        "%-GIn file included from %f:%l:%c",
+        "%-GIn file included from %f:%l:%c:",
+        "%-GIn file included from %f:%l:%c\\",
+        "%-Gg%\\?make: *** [%f:%l:%m",
+        "%-Gg%\\?make[%*\\d]: *** [%f:%l:%m",
+        "%D%*\\a: Entering directory %*[`']%f'",
+        "%D%*\\a[%*\\d]: Entering directory %*[`']%f'",
+        "%DMaking %*\\a in %f",
+        "%X%*\\a: Leaving directory %*[`']%f'",
+        "%X%*\\a[%*\\d]: Leaving directory %*[`']%f'",
+        "%f(%l):%m",
+        "%f:%l:%c:%m",
+        "%f:%l:%m",
+        "%f|%l| %m"
+      ]
+    },
+    "eventignore": {
+      "scope": "global",
+      "value": []
+    },
+    "eventignorewin": {
+      "scope": "win",
+      "value": []
+    },
+    "expandtab": {
+      "scope": "buf",
+      "value": true
+    },
+    "exrc": {
+      "scope": "global",
+      "value": false
+    },
+    "fileencoding": {
+      "scope": "buf",
+      "value": ""
+    },
+    "fileencodings": {
+      "scope": "global",
+      "value": [
+        "default",
+        "latin1",
+        "ucs-bom",
+        "utf-8"
+      ]
+    },
+    "fileformat": {
+      "scope": "buf",
+      "value": "unix"
+    },
+    "fileformats": {
+      "scope": "global",
+      "value": [
+        "dos",
+        "unix"
+      ]
+    },
+    "fileignorecase": {
+      "scope": "global",
+      "value": true
+    },
+    "filetype": {
+      "scope": "buf",
+      "value": ""
+    },
+    "fillchars": {
+      "scope": "win",
+      "value": [
+        "diff:\u2571",
+        "eob: ",
+        "fold: ",
+        "foldclose:\uf460",
+        "foldopen:\uf47c",
+        "foldsep: "
+      ]
+    },
+    "findfunc": {
+      "scope": "buf",
+      "value": ""
+    },
+    "fixendofline": {
+      "scope": "buf",
+      "value": true
+    },
+    "foldclose": {
+      "scope": "global",
+      "value": []
+    },
+    "foldcolumn": {
+      "scope": "win",
+      "value": "0"
+    },
+    "foldenable": {
+      "scope": "win",
+      "value": true
+    },
+    "foldexpr": {
+      "scope": "win",
+      "value": "0"
+    },
+    "foldignore": {
+      "scope": "win",
+      "value": "#"
+    },
+    "foldlevel": {
+      "scope": "win",
+      "value": 99
+    },
+    "foldlevelstart": {
+      "scope": "global",
+      "value": -1
+    },
+    "foldmarker": {
+      "scope": "win",
+      "value": [
+        "{{{",
+        "}}}"
+      ]
+    },
+    "foldmethod": {
+      "scope": "win",
+      "value": "indent"
+    },
+    "foldminlines": {
+      "scope": "win",
+      "value": 1
+    },
+    "foldnestmax": {
+      "scope": "win",
+      "value": 20
+    },
+    "foldopen": {
+      "scope": "global",
+      "value": [
+        "block",
+        "hor",
+        "mark",
+        "percent",
+        "quickfix",
+        "search",
+        "tag",
+        "undo"
+      ]
+    },
+    "foldtext": {
+      "scope": "win",
+      "value": ""
+    },
+    "formatexpr": {
+      "scope": "buf",
+      "value": "v:lua.LazyVim.format.formatexpr()"
+    },
+    "formatlistpat": {
+      "scope": "buf",
+      "value": "^\\s*\\d\\+[\\]:.)}\\t ]\\s*"
+    },
+    "formatoptions": {
+      "scope": "buf",
+      "value": "cjlnoqrt"
+    },
+    "formatprg": {
+      "scope": "buf",
+      "value": ""
+    },
+    "fsync": {
+      "scope": "buf",
+      "value": true
+    },
+    "gdefault": {
+      "scope": "global",
+      "value": false
+    },
+    "grepformat": {
+      "scope": "buf",
+      "value": [
+        "%f:%l:%c:%m"
+      ]
+    },
+    "grepprg": {
+      "scope": "buf",
+      "value": "rg --vimgrep"
+    },
+    "guicursor": {
+      "scope": "global",
+      "value": [
+        "i-ci-ve:ver25",
+        "n-v-c-sm:block",
+        "r-cr-o:hor20",
+        "t:block-blinkon500-blinkoff500-TermCursor"
+      ]
+    },
+    "guifont": {
+      "scope": "global",
+      "value": [
+        "Courier New",
+        "Menlo",
+        "Monaco",
+        "SF Mono",
+        "monospace"
+      ]
+    },
+    "guifontwide": {
+      "scope": "global",
+      "value": []
+    },
+    "guioptions": {
+      "scope": "global",
+      "value": ""
+    },
+    "guitablabel": {
+      "scope": "global",
+      "value": ""
+    },
+    "guitabtooltip": {
+      "scope": "global",
+      "value": ""
+    },
+    "helpfile": {
+      "scope": "global",
+      "value": "$VIMRUNTIME/doc/help.txt"
+    },
+    "helpheight": {
+      "scope": "global",
+      "value": 20
+    },
+    "helplang": {
+      "scope": "global",
+      "value": [
+        "en"
+      ]
+    },
+    "hidden": {
+      "scope": "global",
+      "value": true
+    },
+    "highlight": {
+      "scope": "global",
+      "value": [
+        "!:CursorColumn",
+        "#:TabLineSel",
+        "*:TabLine",
+        "+:Pmenu",
+        "-:Conceal",
+        ".:CursorLine",
+        "0:Whitespace",
+        "8:SpecialKey",
+        "<:PmenuMatchSel",
+        "=:PmenuSel",
+        ">:SignColumn",
+        "@:NonText",
+        "A:DiffAdd",
+        "B:SpellBad",
+        "C:DiffChange",
+        "D:DiffDelete",
+        "E:DiffTextAdd",
+        "F:FoldColumn",
+        "G:CursorLineSign",
+        "I:PreInsert",
+        "L:SpellLocal",
+        "M:ModeMsg",
+        "N:CursorLineNr",
+        "O:CursorLineFold",
+        "P:SpellCap",
+        "R:SpellRare",
+        "S:StatusLineNC",
+        "T:DiffText",
+        "V:VisualNOS",
+        "W:WildMenu",
+        "X:PmenuThumb",
+        "Z:StatusLineTermNC",
+        "[:PmenuKind",
+        "]:PmenuKindSel",
+        "_:TabLineFill",
+        "a:LineNrAbove",
+        "b:LineNrBelow",
+        "c:VertSplit",
+        "d:Directory",
+        "e:ErrorMsg",
+        "f:Folded",
+        "g:MsgArea",
+        "h:ComplMatchIns",
+        "i:IncSearch",
+        "k:PmenuMatch",
+        "l:Search",
+        "m:MoreMsg",
+        "n:LineNr",
+        "o:ColorColumn",
+        "q:QuickFixLine",
+        "r:Question",
+        "s:StatusLine",
+        "t:Title",
+        "v:Visual",
+        "w:WarningMsg",
+        "x:PmenuSbar",
+        "y:CurSearch",
+        "z:StatusLineTerm",
+        "z:TermCursor",
+        "{:PmenuExtra",
+        "}:PmenuExtraSel",
+        "~:EndOfBuffer"
+      ]
+    },
+    "history": {
+      "scope": "global",
+      "value": 10000
+    },
+    "hkmap": {
+      "scope": "global",
+      "value": false
+    },
+    "hkmapp": {
+      "scope": "global",
+      "value": false
+    },
+    "hlsearch": {
+      "scope": "global",
+      "value": true
+    },
+    "icon": {
+      "scope": "global",
+      "value": false
+    },
+    "iconstring": {
+      "scope": "global",
+      "value": ""
+    },
+    "ignorecase": {
+      "scope": "global",
+      "value": true
+    },
+    "imcmdline": {
+      "scope": "global",
+      "value": false
+    },
+    "imdisable": {
+      "scope": "global",
+      "value": false
+    },
+    "iminsert": {
+      "scope": "buf",
+      "value": 0
+    },
+    "imsearch": {
+      "scope": "buf",
+      "value": -1
+    },
+    "inccommand": {
+      "scope": "global",
+      "value": "nosplit"
+    },
+    "include": {
+      "scope": "buf",
+      "value": ""
+    },
+    "includeexpr": {
+      "scope": "buf",
+      "value": ""
+    },
+    "incsearch": {
+      "scope": "global",
+      "value": true
+    },
+    "indentexpr": {
+      "scope": "buf",
+      "value": ""
+    },
+    "indentkeys": {
+      "scope": "buf",
+      "value": [
+        "!^F",
+        "0#",
+        "0)",
+        "0]",
+        "0{",
+        "0}",
+        ":",
+        "O",
+        "e",
+        "o"
+      ]
+    },
+    "infercase": {
+      "scope": "buf",
+      "value": false
+    },
+    "insertmode": {
+      "scope": "global",
+      "value": false
+    },
+    "isfname": {
+      "scope": "global",
+      "value": [
+        "",
+        "",
+        "#",
+        "$",
+        "%",
+        "+",
+        "-",
+        ".",
+        "/",
+        "48-57",
+        "=",
+        "@",
+        "_",
+        "~"
+      ]
+    },
+    "isident": {
+      "scope": "global",
+      "value": [
+        "192-255",
+        "48-57",
+        "@",
+        "_"
+      ]
+    },
+    "iskeyword": {
+      "scope": "buf",
+      "value": [
+        "192-255",
+        "48-57",
+        "@",
+        "_"
+      ]
+    },
+    "isprint": {
+      "scope": "global",
+      "value": [
+        "161-255",
+        "@"
+      ]
+    },
+    "joinspaces": {
+      "scope": "global",
+      "value": false
+    },
+    "jumpoptions": {
+      "scope": "global",
+      "value": [
+        "view"
+      ]
+    },
+    "keymap": {
+      "scope": "buf",
+      "value": ""
+    },
+    "keymodel": {
+      "scope": "global",
+      "value": []
+    },
+    "keywordprg": {
+      "scope": "buf",
+      "value": ":Man"
+    },
+    "langmap": {
+      "scope": "global",
+      "value": []
+    },
+    "langmenu": {
+      "scope": "global",
+      "value": ""
+    },
+    "langnoremap": {
+      "scope": "global",
+      "value": true
+    },
+    "langremap": {
+      "scope": "global",
+      "value": false
+    },
+    "laststatus": {
+      "scope": "global",
+      "value": 3
+    },
+    "lazyredraw": {
+      "scope": "global",
+      "value": false
+    },
+    "lhistory": {
+      "scope": "win",
+      "value": 10
+    },
+    "linebreak": {
+      "scope": "win",
+      "value": true
+    },
+    "linespace": {
+      "scope": "global",
+      "value": 0
+    },
+    "lisp": {
+      "scope": "buf",
+      "value": false
+    },
+    "lispoptions": {
+      "scope": "buf",
+      "value": []
+    },
+    "lispwords": {
+      "scope": "buf",
+      "value": [
+        "abort",
+        "case",
+        "continue",
+        "defclass",
+        "define",
+        "define-condition",
+        "define-syntax",
+        "defmacro",
+        "defmethod",
+        "defpackage",
+        "defparameter",
+        "defstruct",
+        "deftype",
+        "defun",
+        "defvar",
+        "destructuring-bind",
+        "do",
+        "do*",
+        "do-all-symbols",
+        "do-external-symbols",
+        "do-symbols",
+        "dolist",
+        "dotimes",
+        "ecase",
+        "etypecase",
+        "eval-when",
+        "flet",
+        "handler-bind",
+        "handler-case",
+        "if",
+        "labels",
+        "lambda",
+        "let",
+        "let*",
+        "let-syntax",
+        "letrec",
+        "letrec-syntax",
+        "macrolet",
+        "muffle-warning",
+        "multiple-value-bind",
+        "multiple-value-call",
+        "multiple-value-prog1",
+        "multiple-value-setq",
+        "print-unreadable-object",
+        "prog1",
+        "progv",
+        "restart-bind",
+        "restart-case",
+        "set!",
+        "store-value",
+        "typecase",
+        "unless",
+        "unwind-protect",
+        "use-value",
+        "when",
+        "with-accessors",
+        "with-accessors*",
+        "with-input-from-string",
+        "with-open-file",
+        "with-open-stream",
+        "with-output-to-string",
+        "with-package-iterator",
+        "with-simple-restart",
+        "with-slots",
+        "with-slots*"
+      ]
+    },
+    "list": {
+      "scope": "win",
+      "value": true
+    },
+    "listchars": {
+      "scope": "win",
+      "value": [
+        "nbsp:\u23b5",
+        "tab:  \u203a",
+        "trail:\u22c5"
+      ]
+    },
+    "loadplugins": {
+      "scope": "global",
+      "value": false
+    },
+    "magic": {
+      "scope": "global",
+      "value": true
+    },
+    "makeef": {
+      "scope": "global",
+      "value": ""
+    },
+    "makeencoding": {
+      "scope": "buf",
+      "value": ""
+    },
+    "makeprg": {
+      "scope": "buf",
+      "value": "make"
+    },
+    "matchpairs": {
+      "scope": "buf",
+      "value": [
+        "(:)",
+        "[:]",
+        "{:}"
+      ]
+    },
+    "matchtime": {
+      "scope": "global",
+      "value": 5
+    },
+    "maxcombine": {
+      "scope": "global",
+      "value": 6
+    },
+    "maxfuncdepth": {
+      "scope": "global",
+      "value": 100
+    },
+    "maxmapdepth": {
+      "scope": "global",
+      "value": 1000
+    },
+    "maxmempattern": {
+      "scope": "global",
+      "value": 1000
+    },
+    "maxsearchcount": {
+      "scope": "global",
+      "value": 999
+    },
+    "menuitems": {
+      "scope": "global",
+      "value": 25
+    },
+    "messagesopt": {
+      "scope": "global",
+      "value": [
+        "history:500",
+        "hit-enter",
+        "progress:c"
+      ]
+    },
+    "mkspellmem": {
+      "scope": "global",
+      "value": "460000,2000,500"
+    },
+    "modeline": {
+      "scope": "buf",
+      "value": true
+    },
+    "modelineexpr": {
+      "scope": "global",
+      "value": false
+    },
+    "modelines": {
+      "scope": "global",
+      "value": 5
+    },
+    "modifiable": {
+      "scope": "buf",
+      "value": true
+    },
+    "modified": {
+      "scope": "buf",
+      "value": false
+    },
+    "more": {
+      "scope": "global",
+      "value": true
+    },
+    "mouse": {
+      "scope": "global",
+      "value": "a"
+    },
+    "mousefocus": {
+      "scope": "global",
+      "value": false
+    },
+    "mousehide": {
+      "scope": "global",
+      "value": true
+    },
+    "mousemodel": {
+      "scope": "global",
+      "value": "popup_setpos"
+    },
+    "mousemoveevent": {
+      "scope": "global",
+      "value": false
+    },
+    "mousescroll": {
+      "scope": "global",
+      "value": [
+        "hor:6",
+        "ver:3"
+      ]
+    },
+    "mouseshape": {
+      "scope": "global",
+      "value": []
+    },
+    "mousetime": {
+      "scope": "global",
+      "value": 500
+    },
+    "nrformats": {
+      "scope": "buf",
+      "value": [
+        "bin",
+        "hex"
+      ]
+    },
+    "number": {
+      "scope": "win",
+      "value": true
+    },
+    "numberwidth": {
+      "scope": "win",
+      "value": 4
+    },
+    "omnifunc": {
+      "scope": "buf",
+      "value": ""
+    },
+    "opendevice": {
+      "scope": "global",
+      "value": false
+    },
+    "operatorfunc": {
+      "scope": "global",
+      "value": ""
+    },
+    "packpath": {
+      "scope": "global",
+      "value": [
+        "$VIMRUNTIME"
+      ]
+    },
+    "paragraphs": {
+      "scope": "global",
+      "value": "IPLPPPQPP TPHPLIPpLpItpplpipbp"
+    },
+    "paste": {
+      "scope": "global",
+      "value": false
+    },
+    "pastetoggle": {
+      "scope": "global",
+      "value": ""
+    },
+    "patchexpr": {
+      "scope": "global",
+      "value": ""
+    },
+    "patchmode": {
+      "scope": "global",
+      "value": ""
+    },
+    "path": {
+      "scope": "buf",
+      "value": [
+        "."
+      ]
+    },
+    "preserveindent": {
+      "scope": "buf",
+      "value": false
+    },
+    "previewheight": {
+      "scope": "global",
+      "value": 12
+    },
+    "previewwindow": {
+      "scope": "win",
+      "value": false
+    },
+    "prompt": {
+      "scope": "global",
+      "value": true
+    },
+    "pumblend": {
+      "scope": "global",
+      "value": 10
+    },
+    "pumborder": {
+      "scope": "global",
+      "value": [
+        "rounded"
+      ]
+    },
+    "pumheight": {
+      "scope": "global",
+      "value": 10
+    },
+    "pummaxwidth": {
+      "scope": "global",
+      "value": 0
+    },
+    "pumwidth": {
+      "scope": "global",
+      "value": 15
+    },
+    "pyxversion": {
+      "scope": "global",
+      "value": 3
+    },
+    "quickfixtextfunc": {
+      "scope": "global",
+      "value": ""
+    },
+    "quoteescape": {
+      "scope": "buf",
+      "value": "\\"
+    },
+    "readonly": {
+      "scope": "buf",
+      "value": false
+    },
+    "redrawdebug": {
+      "scope": "global",
+      "value": []
+    },
+    "redrawtime": {
+      "scope": "global",
+      "value": 2000
+    },
+    "regexpengine": {
+      "scope": "global",
+      "value": 0
+    },
+    "relativenumber": {
+      "scope": "win",
+      "value": true
+    },
+    "remap": {
+      "scope": "global",
+      "value": true
+    },
+    "report": {
+      "scope": "global",
+      "value": 2
+    },
+    "revins": {
+      "scope": "global",
+      "value": false
+    },
+    "rightleft": {
+      "scope": "win",
+      "value": false
+    },
+    "rightleftcmd": {
+      "scope": "win",
+      "value": [
+        "search"
+      ]
+    },
+    "ruler": {
+      "scope": "global",
+      "value": false
+    },
+    "rulerformat": {
+      "scope": "global",
+      "value": ""
+    },
+    "runtimepath": {
+      "scope": "global",
+      "value": [
+        "$NVIM_CONFIG",
+        "$LAZY_ROOT/LazyVim",
+        "$LAZY_ROOT/bufferline.nvim",
+        "$LAZY_ROOT/flash.nvim",
+        "$LAZY_ROOT/lazy.nvim",
+        "$LAZY_ROOT/lualine.nvim",
+        "$LAZY_ROOT/mini.ai",
+        "$LAZY_ROOT/mini.move",
+        "$LAZY_ROOT/mini.pairs",
+        "$LAZY_ROOT/noice.nvim",
+        "$LAZY_ROOT/nui.nvim",
+        "$LAZY_ROOT/nvim-treesitter",
+        "$LAZY_ROOT/nvim-treesitter-textobjects",
+        "$LAZY_ROOT/project.nvim",
+        "$LAZY_ROOT/rose-pine",
+        "$LAZY_ROOT/snacks.nvim",
+        "$LAZY_ROOT/trouble.nvim",
+        "$LAZY_ROOT/ts-comments.nvim",
+        "$LAZY_ROOT/vim-sleuth",
+        "$LAZY_ROOT/vimtex",
+        "$LAZY_ROOT/vimtex/after",
+        "$LAZY_ROOT/which-key.nvim",
+        "$NVIM_DATA/site",
+        "$NVIM_STATE/lazy/readme",
+        "/opt/homebrew/Cellar/neovim/0.12.5_1/lib/nvim",
+        "$VIMRUNTIME",
+        "$VIMRUNTIME/pack/dist/opt/matchit"
+      ]
+    },
+    "scroll": {
+      "scope": "win",
+      "value": 0
+    },
+    "scrollback": {
+      "scope": "buf",
+      "value": -1
+    },
+    "scrollbind": {
+      "scope": "win",
+      "value": false
+    },
+    "scrolljump": {
+      "scope": "global",
+      "value": 1
+    },
+    "scrolloff": {
+      "scope": "win",
+      "value": 10
+    },
+    "scrollopt": {
+      "scope": "global",
+      "value": [
+        "jump",
+        "ver"
+      ]
+    },
+    "sections": {
+      "scope": "global",
+      "value": "SHNHH HUnhsh"
+    },
+    "secure": {
+      "scope": "global",
+      "value": false
+    },
+    "selection": {
+      "scope": "global",
+      "value": "inclusive"
+    },
+    "selectmode": {
+      "scope": "global",
+      "value": []
+    },
+    "sessionoptions": {
+      "scope": "global",
+      "value": [
+        "buffers",
+        "curdir",
+        "folds",
+        "globals",
+        "help",
+        "skiprtp",
+        "tabpages",
+        "winsize"
+      ]
+    },
+    "shada": {
+      "scope": "global",
+      "value": [
+        "!",
+        "'100",
+        "<50",
+        "h",
+        "r/private/",
+        "r/tmp/",
+        "s10"
+      ]
+    },
+    "shadafile": {
+      "scope": "global",
+      "value": []
+    },
+    "shell": {
+      "scope": "global",
+      "value": "/bin/zsh"
+    },
+    "shellcmdflag": {
+      "scope": "global",
+      "value": "-c"
+    },
+    "shellpipe": {
+      "scope": "global",
+      "value": "2>&1| tee"
+    },
+    "shellquote": {
+      "scope": "global",
+      "value": ""
+    },
+    "shellredir": {
+      "scope": "global",
+      "value": ">%s 2>&1"
+    },
+    "shellslash": {
+      "scope": "global",
+      "value": true
+    },
+    "shelltemp": {
+      "scope": "global",
+      "value": false
+    },
+    "shellxescape": {
+      "scope": "global",
+      "value": ""
+    },
+    "shellxquote": {
+      "scope": "global",
+      "value": ""
+    },
+    "shiftround": {
+      "scope": "global",
+      "value": true
+    },
+    "shiftwidth": {
+      "scope": "buf",
+      "value": 4
+    },
+    "shortmess": {
+      "scope": "global",
+      "value": "CFIOTWclot"
+    },
+    "showbreak": {
+      "scope": "win",
+      "value": ""
+    },
+    "showcmd": {
+      "scope": "global",
+      "value": true
+    },
+    "showcmdloc": {
+      "scope": "global",
+      "value": "last"
+    },
+    "showfulltag": {
+      "scope": "global",
+      "value": false
+    },
+    "showmatch": {
+      "scope": "global",
+      "value": false
+    },
+    "showmode": {
+      "scope": "global",
+      "value": false
+    },
+    "showtabline": {
+      "scope": "global",
+      "value": 0
+    },
+    "sidescroll": {
+      "scope": "global",
+      "value": 1
+    },
+    "sidescrolloff": {
+      "scope": "win",
+      "value": 8
+    },
+    "signcolumn": {
+      "scope": "win",
+      "value": "yes"
+    },
+    "smartcase": {
+      "scope": "global",
+      "value": true
+    },
+    "smartindent": {
+      "scope": "buf",
+      "value": true
+    },
+    "smarttab": {
+      "scope": "global",
+      "value": true
+    },
+    "smoothscroll": {
+      "scope": "win",
+      "value": true
+    },
+    "softtabstop": {
+      "scope": "buf",
+      "value": 4
+    },
+    "spell": {
+      "scope": "win",
+      "value": false
+    },
+    "spellcapcheck": {
+      "scope": "buf",
+      "value": "[.?!]\\_[\\])'\"\\t ]\\+"
+    },
+    "spellfile": {
+      "scope": "buf",
+      "value": []
+    },
+    "spelllang": {
+      "scope": "buf",
+      "value": [
+        "en"
+      ]
+    },
+    "spelloptions": {
+      "scope": "buf",
+      "value": []
+    },
+    "spellsuggest": {
+      "scope": "global",
+      "value": [
+        "best"
+      ]
+    },
+    "splitbelow": {
+      "scope": "global",
+      "value": true
+    },
+    "splitkeep": {
+      "scope": "global",
+      "value": "screen"
+    },
+    "splitright": {
+      "scope": "global",
+      "value": true
+    },
+    "startofline": {
+      "scope": "global",
+      "value": false
+    },
+    "statuscolumn": {
+      "scope": "win",
+      "value": "%!v:lua.LazyVim.statuscolumn()"
+    },
+    "suffixes": {
+      "scope": "global",
+      "value": [
+        ".bak",
+        ".h",
+        ".info",
+        ".o",
+        ".obj",
+        ".swp",
+        "~"
+      ]
+    },
+    "suffixesadd": {
+      "scope": "buf",
+      "value": []
+    },
+    "swapfile": {
+      "scope": "buf",
+      "value": true
+    },
+    "switchbuf": {
+      "scope": "global",
+      "value": [
+        "uselast"
+      ]
+    },
+    "synmaxcol": {
+      "scope": "buf",
+      "value": 3000
+    },
+    "syntax": {
+      "scope": "buf",
+      "value": ""
+    },
+    "tabclose": {
+      "scope": "global",
+      "value": []
+    },
+    "tabpagemax": {
+      "scope": "global",
+      "value": 50
+    },
+    "tabstop": {
+      "scope": "buf",
+      "value": 4
+    },
+    "tagbsearch": {
+      "scope": "global",
+      "value": true
+    },
+    "tagcase": {
+      "scope": "buf",
+      "value": "followic"
+    },
+    "tagfunc": {
+      "scope": "buf",
+      "value": ""
+    },
+    "taglength": {
+      "scope": "global",
+      "value": 0
+    },
+    "tagrelative": {
+      "scope": "global",
+      "value": true
+    },
+    "tags": {
+      "scope": "buf",
+      "value": [
+        "./tags;",
+        "tags"
+      ]
+    },
+    "tagstack": {
+      "scope": "global",
+      "value": true
+    },
+    "termbidi": {
+      "scope": "global",
+      "value": false
+    },
+    "termencoding": {
+      "scope": "global",
+      "value": ""
+    },
+    "termguicolors": {
+      "scope": "global",
+      "value": true
+    },
+    "termpastefilter": {
+      "scope": "global",
+      "value": [
+        "BS",
+        "DEL",
+        "ESC",
+        "HT"
+      ]
+    },
+    "termsync": {
+      "scope": "global",
+      "value": true
+    },
+    "terse": {
+      "scope": "global",
+      "value": false
+    },
+    "textwidth": {
+      "scope": "buf",
+      "value": 0
+    },
+    "thesaurus": {
+      "scope": "buf",
+      "value": []
+    },
+    "thesaurusfunc": {
+      "scope": "buf",
+      "value": ""
+    },
+    "tildeop": {
+      "scope": "global",
+      "value": false
+    },
+    "timeout": {
+      "scope": "global",
+      "value": true
+    },
+    "timeoutlen": {
+      "scope": "global",
+      "value": 300
+    },
+    "title": {
+      "scope": "global",
+      "value": false
+    },
+    "titlelen": {
+      "scope": "global",
+      "value": 85
+    },
+    "titleold": {
+      "scope": "global",
+      "value": ""
+    },
+    "titlestring": {
+      "scope": "global",
+      "value": ""
+    },
+    "ttimeout": {
+      "scope": "global",
+      "value": true
+    },
+    "ttimeoutlen": {
+      "scope": "global",
+      "value": 50
+    },
+    "ttyfast": {
+      "scope": "global",
+      "value": true
+    },
+    "undodir": {
+      "scope": "global",
+      "value": [
+        "$NVIM_STATE/undo//"
+      ]
+    },
+    "undofile": {
+      "scope": "buf",
+      "value": true
+    },
+    "undolevels": {
+      "scope": "buf",
+      "value": 10000
+    },
+    "undoreload": {
+      "scope": "global",
+      "value": 10000
+    },
+    "updatecount": {
+      "scope": "global",
+      "value": 200
+    },
+    "updatetime": {
+      "scope": "global",
+      "value": 200
+    },
+    "varsofttabstop": {
+      "scope": "buf",
+      "value": []
+    },
+    "vartabstop": {
+      "scope": "buf",
+      "value": []
+    },
+    "verbose": {
+      "scope": "global",
+      "value": 0
+    },
+    "verbosefile": {
+      "scope": "global",
+      "value": ""
+    },
+    "viewdir": {
+      "scope": "global",
+      "value": "$NVIM_STATE/view//"
+    },
+    "viewoptions": {
+      "scope": "global",
+      "value": [
+        "curdir",
+        "cursor",
+        "folds"
+      ]
+    },
+    "virtualedit": {
+      "scope": "win",
+      "value": [
+        "block"
+      ]
+    },
+    "visualbell": {
+      "scope": "global",
+      "value": false
+    },
+    "warn": {
+      "scope": "global",
+      "value": true
+    },
+    "whichwrap": {
+      "scope": "global",
+      "value": ",bs"
+    },
+    "wildchar": {
+      "scope": "global",
+      "value": 9
+    },
+    "wildcharm": {
+      "scope": "global",
+      "value": 0
+    },
+    "wildignore": {
+      "scope": "global",
+      "value": []
+    },
+    "wildignorecase": {
+      "scope": "global",
+      "value": false
+    },
+    "wildmenu": {
+      "scope": "global",
+      "value": true
+    },
+    "wildmode": {
+      "scope": "global",
+      "value": [
+        "list",
+        "longest"
+      ]
+    },
+    "wildoptions": {
+      "scope": "global",
+      "value": [
+        "pum",
+        "tagfile"
+      ]
+    },
+    "winaltkeys": {
+      "scope": "global",
+      "value": "menu"
+    },
+    "winblend": {
+      "scope": "win",
+      "value": 0
+    },
+    "winborder": {
+      "scope": "global",
+      "value": [
+        "rounded"
+      ]
+    },
+    "window": {
+      "scope": "global",
+      "value": 23
+    },
+    "winfixbuf": {
+      "scope": "win",
+      "value": false
+    },
+    "winfixheight": {
+      "scope": "win",
+      "value": false
+    },
+    "winfixwidth": {
+      "scope": "win",
+      "value": false
+    },
+    "winheight": {
+      "scope": "global",
+      "value": 1
+    },
+    "winhighlight": {
+      "scope": "win",
+      "value": []
+    },
+    "winminheight": {
+      "scope": "global",
+      "value": 1
+    },
+    "winminwidth": {
+      "scope": "global",
+      "value": 5
+    },
+    "winwidth": {
+      "scope": "global",
+      "value": 20
+    },
+    "wrap": {
+      "scope": "win",
+      "value": false
+    },
+    "wrapmargin": {
+      "scope": "buf",
+      "value": 0
+    },
+    "wrapscan": {
+      "scope": "global",
+      "value": true
+    },
+    "write": {
+      "scope": "global",
+      "value": true
+    },
+    "writeany": {
+      "scope": "global",
+      "value": false
+    },
+    "writebackup": {
+      "scope": "global",
+      "value": true
+    },
+    "writedelay": {
+      "scope": "global",
+      "value": 0
+    }
+  }
+}

@@ -1,0 +1,5 @@
+releases:
+  - name: fixture
+    chart: stable/fixture
+    values:
+      - replicaCount: {{ 1 }}
