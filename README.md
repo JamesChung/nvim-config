@@ -37,4 +37,4 @@ Refer to the **[KEYMAP.md](./KEYMAP.md)** for the complete manual.
 - **Theme:** Rose Pine
 
 ### ⚠️ Note on `:LazyExtras`
-`lazyvim.json` keeps `extras: []` because all 27 extras are imported directly in `lua/config/lazy.lua`. The `:LazyExtras` menu will show these extras as disabled. Don't enable them from `:LazyExtras`, or you will end up with duplicate imports.
+`lazyvim.json` keeps `extras: []` because every extra is imported directly in `lua/config/lazy.lua`. The `:LazyExtras` menu will show these extras as disabled. Don't enable them from `:LazyExtras`, or you will end up with duplicate imports.
