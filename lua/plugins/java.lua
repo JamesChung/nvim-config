@@ -1,3 +1,86 @@
+-- JDK runtimes are discovered rather than hardcoded: this config is shared
+-- publicly, and vendor-specific paths silently resolve to nothing elsewhere.
+local function discover_runtimes()
+	local home = vim.fn.expand("~")
+	local globs = {
+		"/Library/Java/JavaVirtualMachines/*/Contents/Home",
+		home .. "/Library/Java/JavaVirtualMachines/*/Contents/Home",
+		"/opt/homebrew/opt/openjdk*/libexec/openjdk.jdk/Contents/Home",
+		"/usr/local/opt/openjdk*/libexec/openjdk.jdk/Contents/Home",
+		home .. "/.sdkman/candidates/java/*",
+		"/usr/lib/jvm/*",
+	}
+
+	local vendors = { "applejdk", "graalvm", "openjdk", "temurin", "zulu", "corretto" }
+	local function rank_of(path)
+		local lower = path:lower()
+		for rank, vendor in ipairs(vendors) do
+			if lower:find(vendor, 1, true) then
+				return rank
+			end
+		end
+		return #vendors + 1
+	end
+
+	local function parse_major(release)
+		if vim.fn.filereadable(release) ~= 1 then
+			return nil, nil
+		end
+		for _, line in ipairs(vim.fn.readfile(release)) do
+			local version = line:match('^JAVA_VERSION="?([%d._]+)')
+			if version then
+				-- 1.8.0_422 reports as major 8; everything since reports its own major.
+				return tonumber(version:match("^1%.(%d+)") or version:match("^(%d+)")), version
+			end
+		end
+		return nil, nil
+	end
+
+	local best = {}
+	for _, glob in ipairs(globs) do
+		for _, path in ipairs(vim.fn.glob(glob, true, true)) do
+			local major, version = parse_major(path .. "/release")
+			if major then
+				local rank, current = rank_of(path), best[major]
+				-- Same vendor and version means one is a stable alias (applejdk-25.jdk)
+				-- and the other a pinned patch dir; the shorter path is the alias.
+				local better = not current
+					or rank < current.rank
+					or (rank == current.rank and version > current.version)
+					or (rank == current.rank and version == current.version and #path < #current.path)
+				if better then
+					best[major] = { path = path, rank = rank, version = version }
+				end
+			end
+		end
+	end
+
+	local majors = vim.tbl_keys(best)
+	table.sort(majors)
+
+	-- Default to the newest release of the most-preferred vendor, not the newest
+	-- overall: a stray brew openjdk must not displace the toolchain in use.
+	local default_major
+	for _, major in ipairs(majors) do
+		local entry = best[major]
+		if not default_major or entry.rank < best[default_major].rank then
+			default_major = major
+		elseif entry.rank == best[default_major].rank and major > default_major then
+			default_major = major
+		end
+	end
+
+	local runtimes = {}
+	for _, major in ipairs(majors) do
+		runtimes[#runtimes + 1] = {
+			name = major == 8 and "JavaSE-1.8" or ("JavaSE-" .. major),
+			path = best[major].path,
+			default = major == default_major or nil,
+		}
+	end
+	return runtimes
+end
+
 return {
 	{
 		"mfussenegger/nvim-jdtls",
@@ -83,21 +166,7 @@ return {
 				-- Multiple JDK runtimes for project switching
 				configuration = {
 					updateBuildConfiguration = "automatic",
-					runtimes = {
-						{
-							name = "JavaSE-17",
-							path = "/Library/Java/JavaVirtualMachines/applejdk-17.jdk/Contents/Home",
-						},
-						{
-							name = "JavaSE-21",
-							path = "/Library/Java/JavaVirtualMachines/applejdk-21.jdk/Contents/Home",
-						},
-						{
-							name = "JavaSE-25",
-							path = "/Library/Java/JavaVirtualMachines/applejdk-25.jdk/Contents/Home",
-							default = true,
-						},
-					},
+					runtimes = discover_runtimes(),
 				},
 
 				-- Hybrid mode: fast startup, full features in background
