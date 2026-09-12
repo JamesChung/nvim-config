@@ -16,6 +16,20 @@ return {
 					hidden = true,
 					ignored = false,
 				},
+				projects = {
+					dev = { "~/Repos/Internal", "~/Projects", "~/.config" },
+					patterns = {
+						".git",
+						"_darcs",
+						".hg",
+						".bzr",
+						".svn",
+						"Makefile",
+						"package.json",
+						"pom.xml",
+						"build.gradle",
+					},
+				},
 				-- Show picker immediately with loading indicator instead of waiting for results
 				lsp_references = { show_delay = 0 },
 				lsp_definitions = { show_delay = 0 },
