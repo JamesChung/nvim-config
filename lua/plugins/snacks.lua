@@ -19,6 +19,11 @@ return {
 		explorer = {
 			enabled = false,
 		},
+		image = {
+			enabled = true,
+			-- Math rendering shells out to tectonic/pdflatex; no LaTeX toolchain here.
+			math = { enabled = false },
+		},
 		picker = {
 			sources = {
 				files = {
