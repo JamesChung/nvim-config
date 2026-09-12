@@ -91,11 +91,11 @@ return {
 						{
 							name = "JavaSE-21",
 							path = "/Library/Java/JavaVirtualMachines/applejdk-21.jdk/Contents/Home",
-							default = true,
 						},
 						{
 							name = "JavaSE-25",
 							path = "/Library/Java/JavaVirtualMachines/applejdk-25.jdk/Contents/Home",
+							default = true,
 						},
 					},
 				},
