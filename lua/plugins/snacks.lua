@@ -1,3 +1,36 @@
+-- Project roots are probed rather than hardcoded: this config is shared publicly.
+-- A parent is dropped once a child of it is already kept, so ~/Repos cannot shadow
+-- ~/Repos/Internal with container dirs that are not repositories themselves.
+local function dev_roots()
+	local candidates = {
+		"~/Repos/Internal",
+		"~/Repos/External",
+		"~/Repos",
+		"~/Projects",
+		"~/src",
+		"~/dev",
+		"~/code",
+		"~/.config",
+	}
+
+	local roots = {}
+	for _, dir in ipairs(candidates) do
+		if vim.fn.isdirectory(vim.fn.expand(dir)) == 1 then
+			local shadowed = false
+			for _, kept in ipairs(roots) do
+				if kept:sub(1, #dir + 1) == dir .. "/" then
+					shadowed = true
+					break
+				end
+			end
+			if not shadowed then
+				roots[#roots + 1] = dir
+			end
+		end
+	end
+	return roots
+end
+
 return {
 	"folke/snacks.nvim",
 	-- Hand off file-find and grep to fff.nvim (see lua/plugins/fff.lua).
@@ -31,7 +64,7 @@ return {
 					ignored = false,
 				},
 				projects = {
-					dev = { "~/Repos/Internal", "~/Projects", "~/.config" },
+					dev = dev_roots(),
 					patterns = {
 						".git",
 						"_darcs",
