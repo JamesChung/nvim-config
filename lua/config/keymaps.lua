@@ -30,7 +30,5 @@ vim.keymap.set({ "n", "t" }, "<C-`>", function() Snacks.terminal.toggle() end, {
 
 -- Git Quickfix mapping
 vim.keymap.set("n", "<leader>gq", function()
-	if package.loaded.gitsigns then
-		require("gitsigns").setqflist("all")
-	end
+	require("gitsigns").setqflist("all")
 end, { desc = "Git Quickfix (All Hunks)" })

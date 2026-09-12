@@ -10,6 +10,7 @@ A comprehensive guide to keybindings in this configuration, including custom bin
 - [Git](#git)
 - [Search & Replace](#search--replace)
 - [Trouble & Diagnostics](#trouble--diagnostics)
+- [Testing (Neotest)](#testing-neotest)
 - [Xcode (Swift & Apple Platforms)](#xcode-swift--apple-platforms)
 - [Terminal & UI Toggles](#terminal--ui-toggles)
 - [AI & Development](#ai--development)
@@ -162,6 +163,26 @@ A comprehensive guide to keybindings in this configuration, including custom bin
 | `<leader>xT` | n | Todo/Fix/Fixme | todo-comments |
 | `]q` | n | Next Trouble/QF item | |
 | `[q` | n | Prev Trouble/QF item | |
+
+---
+
+## Testing (Neotest)
+
+Tests live on **capital `T`** so that lowercase `<leader>t` stays free for Trouble.
+
+| Key | Mode | Action | Description |
+|-----|------|--------|-------------|
+| `<leader>Tf` | n | Test File | [Neotest](https://github.com/nvim-neotest/neotest) — run the current file |
+| `<leader>TT` | n | Test All Files | Run every test file in the project |
+| `<leader>Tr` | n | Test Run Nearest | Run the test under the cursor |
+| `<leader>Tl` | n | Test Last | Re-run the previous test |
+| `<leader>Td` | n | Test Debug Nearest | Run the nearest test under DAP |
+| `<leader>Tw` | n | Test Watch | Re-run the file's tests on save |
+| `<leader>Ts` | n | Test Summary | Toggle the summary sidebar |
+| `<leader>To` | n | Test Output | Show output for the nearest test |
+| `<leader>TO` | n | Test Output Panel | Toggle the persistent output panel |
+| `<leader>TS` | n | Test Stop | Stop the running test |
+| `<leader>Ta` | n | Test Attach | Attach to the running test process |
 
 ---
 
