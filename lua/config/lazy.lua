@@ -23,7 +23,6 @@ require("lazy").setup({
 		-- import any extras modules here
 		-- Language extras (alphabetically sorted)
 		{ import = "lazyvim.plugins.extras.lang.clangd" },
-		{ import = "lazyvim.plugins.extras.lang.dart" },
 		{ import = "lazyvim.plugins.extras.lang.docker" },
 		{ import = "lazyvim.plugins.extras.lang.git" },
 		{ import = "lazyvim.plugins.extras.lang.go" },
