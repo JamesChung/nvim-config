@@ -5,6 +5,15 @@ return {
 	keys = {
 		{ "<leader><space>", false },
 		{ "<leader>/", false },
+		-- util.project's <leader>fp only handles telescope/fzf-lua; with snacks
+		-- active it matches neither branch and silently does nothing.
+		{
+			"<leader>fp",
+			function()
+				require("snacks").picker.projects()
+			end,
+			desc = "Projects",
+		},
 	},
 	opts = {
 		explorer = {

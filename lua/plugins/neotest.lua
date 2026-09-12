@@ -10,6 +10,13 @@ return {
 			desc = "Test File (Neotest)",
 		},
 		{
+			"<leader>TT",
+			function()
+				require("neotest").run.run(vim.uv.cwd())
+			end,
+			desc = "Test All Files (Neotest)",
+		},
+		{
 			"<leader>Tr",
 			function()
 				require("neotest").run.run()
